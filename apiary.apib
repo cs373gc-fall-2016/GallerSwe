@@ -7,7 +7,7 @@ Art Snob is a simple API allowing consumers to get information about artists and
 
 ## Artist Collection [/Artist]
 
-### List All Artists [GET]
+### List All Artists [GET /Artist]
 
 + Response 200 (application/json)
 
@@ -32,19 +32,18 @@ Art Snob is a simple API allowing consumers to get information about artists and
                 },
                 
                 "_links": {
-                "thumbnail": {
-                  "href": "https://d32dm0rphc51dk.cloudfront.net/PFufT6nMKNwLOpPEezf4Ww/four_thirds.jpg"
-                }
+                    "thumbnail": {
+                        "href": "https://d32dm0rphc51dk.cloudfront.net/PFufT6nMKNwLOpPEezf4Ww/four_thirds.jpg"
+                    }
                 }
             }
         ]
         
-## Artist [/Artist/{id}]
+### View an artist's information [GET /Artist/{id}]
 
 + Parameters
-    + id (number) : The unique id of the artist
-    
-### View an artist's information [GET]
+
+    + id: `1` (number, required) - The unique id of the artist
 
 + Response 200 (application/json)
 
@@ -68,9 +67,9 @@ Art Snob is a simple API allowing consumers to get information about artists and
             },
             
             "_links": {
-            "thumbnail": {
-              "href": "https://d32dm0rphc51dk.cloudfront.net/PFufT6nMKNwLOpPEezf4Ww/four_thirds.jpg"
-            }
+                "thumbnail": {
+                    "href": "https://d32dm0rphc51dk.cloudfront.net/PFufT6nMKNwLOpPEezf4Ww/four_thirds.jpg"
+               }
             }
             
         }
@@ -78,6 +77,8 @@ Art Snob is a simple API allowing consumers to get information about artists and
 ## Artwork Collection [/Artwork]
 
 ### List All Artworks [GET]
+    
++ Response 200 (application/json)
     
         [
             {
@@ -98,12 +99,12 @@ Art Snob is a simple API allowing consumers to get information about artists and
             }
         ]
         
-## Artwork [/Artwork/{id}]
+### View an artwork's information [GET /Artwork/{id}]
 
 + Parameters
-    + id (number) : The unique id of the artwork
-  
-### View an artwork's information [GET]
+    + id: `1` (number, required) - The unique id of the artwork
+
++ Response 200 (application/json)
 
         {
             "id": "516dfb9ab31e2b2270000c45",
@@ -124,40 +125,44 @@ Art Snob is a simple API allowing consumers to get information about artists and
     
 ## Geographic Region Collection [/Region]
 
-### List All Geographic Regions [GET]
+### List All Geographic Regions [GET /Region]
+
++ Response 200 (application/json)
 
         [
             {
             
             }
         ]
-        
-## Geographic Region [/Region/{name}]
+  
+### View a region's information [GET /Region/{name}]
 
 + Parameters
-    + name (string) : The name of the region
-  
-### View an region's information [GET]
+    + name: `France` (string, required) - The name of the region
+
++ Response 200 (application/json)
 
         {
         }
         
 ## Style Collection [/Style]
 
-### List All Styles [GET]
+### List All Styles [GET /Style]
+
++ Response 200 (application/json)
 
         [
             {
             
             }
         ]
-        
-##tyle [/Style/{id}]
+  
+### View a style's information [GET /Style/{id}]
 
 + Parameters
-    + id (number) : The unique id of the style
-  
-### View an style's information [GET]
+    + id: `1` (number, required) - The unique id of the style
+
++ Response 200 (application/json)
 
         {
         }
