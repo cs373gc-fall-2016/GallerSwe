@@ -12,5 +12,9 @@ def root():
 def artists():
     return app.send_static_file('andywarhol.html')
 
+@app.route('/about')
+def about():
+    return app.send_static_file('about.html')
+
 if __name__ == "__main__":
     app.run()
