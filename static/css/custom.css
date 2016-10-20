@@ -22,8 +22,9 @@ table, th, td {
 	float: left;
 }
 
-#single {
+#artistinfo {
 	float: left;
+	padding-left: 50px;
 }
 
 #display {
@@ -35,6 +36,6 @@ table, th, td {
     height:auto;
 }
 
-.about_intro {
+.page_header {
 	padding-top: 100px;
 }
