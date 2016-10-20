@@ -45,11 +45,11 @@ class Artist(DB.Model):
     style = DB.relationship('Style', secondary=ARTIST_STYLE,
                             backref=DB.backref('artist', lazy='dynamic'))
 
-    # def __init__(self, name, description, birth, death):
-    # 	self.name = name
-    # 	self.description = description
-    # 	self.birth = birth
-    # 	self.death = death
+    def __init__(self, name, description, birth, death):
+    	self.name = name
+    	self.description = description
+    	self.birth = birth
+    	self.death = death
 
     # def dictionary(self):
     # 	asdict = {}
@@ -77,10 +77,10 @@ class Artwork(DB.Model):
     georeg = DB.relationship('GeoReg', backref='person', lazy='dynamic')
     artist_id = DB.Column(DB.String, DB.ForiegnKey('artist.artistid'))
 
-    # def __init__(self, name, medium, description):
-    # 	self.name = name
-    # 	self.medium = medium
-    # 	self.description = description
+    def __init__(self, name, medium, description):
+    	self.name = name
+    	self.medium = medium
+    	self.description = description
 
 
 class GeoReg(DB.Model):
@@ -91,10 +91,17 @@ class GeoReg(DB.Model):
     style = DB.relationship('style', secondary=GEOREG_STYLE,
                             backref=DB.backref('georeg', lazy='dynamic'))
 
-
+    def __init__(self, location):
+        self.location = location
 
 class Style(DB.Model):
     __tablename__ = 'style'
     styleid = DB.Column(DB.Integer, primary_key=True)
+    name = DB.Column(DB.String)
     description = DB.Column(DB.String)
     time_period = DB.Column(DB.String)
+
+    def __init__(self, name, description, time_period):
+        self.name = name
+        self.description = description
+        self.time_period = time_period
