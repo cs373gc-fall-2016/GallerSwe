@@ -13,22 +13,22 @@ DB = SQLAlchemy(APP)
 
 GEOREG_STYLE = DB.Table(
     'georegstyle', DB.Column(
-        'georegId', DB.Integer, DB.ForiegnKey('georeg.georegid')), DB.Column(
-            'styleId', DB.Integer, DB.ForiegnKey('style.styleid')))
+        'georegId', DB.Integer, DB.ForeignKey('georeg.georegid')), DB.Column(
+            'styleId', DB.Integer, DB.ForeignKey('style.styleid')))
 
 ARTIST_STYLE = DB.Table(
     'artiststyle', DB.Column(
-        'artistId', DB.Integer, DB.ForiegnKey('artist.artistid')), DB.Column(
-            'styleId', DB.Integer, DB.ForiegnKey('style.styleid')))
+        'artistId', DB.Integer, DB.ForeignKey('artist.artistid')), DB.Column(
+            'styleId', DB.Integer, DB.ForeignKey('style.styleid')))
 
 GEOREG_ARTIST = DB.Table(
     'georegartist', DB.Column(
-        'georegId', DB.Integer, DB.ForiegnKey('georeg.georegid')), DB.Column(
-            'artistId', DB.Integer, DB.ForiegnKey('artist.artistid')))
+        'georegId', DB.Integer, DB.ForeignKey('georeg.georegid')), DB.Column(
+            'artistId', DB.Integer, DB.ForeignKey('artist.artistid')))
 
 # artist_artist = DB.Table('artist_artist',
-# 	DB.Column('artist_id', DB.Integer, DB.ForiegnKey('artist.id')),
-# 	DB.Column('artist_id', DB.Integer, DB.ForiegnKey('artist_id'))
+# 	DB.Column('artist_id', DB.Integer, DB.ForeignKey('artist.id')),
+# 	DB.Column('artist_id', DB.Integer, DB.ForeignKey('artist_id'))
 # 	)
 
 
@@ -45,11 +45,11 @@ class Artist(DB.Model):
     style = DB.relationship('Style', secondary=ARTIST_STYLE,
                             backref=DB.backref('artist', lazy='dynamic'))
 
-    # def __init__(self, name, description, birth, death):
-    # 	self.name = name
-    # 	self.description = description
-    # 	self.birth = birth
-    # 	self.death = death
+    def __init__(self, name, description, birth, death):
+    	self.name = name
+    	self.description = description
+    	self.birth = birth
+    	self.death = death
 
     # def dictionary(self):
     # 	asdict = {}
@@ -75,26 +75,33 @@ class Artwork(DB.Model):
     medium = DB.Column(DB.String)
     description = DB.Column(DB.String)
     georeg = DB.relationship('GeoReg', backref='person', lazy='dynamic')
-    artist_id = DB.Column(DB.String, DB.ForiegnKey('artist.artistid'))
+    artist_id = DB.Column(DB.String, DB.ForeignKey('artist.artistid'))
 
-    # def __init__(self, name, medium, description):
-    # 	self.name = name
-    # 	self.medium = medium
-    # 	self.description = description
+    def __init__(self, name, medium, description):
+    	self.name = name
+    	self.medium = medium
+    	self.description = description
 
 
 class GeoReg(DB.Model):
     __tablename__ = 'georeg'
     georegid = DB.Column(DB.Integer, primary_key=True)
     location = DB.Column(DB.String)
-    artwork = DB.Column(DB.Integer, DB.ForiegnKey('artwork.artworkid'))
+    artwork = DB.Column(DB.Integer, DB.ForeignKey('artwork.artworkid'))
     style = DB.relationship('style', secondary=GEOREG_STYLE,
                             backref=DB.backref('georeg', lazy='dynamic'))
 
-
+    def __init__(self, location):
+        self.location = location
 
 class Style(DB.Model):
     __tablename__ = 'style'
     styleid = DB.Column(DB.Integer, primary_key=True)
+    name = DB.Column(DB.String)
     description = DB.Column(DB.String)
     time_period = DB.Column(DB.String)
+
+    def __init__(self, name, description, time_period):
+        self.name = name
+        self.description = description
+        self.time_period = time_period
