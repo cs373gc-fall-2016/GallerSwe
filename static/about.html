@@ -34,7 +34,7 @@
 
 </head>
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<body data-spy="scroll" data-target=".navbar-fixed-top">
 
     <!-- Navigation -->
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
@@ -43,7 +43,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">
+                <a class="navbar-brand page-scroll" href="/">
                     <i class="fa fa-play-circle"></i> <span class="light">ArtSnob</span>
                 </a>
             </div>
@@ -51,10 +51,10 @@
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                 <ul class="nav navbar-nav">
                     <li class="hidden">
-                        <a href="#page-top"></a>
+                        <a href="/"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/about">About</a>
+                        <a class="active" href="/about">About</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="/artists">Artists</a>
@@ -75,18 +75,12 @@
         <!-- /.container -->
     </nav>
 
-    <!-- Intro Header -->
-    <header class="intro">
-        <div class="intro-body">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h1 class="brand-heading">About Artsnob</h1>
-                        <p class="intro-text">Anyone can be a snob if they know what they're talking about.</p>
-                        <a href="#artists" class="btn btn-circle page-scroll">
-                            <i class="fa fa-angle-double-down animated"></i>
-                        </a>
-                    </div>
+    <header class="about_intro">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1 class="brand-heading">About Artsnob</h1>
+                    <p class="intro-text">Anyone can be a snob if they know what they're talking about.</p>
                 </div>
             </div>
         </div>
@@ -100,9 +94,10 @@
       			<div class="col-md-12">
       				<div class="col-md-4 buffer">
       					<div class="about">
-      						<div class="header">
-      							Sam Fernandez
-      							<img class="img-circle" src="http://avatarfiles.alphacoders.com/454/45479.jpg">
+                  <div class="row>">
+      							<h3>Sam Fernandez</h3>
+                  </div>
+      							<img class="img-circle memberphoto" src="http://avatarfiles.alphacoders.com/454/45479.jpg">
       						</div>
       						<p>
       							Stuff
@@ -125,13 +120,14 @@
       								?
       							</div>
       						</div>
-      					</div>
       				</div>
       				<div class="col-md-4 buffer">
       					<div class="about">
       						<div class="header">
-      							Rachel Andrews
-      							<img class="img-circle" src="http://avatarfiles.alphacoders.com/452/45266.jpg">
+                    <div class="row>">
+                      <h3>Rachel Andrews</h3>
+                    </div>
+      							<img class="img-circle memberphoto" src="http://avatarfiles.alphacoders.com/452/45266.jpg">
       						</div>
       						<p>
       							Stuff
@@ -158,8 +154,10 @@
       				<div class="col-md-4 buffer">
       					<div class="about">
       						<div class="header">
-      							Courtney Bohrer
-      							<img class="img-circle" src="http://avatarfiles.alphacoders.com/532/53258.jpg">
+      							<div class="row>">
+                      <h3>Courtney Bohrer</h3>
+                    </div>
+      							<img class="img-circle memberphoto" src="http://avatarfiles.alphacoders.com/532/53258.jpg">
       						</div>
       						<p>
       							Stuff
@@ -189,8 +187,10 @@
       				<div class="col-md-4 buffer">
       					<div class="about">
       						<div class="header">
-      							Alex Ikeda
-      							<img class="img-circle" src="http://avatarfiles.alphacoders.com/592/59266.jpg">
+                    <div class="row>">
+                      <h3>Alex Ikeda</h3>
+                    </div>
+      							<img class="img-circle memberphoto" src="http://avatarfiles.alphacoders.com/592/59266.jpg">
       						</div>
       						<p>
       							Stuff
@@ -218,8 +218,10 @@
       				<div class="col-md-4 buffer">
       					<div class="about">
       						<div class="header">
-      							Christopher Komplin
-      							<img class="img-circle" src="http://avatarfiles.alphacoders.com/457/45786.jpg">
+                    <div class="row>">
+                      <h3>Christopher Komplin</h3>
+                    </div>
+      							<img class="img-circle memberphoto" src="http://avatarfiles.alphacoders.com/457/45786.jpg">
       						</div>
       						<p>
       							Stuff
@@ -246,8 +248,10 @@
       				<div class="col-md-4 buffer">
       					<div class="about">
       						<div class="header">
-      							Cullen Bounds
-      							<img class="img-circle" src="https://avatars3.githubusercontent.com/u/3642830?v=3&s=466">
+      							<div class="row>">
+                      <h3>Cullen Bounds</h3>
+                    </div>
+      							<img class="img-circle memberphoto" src="https://avatars3.githubusercontent.com/u/3642830?v=3&s=466">
       						</div>
       						<p>
                     Stuff!!
@@ -277,37 +281,6 @@
       </div>
     </section>
 
-    <!-- Artwork Section -->
-    <section id="artwork" class="container content-section text-center">
-        <div class="row">
-            <div class="container">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Artwork</h2>
-                    <p>This is where the artwork will go.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Style Section -->
-    <section id="style" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>Style</h2>
-                <p>This is where the styles will go.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Geographic Region Section -->
-    <section id="geo" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>Geographic Region</h2>
-                <p>This is where the geographic regions will go.</p>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer>

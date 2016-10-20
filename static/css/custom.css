@@ -9,3 +9,32 @@
 	  background-size: cover;
 	  -o-background-size: cover;
      }
+
+table, th, td {
+    border: 1px solid white;
+}
+
+.highlight { 
+	background-color: rgb(211,211,211); 
+}
+
+#data {
+	float: left;
+}
+
+#single {
+	float: left;
+}
+
+#display {
+	overflow: hidden;
+}
+
+.memberphoto {
+	width:200px;
+    height:auto;
+}
+
+.about_intro {
+	padding-top: 100px;
+}
