@@ -36,41 +36,41 @@
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                    Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">
-                    <i class="fa fa-play-circle"></i> <span class="light">ArtSnob</span>
-                </a>
-            </div>
+  <!-- Navigation -->
+  <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+      <div class="container">
+          <div class="navbar-header">
+              <a class="navbar-brand page-scroll" href="#page-top">
+                  <i class="fa fa-play-circle"></i> <span class="light">ArtSnob</span>
+              </a>
+          </div>
 
-            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#artists">Artists</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#artwork">Artwork</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#style">Style</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#geo">Geographic Region</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
+          <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+              <ul class="nav navbar-nav">
+                  <li class="hidden">
+                      <a href="/"></a>
+                  </li>
+                  <li>
+                      <a class="page-scroll" href="/about.html">About</a>
+                  </li>
+                  <li>
+                      <a class="page-scroll" href="/artists.html">Artists</a>
+                  </li>
+                  <li>
+                      <a class="page-scroll" href="/artwork.html">Artwork</a>
+                  </li>
+                  <li>
+                      <a class="page-scroll" href="/style.html">Style</a>
+                  </li>
+                  <li>
+                      <a class="page-scroll" href="/geo.html">Geographic Region</a>
+                  </li>
+              </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+  </nav>
 
     <!-- Intro Header -->
     <header class="intro">
@@ -78,65 +78,54 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <h1 class="brand-heading">ArtSnob</h1>
-                        <p class="intro-text">here is some art</p>
-                        <a href="#artists" class="btn btn-circle page-scroll">
-                            <i class="fa fa-angle-double-down animated"></i>
-                        </a>
+                        <h1 class="brand-heading">Welcome to ArtSnob</h1>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- About Section -->
-    <section id="artists" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>Artists</h2>
-                <p>This is where the artists will go.</p>
-            </div>
-        </div>
-    </section>
+    <p> Want a sneak peak? </p>
+    <div id="splashCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#splashCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#splashCarousel" data-slide-to="1"></li>
+        <li data-target="#splashCarousel" data-slide-to="2"></li>
+        <li data-target="#splashCarousel" data-slide-to="3"></li>
+      </ol>
 
-    <!-- Artwork Section -->
-    <section id="artwork" class="container content-section text-center">
-        <div class="row">
-            <div class="container">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Artwork</h2>
-                    <p>This is where the artwork will go.</p>
-                </div>
-            </div>
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img src="http://www.museumsyndicate.com/images/1/3276.jpg">
         </div>
-    </section>
 
-    <!-- Style Section -->
-    <section id="style" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>Style</h2>
-                <p>This is where the styles will go.</p>
-            </div>
+        <div class="item">
+          <img src="https://www.nga.gov/feature/artnation/harnett/images/harnett/harnett.jpg">
         </div>
-    </section>
 
-    <!-- Geographic Region Section -->
-    <section id="geo" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>Geographic Region</h2>
-                <p>This is where the geographic regions will go.</p>
-            </div>
+        <div class="item">
+          <img src="http://d2jv9003bew7ag.cloudfront.net/uploads/What-Is-Pop-Art.jpg">
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container text-center">
-            <p>Copyright &copy; Your Website 2016</p>
+        <div class="item">
+          <img src="https://uploads1.wikiart.org/images/andy-warhol/campbells-soup-pink.jpg">
         </div>
-    </footer>
+
+      </div>
+
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#splashCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#splashCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+
 
     <!-- jQuery -->
     <script src="js/jquery-3.1.1.min.js"></script>
@@ -147,11 +136,19 @@
     <!-- Plugin JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
-    <!-- Google Map API -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtcwrSEmx57y28FbrnNKKGYRidezly0ok"></script>
-
     <!-- Theme JavaScript -->
     <script src="js/grayscale.min.js"></script>
+
+    <!-- React Scripts -->
+    <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script src="https://unpkg.com/remarkable@1.7.1/dist/remarkable.min.js"></script>
+
+    <script src="js/components.js"></script>
+
+    <script src="js/custom.js"></script>
+
 
 </body>
 
