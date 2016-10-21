@@ -1,0 +1,401 @@
+commit 3a3d6dea2037b5bed6ac26bbc49b4a9c75ab73b9
+Author: rachelandrews <rachelandrews95@yahoo.com>
+Date:   Thu Oct 20 20:37:37 2016 -0500
+
+    changed about again
+
+commit e4364959c619e818cee5535c59506db4a2f6a57c
+Author: rachelandrews <rachelandrews95@yahoo.com>
+Date:   Thu Oct 20 20:36:29 2016 -0500
+
+    made Artwork sortable
+
+commit 444ddc25c38d5d9f9283c87266d9299df10c5b8c
+Author: Sam Fernandez <samf@outlook.com>
+Date:   Thu Oct 20 20:29:49 2016 -0500
+
+    Geographic Region page
+
+commit dab0a4643957fccd195a167f019f1c5afb43ca46
+Merge: 2afe302 e35d817
+Author: rachelandrews <rachelandrews95@yahoo.com>
+Date:   Thu Oct 20 20:29:17 2016 -0500
+
+    Merge branch 'master' of https://github.com/cs373gc-fall-2016/GallerSwe
+
+commit 2afe302023145bfa769629a24896f05658708763
+Author: rachelandrews <rachelandrews95@yahoo.com>
+Date:   Thu Oct 20 20:29:14 2016 -0500
+
+    Artist individiual pages and artist table
+
+commit e35d817bde6a8a0288f4d1d09ffdd6037d555422
+Author: Alexander Ikeda <alex@cs.utexas.edu>
+Date:   Thu Oct 20 20:25:00 2016 -0500
+
+    Added unprofessional photo unlike Rachael
+
+commit d212a5484a86db263dd75d551f8ba5125bbaba6c
+Author: Alexander Ikeda <alex@cs.utexas.edu>
+Date:   Thu Oct 20 20:15:55 2016 -0500
+
+    Added Alex's info in the about page
+
+commit 954a937d85a596e53b80c06e5719bb1cc22c90a4
+Author: Sam Fernandez <samf@outlook.com>
+Date:   Thu Oct 20 20:07:39 2016 -0500
+
+    America, Ireland, Spain pages complete
+
+commit 367888ca24a5bb3da2590e705add71ed6988e5a4
+Author: Sam Fernandez <samf@outlook.com>
+Date:   Thu Oct 20 19:51:23 2016 -0500
+
+    America page
+
+commit d42a98d362f1474e364a6e9bffc37fb912495ad0
+Author: Sam Fernandez <samf@outlook.com>
+Date:   Thu Oct 20 19:39:54 2016 -0500
+
+    Spain page
+
+commit 454d322c355d49acc4d87cb0bf7cfb9e0ee48626
+Author: courtbohrer <cbohrer@utexas.edu>
+Date:   Thu Oct 20 20:08:25 2016 -0500
+
+    redirecting to splash page instead of top in corner
+
+commit b71650c69f820643bf170615f00836d669bcc3c6
+Author: Alexander Ikeda <alex@cs.utexas.edu>
+Date:   Thu Oct 20 19:59:17 2016 -0500
+
+    MICHAEL
+
+commit f0c3f14e57a371c4ad5a85e9a41bd7acf8e56557
+Author: Alexander Ikeda <alex@cs.utexas.edu>
+Date:   Thu Oct 20 19:56:36 2016 -0500
+
+    Cubs not cubes
+
+commit 7d5cc3d34400a43b3ef10a7084133355bf8d991f
+Author: Alexander Ikeda <alex@cs.utexas.edu>
+Date:   Thu Oct 20 19:52:22 2016 -0500
+
+    Added cubeism page info
+
+commit 2febf3efa76ba3a0ea76a2e1bae68eed70140e63
+Author: Alexander Ikeda <alex@cs.utexas.edu>
+Date:   Thu Oct 20 19:48:39 2016 -0500
+
+    Added pop art and still life info
+
+commit 08bddc8ef23059b5e242a60aa441d5ec780b1059
+Merge: d78be93 05b5d0d
+Author: Alexander Ikeda <alex@cs.utexas.edu>
+Date:   Thu Oct 20 19:46:28 2016 -0500
+
+    Merge branch 'master' of https://github.com/cs373gc-fall-2016/GallerSwe
+
+commit d78be93444ace4527ab051e659d65595e543abc4
+Author: Alexander Ikeda <alex@cs.utexas.edu>
+Date:   Thu Oct 20 19:46:02 2016 -0500
+
+    Added still life info
+
+commit 05b5d0dd5343f172cce546439d458e1ac066c4dd
+Merge: 5b04edb c0dd553
+Author: rachelandrews <rachelandrews95@yahoo.com>
+Date:   Thu Oct 20 19:43:03 2016 -0500
+
+    Merge branch 'master' of https://github.com/cs373gc-fall-2016/GallerSwe
+
+commit 5b04edbc2882955f32371138bc0477b3a8099b17
+Author: rachelandrews <rachelandrews95@yahoo.com>
+Date:   Thu Oct 20 19:42:24 2016 -0500
+
+    changed my about with a picture
+
+commit c0dd5530625b3110b0fcd133fa6e4df4a594904d
+Author: Alexander Ikeda <alex@cs.utexas.edu>
+Date:   Thu Oct 20 19:41:19 2016 -0500
+
+    Created Pop art table
+
+commit fab225f27aac8f85f97c1d0e9447491ec1892930
+Author: Alexander Ikeda <alex@cs.utexas.edu>
+Date:   Thu Oct 20 19:33:52 2016 -0500
+
+    Update style table
+
+commit 557958665d942ad784b47eb2c9f97b32b9ca8708
+Author: Christopher Komplin <Christopher.Komplin@utexas.edu>
+Date:   Thu Oct 20 19:32:25 2016 -0500
+
+    links are in for artists
+
+commit fc9d7d63c66e90f0feabfc0ae6f71a3e019a0330
+Author: courtbohrer <cbohrer@utexas.edu>
+Date:   Thu Oct 20 19:25:56 2016 -0500
+
+    added font arrows for carousel
+
+commit ad147fa7c159d1ec562d5cb9bec0bb59b96e5301
+Merge: 80c04ce 47359fd
+Author: courtbohrer <cbohrer@utexas.edu>
+Date:   Thu Oct 20 19:21:17 2016 -0500
+
+    Merge remote-tracking branch 'refs/remotes/origin/master'
+
+commit 80c04ceecb198dee40f56172cf83c0a49fa008ea
+Author: courtbohrer <cbohrer@utexas.edu>
+Date:   Thu Oct 20 19:21:07 2016 -0500
+
+    added carousel
+
+commit 47359fd5f0d4a4dad1d794be5b7aa80571f5033f
+Author: Christopher Komplin <Christopher.Komplin@utexas.edu>
+Date:   Thu Oct 20 19:05:57 2016 -0500
+
+    reformat the other pages
+
+commit 5de07111a7bec6fcc8a8aed3385410d954f6c7b9
+Author: Christopher Komplin <Christopher.Komplin@utexas.edu>
+Date:   Thu Oct 20 19:00:46 2016 -0500
+
+    shifted andy down a bit
+
+commit 5e07955df9922350f0c879a2733295f234956551
+Author: Christopher Komplin <Christopher.Komplin@utexas.edu>
+Date:   Thu Oct 20 18:46:00 2016 -0500
+
+    added the third artist
+
+commit de4059c747c2e96fb82458bf15ce4fdf9800cf85
+Author: Christopher Komplin <Christopher.Komplin@utexas.edu>
+Date:   Thu Oct 20 18:28:19 2016 -0500
+
+    added the second artist and changed artist to have birth year/place and name in table
+
+commit 76da926dec76b40fd2928f5938337734a10b0a4c
+Author: Cullen Bounds <cwillbounds@gmail.com>
+Date:   Thu Oct 20 18:11:45 2016 -0500
+
+    fixed navbar error
+
+commit b257719063105bbdb329173112a719676068a2a3
+Author: Cullen Bounds <cwillbounds@gmail.com>
+Date:   Thu Oct 20 18:09:10 2016 -0500
+
+    violin page
+
+commit 8aaf0cdce28747c962dcc3b4494fda3d49e53476
+Author: Christopher Komplin <Christopher.Komplin@utexas.edu>
+Date:   Thu Oct 20 17:53:25 2016 -0500
+
+    artist table is now sortable
+
+commit 0fb5b70f3c6125b804fcbe2e0cac431f9bf9bb92
+Author: Christopher Komplin <Christopher.Komplin@utexas.edu>
+Date:   Thu Oct 20 17:46:33 2016 -0500
+
+    bigger table for the artists
+
+commit be04f96e4e105e28ccef8d240bee5bfc79915f2a
+Author: Christopher Komplin <Christopher.Komplin@utexas.edu>
+Date:   Thu Oct 20 16:57:19 2016 -0500
+
+    added a link to my boy andy
+
+commit c41806629333caf73486a382cb51a4559ceb699a
+Merge: 3a16db1 f9190fe
+Author: courtbohrer <cbohrer@utexas.edu>
+Date:   Thu Oct 20 16:47:32 2016 -0500
+
+    Merge remote-tracking branch 'refs/remotes/origin/master'
+    merge
+
+commit 3a16db106a56c798563fff29083bde0590a4adac
+Author: courtbohrer <cbohrer@utexas.edu>
+Date:   Thu Oct 20 16:46:09 2016 -0500
+
+    attempting to link components.js and artwork.html
+
+commit 0c0a2b5eb46175b0c8990cbe48835bc7471b3779
+Author: courtbohrer <cbohrer@utexas.edu>
+Date:   Thu Oct 20 16:43:08 2016 -0500
+
+    prettier tables
+
+commit f9190fe359a5c8b3eebb11c43f6346d46309def1
+Author: Sam Fernandez <samf@outlook.com>
+Date:   Thu Oct 20 16:29:51 2016 -0500
+
+    Typo fix. Model loads successfully.
+
+commit 10be2d0e434387f0bc1cfc0773b847676bbf3910
+Author: rachelandrews <rachelandrews95@yahoo.com>
+Date:   Thu Oct 20 15:55:37 2016 -0500
+
+    unit tests
+
+commit c52da639bb9d4841b75ad686c1cb1707306ee9f1
+Author: Christopher Komplin <Christopher.Komplin@utexas.edu>
+Date:   Thu Oct 20 15:23:25 2016 -0500
+
+    resized andys face
+
+commit 107f1ca6bfb62ee61ba82ea2b11fea784793fe10
+Author: courtbohrer <cbohrer@utexas.edu>
+Date:   Thu Oct 20 14:24:07 2016 -0500
+
+    transitions between pages, alpha layout for model pages
+
+commit e655ae408b11715efde7891e673aeda192ee4e61
+Author: courtbohrer <cbohrer@utexas.edu>
+Date:   Thu Oct 20 12:03:27 2016 -0500
+
+    clean splash page, transition to and from about, formating of about page
+
+commit ccfa78c46586fc64e27b5e1389caf49014b5cdbd
+Author: Alex Ikeda <alexander.ikeda@gmail.com>
+Date:   Wed Oct 19 19:55:09 2016 -0500
+
+    Fixes #4. Completed apiary documentation including nationality (now replacing geographic region).
+
+commit 71c10bf966e0dfc2a0c573438df2917c6d32db49
+Merge: d661c0e 7cc47f9
+Author: rachelandrews <rachelandrews95@yahoo.com>
+Date:   Wed Oct 19 19:35:48 2016 -0500
+
+    Merge branch 'master' of https://github.com/cs373gc-fall-2016/GallerSwe
+
+commit d661c0e7d5f7020e1e35f7353ebbcfaa6a1eb5e3
+Author: rachelandrews <rachelandrews95@yahoo.com>
+Date:   Wed Oct 19 19:35:06 2016 -0500
+
+    temporary model setup
+
+commit 7cc47f933238fb8bb1bc8a36026b6d26d0dfd2d0
+Author: Alex Ikeda <alexander.ikeda@gmail.com>
+Date:   Wed Oct 19 19:00:15 2016 -0500
+
+    Documenting finished for artist, artwork, and style resources. Still have to do Geographic regions
+
+commit 36a176eef80da629248930cc96b3a8f042d62946
+Merge: 0b24e12 3becb00
+Author: Cullen Bounds <cwillbounds@gmail.com>
+Date:   Wed Oct 19 11:29:20 2016 -0500
+
+    Merge branch 'master' of https://github.com/cs373gc-fall-2016/GallerSwe
+
+commit 0b24e1255e02d4b265edaf3a483aee70aaa4bdc6
+Author: Cullen Bounds <cwillbounds@gmail.com>
+Date:   Wed Oct 19 11:28:57 2016 -0500
+
+    added about page
+
+commit 3becb00d8077ba0ee63aa6feb48bd5e105af6b1d
+Author: Sam Fernandez <samf@outlook.com>
+Date:   Wed Oct 19 04:30:17 2016 -0500
+
+    Grouped endpoints by model. Fixed semantic errors.
+
+commit 43fb85ee4b58236993a08bef1ef5436e0e44d5d3
+Author: Cullen Bounds <cwillbounds@gmail.com>
+Date:   Tue Oct 18 22:54:38 2016 -0500
+
+    Create CNAME
+
+commit cd4684f82527a2cda88dd92d6e800e09464fbad4
+Author: Cullen Bounds <cwillbounds@gmail.com>
+Date:   Tue Oct 18 22:28:40 2016 -0500
+
+    edits
+
+commit 967c16213d5a522eb1fc3a92bb70828131a32b72
+Author: Alex Ikeda <alexander.ikeda@gmail.com>
+Date:   Tue Oct 18 19:50:51 2016 -0500
+
+    Updating the Apiary file. Mock responses still need to be fully completed.
+
+commit 6cedf7bd683dc5557304bb3a32708c9d364d89f2
+Author: rachelandrews <rachelandrews95@yahoo.com>
+Date:   Tue Oct 18 19:04:48 2016 -0500
+
+    Added first attempt to UML
+
+commit 6d4b6051dc3430edeb0215afc66a37331770f344
+Author: Alex Ikeda <alexander.ikeda@gmail.com>
+Date:   Tue Oct 18 17:53:07 2016 -0500
+
+    Transferring API Description file from Apiary.io
+
+commit 55efc0081d6721a4ff469e5d73470301f9581fe6
+Merge: 9eb1735 6af0857
+Author: Cullen Bounds <cwillbounds@gmail.com>
+Date:   Mon Oct 17 17:14:49 2016 -0500
+
+    Merge pull request #13 from cwillbounds/master
+    
+    Merge to classroom
+
+commit 6af08570855362303ca585714a2c30813c8b5115
+Author: courtbohrer <cbohrer@utexas.edu>
+Date:   Mon Oct 17 17:11:45 2016 -0500
+
+    index.html rendered from flask
+
+commit c512361602e70f02188462f975cfc77446a80d48
+Merge: d27791e 14de8fa
+Author: Cullen Bounds <cwillbounds@gmail.com>
+Date:   Sun Oct 16 14:23:16 2016 -0500
+
+    Merge branch 'master' of https://github.com/cwillbounds/GallerSwe
+
+commit d27791e0c71a035981278a535a09ab0c1b1e5659
+Author: Cullen Bounds <cwillbounds@gmail.com>
+Date:   Sun Oct 16 14:20:40 2016 -0500
+
+    framework implemented
+
+commit 14de8fa817cc2a991336eea45c12f9645416b4d7
+Author: Cullen Bounds <cwillbounds@gmail.com>
+Date:   Sun Oct 16 13:59:54 2016 -0500
+
+    Transferring API Description file from Apiary.io
+
+commit 9eb1735821237972a7778a72586827a1ad9eeb6b
+Merge: 4d4eb5b d29d58e
+Author: Cullen Bounds <cwillbounds@gmail.com>
+Date:   Sun Oct 16 13:50:31 2016 -0500
+
+    Merge pull request #2 from cs373gc-fall-2016/develop
+    
+    Merge pull request #1 from cwillbounds/master
+
+commit d29d58e69a4ba2211c70643328a1494f935dffd9
+Merge: 058dae2 4d4eb5b
+Author: Cullen Bounds <cwillbounds@gmail.com>
+Date:   Sun Oct 16 13:40:51 2016 -0500
+
+    Merge pull request #1 from cwillbounds/master
+    
+    Merged
+
+commit 4d4eb5be000ef0b6f42ba965e11f557c508f1fe1
+Author: courtbohrer <cbohrer@utexas.edu>
+Date:   Sun Oct 16 13:17:19 2016 -0500
+
+    basic layout for web page
+
+commit 83c51550005a8e972b35f6c4a77c9a7302704cd2
+Author: courtbohrer <cbohrer@utexas.edu>
+Date:   Fri Oct 14 17:51:44 2016 -0500
+
+    basic layout
+
+commit 058dae28899c5dc876f09b5df0999c4e62790bc4
+Author: Cullen Bounds <cwillbounds@gmail.com>
+Date:   Fri Oct 14 16:11:11 2016 -0500
+
+    hello world
