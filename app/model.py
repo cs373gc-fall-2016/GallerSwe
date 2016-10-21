@@ -33,6 +33,10 @@ GEOREG_ARTIST = DB.Table(
 
 
 class Artist(DB.Model):
+    """
+    The artist model contains attributes about an artist such as
+    name, birth, death, and style
+    """
     _tablename_ = 'artist'
     artistid = DB.Column(DB.Integer, primary_key=True)
     name = DB.Column(DB.String)
@@ -70,6 +74,10 @@ class Artist(DB.Model):
     # 	return asdict
 
 class Artwork(DB.Model):
+    """
+    The artwork model contains attributes about an artwork such as
+    name, medium, description, and style
+    """
     artworkid = DB.Column(DB.Integer, primary_key=True)
     name = DB.Column(DB.String)
     medium = DB.Column(DB.String)
@@ -84,6 +92,10 @@ class Artwork(DB.Model):
 
 
 class GeoReg(DB.Model):
+    """
+    The geographical region model contains attributes about a region such as
+    location, artworks, and style
+    """
     __tablename__ = 'georeg'
     georegid = DB.Column(DB.Integer, primary_key=True)
     location = DB.Column(DB.String)
@@ -95,6 +107,10 @@ class GeoReg(DB.Model):
         self.location = location
 
 class Style(DB.Model):
+    """
+    The style model contains attributes about a style such as
+    name, description and time period
+    """
     __tablename__ = 'style'
     styleid = DB.Column(DB.Integer, primary_key=True)
     name = DB.Column(DB.String)
