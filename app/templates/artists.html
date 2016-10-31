@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header class="page_header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h1 class="brand-heading">Artist</h1>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+<div class="col-lg-8 col-lg-offset-2">
+    <div id="display">
+      <table id="data" style="width:90%" class="sortable">
+        <tr>
+            <td>Name</td>
+            <td>Gender</td>
+            <td>Birth Year</td>
+            <td>Birth Place</td>
+            <td>Location</td>
+            <td>Styles</td>
+        </tr>
+        <tr>
+            <td>
+                <a class="page-scroll" href="/andywarhol.html">Andy Warhol</a>
+            </td>
+            <td>Male</td>
+            <td>1928</td>
+            <td>
+                <a class="page-scroll" href="/America.html">Pittsburgh, Pennsylvania</a>
+            </td>
+            <td>New York, New York</td>
+            <td>
+                <a class="page-scroll" href="/PopArt.html">Pop Art</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a class="page-scroll" href="/WilliamMichaelHarnett.html">William Michael Harnett</a>
+            </td>
+            <td>Male</td>
+            <td>1848</td>
+            <td>
+                <a class="page-scroll" href="/Ireland.html">Clonakilty, Ireland</a>
+            </td>
+            <td>Philadelphia, Pennsylvania</td>
+            <td>
+                <a class="page-scroll" href="/StillLife.html">Still Life</a>
+            </td>
+        </tr>
+        <tr>
+          <td>
+                <a class="page-scroll" href="/PabloPicasso.html">Pablo Picasso</a>
+            </td>
+            <td>Male</td>
+            <td>1881</td>
+            <td>
+                <a class="page-scroll" href="/Spain.html">Malaga, Spain</a>
+            </td>
+            <td>Paris, France</td>
+            <td>
+                <a class="page-scroll" href="/Cubism.html">Cubism</a>
+            </td>
+        </tr>
+      </table>
+      <!-- <div id="artistinfo" style="width:50%"> 
+        Artist Info
+      </div> -->
+    </div>
+</div>
+
+{% endblock %}
+
+
