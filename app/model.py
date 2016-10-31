@@ -7,54 +7,53 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 APP = Flask(__name__)
-APP.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.DB'
+APP.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://root@localhost/artsnob'
+APP.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 DB = SQLAlchemy(APP)
 
+ID_CHARS = 24
+NAME_CHARS = 255
+DATE_CHARS = 64
+DESC_CHARS = 1000
 
-GEOREG_STYLE = DB.Table(
-    'georegstyle', DB.Column(
-        'georegId', DB.Integer, DB.ForeignKey('georeg.georegid')), DB.Column(
-            'styleId', DB.Integer, DB.ForeignKey('style.styleid')))
+ARTWORK_ARTIST = DB.Table('artist_artwork',
+                          DB.Column('artist_id', DB.String(ID_CHARS),
+                                    DB.ForeignKey('artist.id')),
+                          DB.Column('artwork_id', DB.String(ID_CHARS),
+                                    DB.ForeignKey('artwork.id')))
 
-ARTIST_STYLE = DB.Table(
-    'artiststyle', DB.Column(
-        'artistId', DB.Integer, DB.ForeignKey('artist.artistid')), DB.Column(
-            'styleId', DB.Integer, DB.ForeignKey('style.styleid')))
+ARTWORK_COLLECTION = DB.Table('artwork_collection',
+                              DB.Column('artwork_id', DB.String(ID_CHARS),
+                                        DB.ForeignKey('artwork.id')),
+                              DB.Column('collection_id', DB.String(ID_CHARS),
+                                        DB.ForeignKey('collection.id')))
 
-GEOREG_ARTIST = DB.Table(
-    'georegartist', DB.Column(
-        'georegId', DB.Integer, DB.ForeignKey('georeg.georegid')), DB.Column(
-            'artistId', DB.Integer, DB.ForeignKey('artist.artistid')))
-
-# artist_artist = DB.Table('artist_artist',
-# 	DB.Column('artist_id', DB.Integer, DB.ForeignKey('artist.id')),
-# 	DB.Column('artist_id', DB.Integer, DB.ForeignKey('artist_id'))
-# 	)
+ARTWORK_STYLE = DB.Table('artworkstyle',
+                         DB.Column('artwork_id', DB.String(ID_CHARS),
+                                   DB.ForeignKey('artwork.id')),
+                         DB.Column('style_id', DB.String(ID_CHARS),
+                                   DB.ForeignKey('style.id')))
 
 
 class Artist(DB.Model):
     """
     The artist model contains attributes about an artist such as
-    name, birth, death, and style
+    name and birth date. Artists have a number of Artworks.
+    To get the styles of an artist, filter the ARTWORK_STYLE table
+    with all of their artworks.
     """
     _tablename_ = 'artist'
-    artistid = DB.Column(DB.Integer, primary_key=True)
-    name = DB.Column(DB.String)
-    description = DB.Column(DB.String)
-    birth = DB.Column(DB.Integer)
-    death = DB.Column(DB.Integer)
-    artwork = DB.relationship('Work', backref='artist', lazy='dynamic')
-    nationality = DB.relationship('Nationality', secondary=GEOREG_ARTIST,
-                                  backref=DB.backref('artist', lazy='dynamic'))
-    style = DB.relationship('Style', secondary=ARTIST_STYLE,
-                            backref=DB.backref('artist', lazy='dynamic'))
+    id = DB.Column(DB.String(ID_CHARS), primary_key=True)
+    name = DB.Column(DB.String(NAME_CHARS))
+    birth = DB.Column(DB.String(DATE_CHARS))
+    artworks = DB.relationship('Artwork', back_populates='artists', secondary=ARTWORK_ARTIST)
 
-    def __init__(self, name, description, birth, death):
-    	self.name = name
-    	self.description = description
-    	self.birth = birth
-    	self.death = death
+    def __init__(self, id, name, birth):
+        self.id = id
+        self.name = name
+        self.birth = birth
 
+    
     # def dictionary(self):
     # 	asdict = {}
     # 	asdict['id'] = self.id
@@ -78,32 +77,39 @@ class Artwork(DB.Model):
     The artwork model contains attributes about an artwork such as
     name, medium, description, and style
     """
-    artworkid = DB.Column(DB.Integer, primary_key=True)
-    name = DB.Column(DB.String)
-    medium = DB.Column(DB.String)
-    description = DB.Column(DB.String)
-    georeg = DB.relationship('GeoReg', backref='person', lazy='dynamic')
-    artist_id = DB.Column(DB.String, DB.ForeignKey('artist.artistid'))
+    __tablename__ = 'artwork'
+    id = DB.Column(DB.String(ID_CHARS), primary_key=True)
+    title = DB.Column(DB.String(NAME_CHARS))
+    medium = DB.Column(DB.String(DESC_CHARS))
+    description = DB.Column(DB.String(DESC_CHARS))
+    artists = DB.relationship('Artist', back_populates='artworks',
+                              secondary=ARTWORK_ARTIST)
+    styles = DB.relationship('Style', back_populates='artworks',
+                             secondary=ARTWORK_STYLE)
+    collections = DB.relationship('Collection', back_populates='artworks',
+                                  secondary=ARTWORK_COLLECTION)
 
-    def __init__(self, name, medium, description):
-    	self.name = name
-    	self.medium = medium
-    	self.description = description
+    def __init__(self, id, title, medium, description):
+        self.id = id
+        self.title = title
+        self.medium = medium
+        self.description = description
 
 
-class GeoReg(DB.Model):
+class Collection(DB.Model):
     """
-    The geographical region model contains attributes about a region such as
-    location, artworks, and style
     """
-    __tablename__ = 'georeg'
-    georegid = DB.Column(DB.Integer, primary_key=True)
-    location = DB.Column(DB.String)
-    artwork = DB.Column(DB.Integer, DB.ForeignKey('artwork.artworkid'))
-    style = DB.relationship('style', secondary=GEOREG_STYLE,
-                            backref=DB.backref('georeg', lazy='dynamic'))
+    __tablename__ = 'collection'
+    id = DB.Column(DB.String(ID_CHARS), primary_key=True)
+    name = DB.Column(DB.String(NAME_CHARS))
+    location = DB.Column(DB.String(DESC_CHARS))
+    public = DB.Boolean()
+    artworks = DB.relationship('Artwork', back_populates='collections',
+                               secondary=ARTWORK_COLLECTION)
 
-    def __init__(self, location):
+    def __init__(self, id, name, location):
+        self.id = id
+        self.name = name
         self.location = location
 
 class Style(DB.Model):
@@ -112,12 +118,14 @@ class Style(DB.Model):
     name, description and time period
     """
     __tablename__ = 'style'
-    styleid = DB.Column(DB.Integer, primary_key=True)
-    name = DB.Column(DB.String)
+    id = DB.Column(DB.String(ID_CHARS), primary_key=True)
+    name = DB.Column(DB.String(NAME_CHARS))
     description = DB.Column(DB.String)
     time_period = DB.Column(DB.String)
+    artworks = DB.relationship('Artwork', back_populates='styles', secondary=ARTWORK_STYLE)
 
-    def __init__(self, name, description, time_period):
+    def __init__(self, id, name, description, time_period):
+        self.id = id
         self.name = name
         self.description = description
         self.time_period = time_period
