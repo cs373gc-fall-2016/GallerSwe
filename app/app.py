@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask, send_from_directory
+from flask import Flask, send_from_directory, render_template
 
 app = Flask(__name__, static_url_path='')
 
@@ -27,6 +27,11 @@ def style():
 @app.route('/geo')
 def geo():
     return app.send_static_file('geo.html')
+
+@app.route('/temp')
+def temp():
+    info = {'Name': 'Andy_Warhol', 'Age': '49', 'Date': 'today'}
+    return render_template('template.html',result=info)
 
 if __name__ == "__main__":
     app.run()
