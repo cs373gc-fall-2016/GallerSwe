@@ -11,7 +11,7 @@ def root():
 
 @app.route('/artists')
 def artists():
-    return app.send_static_file('artists.html')
+    return render_template('artists.html')
 
 # @app.route('/artists/<int: id>')
 # def artist(id) :
@@ -22,11 +22,11 @@ def artists():
 
 @app.route('/about')
 def about():
-    return app.send_static_file('about.html')
+    return render_template('about.html')
 
 @app.route('/artworks')
 def artworks():
-    return app.send_static_file('artwork.html')
+    return render_template('artwork.html')
 
 # @app.route('/artwork/<int: id>')
 # def artwork(id) :
@@ -37,7 +37,7 @@ def artworks():
 
 @app.route('/styles')
 def styles():
-    return app.send_static_file('style.html')
+    return render_template('style.html')
 
 # @app.route('/style/<int: id>')
 # def style(id) :
@@ -48,7 +48,7 @@ def styles():
 
 @app.route('/collections')
 def collections():
-    return app.send_static_file('collections.html')
+    return render_template('collections.html')
 
 # @app.route('/collections/<int: id>')
 # def collection(id) :
