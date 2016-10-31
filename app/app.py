@@ -9,6 +9,10 @@ app = Flask(__name__, static_url_path='')
 def root():
     return render_template('splash.html')
 
+@app.route('/hello')
+def hello():
+    return render_template('hello.html')
+
 @app.route('/artists')
 def artists():
     return app.send_static_file('artists.html')
