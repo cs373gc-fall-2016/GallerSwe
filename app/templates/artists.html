@@ -19,10 +19,19 @@
             <td>Gender</td>
             <td>Birth Year</td>
             <td>Birth Place</td>
-            <td>Location</td>
             <td>Styles</td>
         </tr>
+        {% for artist in result.get('_embedded').get('artists') %}
         <tr>
+            <td> {{artist.get('name')}} </td>
+            <td> {{artist.get('gender')}} </td>
+            <td> {{artist.get('birthday')}} </td>
+            <td> {{artist.get('hometown')}} </td>
+            <td> style </td>
+        </tr>
+        {% endfor %}
+
+<!--         <tr>
             <td>
                 <a class="page-scroll" href="/andywarhol.html">Andy Warhol</a>
             </td>
@@ -63,11 +72,8 @@
             <td>
                 <a class="page-scroll" href="/Cubism.html">Cubism</a>
             </td>
-        </tr>
+        </tr> -->
       </table>
-      <!-- <div id="artistinfo" style="width:50%"> 
-        Artist Info
-      </div> -->
     </div>
 </div>
 
