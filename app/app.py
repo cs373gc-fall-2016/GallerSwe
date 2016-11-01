@@ -31,7 +31,11 @@ def about():
 
 @app.route('/artworks')
 def artworks():
-    return render_template('artwork.html')
+	with open('tempArtwork.json') as json_data:
+		artworks = json.load(json_data)
+	if artworks is None :
+		raise Exception
+	return render_template('artwork.html', result=artworks)
 
 # @app.route('/artwork/<int: id>')
 # def artwork(id) :
