@@ -65,6 +65,13 @@ html {
     -o-background-size: cover;
     background-size: cover;
 }
+.item:nth-child(4) {
+    background: url(https://upload.wikimedia.org/wikipedia/commons/6/64/Albrecht_Altdorfer,_The_Battle_of_Alexander_at_Issus.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 .carousel {
     z-index: -99;
 }
