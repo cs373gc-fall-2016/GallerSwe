@@ -24,7 +24,7 @@
         {% for artist in result.get('_embedded').get('artists') %}
         <tr>
             <td> 
-                <a class="page-scroll" href="/{{artist.get('id')}}">
+                <a class="page-scroll" href="artist/{{artist.get('id')}}">
                 {{artist.get('name')}} 
                 </a> 
             </td>
