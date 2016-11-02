@@ -23,12 +23,12 @@ def artists():
 	return render_template('artists.html', result=artists)
 
 @app.route('/<string:id>')
-def artist(id) :
+def detail(id) :
 	with open('tempWarhol.json') as json_data:
 		data = json.load(json_data)
 	if data is None :
 		raise Exception
-	return render_template("artistDetail.html", result=data)
+	return render_template("detail.html", result=data)
 
 @app.route('/about')
 def about():
