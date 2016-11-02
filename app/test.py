@@ -1,16 +1,11 @@
 """
 Unit tests for modely.py
 """
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+from model import DB
 
-app = Flask(__name__)
-app.config.from_object('app.config')
-
-db = SQLAlchemy(app)
 import unittest
 from unittest import main, TestCase
-from models import Artist, Artwork, Style, Collection
+from model import Artist, Artwork, Style, Collection
 
 
 
@@ -21,27 +16,20 @@ class TestArtist(TestCase):
     Test cases for Artist
     """
 
-    def test_create(self):
-        """
-        Test create
-        """
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
-        return app
-
     def test_insertion(self):
         """
         Test insertion
         """
-        db.create_all()
+        DB.create_all()
         artist1 = Artist('1','Andy Warhol', '1900', 'Male', 'American','http://a5.files.biography.com/image/upload/c_fit,cs_srgb,dpr_1.0,h_1200,q_80,w_1200/MTE5NDg0MDU1MTYxNzY3NDM5.jpg')
-        db.session.add(artist1)
+        DB.session.add(artist1)
 
     def test_deletion(self):
         """
         Test deletion
         """
-        db.session.remove()
-        db.drop_all()
+        DB.session.remove()
+        DB.drop_all()
 
     def test_find_all(self):
         """
@@ -69,11 +57,11 @@ class TestArtist(TestCase):
         Test adding and deleting
         """
         artist = Artist('2','Pablo Picasso', '1920', 'Male', 'Spain', 'http://a5.files.biography.com/image/upload/c_fit,cs_srgb,dpr_1.0,h_1200,q_80,w_1200/MTE5NDg0MDU1MTYxNzY3NDM5.jpg')
-        db.session.add(artist)
-        db.session.commit()
+        DB.session.add(artist)
+        DB.session.commit()
         self.assertEqual(len(Artist.query.all()), 2)
         Ingredient.query.filter(Artist.name == 'Pablo Picasso').delete()
-        db.session.commit()
+        DB.session.commit()
         self.assertEqual(len(Artist.query.all()), 1)
 
 
@@ -84,27 +72,20 @@ class TestArtwork(TestCase):
     Test cases for Artwork
     """
 
-    def test_create(self):
-        """
-        Test create
-        """
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
-        return app
-
     def test_insertion(self):
         """
         Test insertion
         """
-        db.create_all()
+        DB.create_all()
         artwork = Artwork('1','Statue of David', 'statue', 'Statue','1000', 'http://a5.files.biography.com/image/upload/c_fit,cs_srgb,dpr_1.0,h_1200,q_80,w_1200/MTE5NDg0MDU1MTYxNzY3NDM5.jpg')
-        db.session.add(artwork)
+        DB.session.add(artwork)
 
-     def test_deletion(self):
+    def test_deletion(self):
         """
         Test deletion
         """
-        db.session.remove()
-        db.drop_all()
+        DB.session.remove()
+        DB.drop_all()
 
     def test_find_all(self):
         """
@@ -132,11 +113,11 @@ class TestArtwork(TestCase):
         Test adding and deleting
         """
         artowrk = Artowrk('2','Mona Lisa','paint', 'oil', '1800', 'http://a5.files.biography.com/image/upload/c_fit,cs_srgb,dpr_1.0,h_1200,q_80,w_1200/MTE5NDg0MDU1MTYxNzY3NDM5.jpg')
-        db.session.add(artwork)
-        db.session.commit()
+        DB.session.add(artwork)
+        DB.session.commit()
         self.assertEqual(len(Artwork.query.all()), 2)
         Artwork.query.filter(Artwork.name == 'Mona Lisa').delete()
-        db.session.commit()
+        DB.session.commit()
         self.assertEqual(len(Artwork.query.all()), 1)
 
 
@@ -146,29 +127,21 @@ class Collection(TestCase):
     Test cases for Collection
     """
 
-
-    def test_create(self):
-        """
-        Test create
-        """
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
-        return app
-
     def test_insertion(self):
         """
         Test insertion
         """
         collect = Collection('1', 'National Museum of Art, Washington D.C.', 'http://www.nga.gov', 'North America', 'Institution')
-        db.session.add(location)
+        DB.session.add(location)
 
-     def test_deletion(self):
+    def test_deletion(self):
         """
         Test deletion
         """
-        db.session.remove()
-        db.drop_all()
+        DB.session.remove()
+        DB.drop_all()
 
-     def test_find_all(self):
+    def test_find_all(self):
         """
         Test finding all
         """
@@ -194,11 +167,11 @@ class Collection(TestCase):
         Test adding and deleting
         """
         collect = Collection('2','Kimbell Museum of Art','https://www.kimbellart.org', 'North America', 'Institution')
-        db.session.add(Collection)
-        db.session.commit()
+        DB.session.add(Collection)
+        DB.session.commit()
         self.assertEqual(len(Collection.query.all()), 2)
         Collection.query.filter(Collection.name == 'Kimbell Museum of Art').delete()
-        db.session.commit()
+        DB.session.commit()
         self.assertEqual(len(Collection.query.all()), 1)
 
 
@@ -208,28 +181,20 @@ class TestStyle(TestCase):
     Test cases for Style
     """
 
-
-    def test_create(self):
-        """
-        Test create
-        """
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
-        return app
-
     def test_insertion(self):
         """
         Test insertion
         """
-        db.create_all()
+        DB.create_all()
         style = Style('1','Pop', 'cool', 'http://a5.files.biography.com/image/upload/c_fit,cs_srgb,dpr_1.0,h_1200,q_80,w_1200/MTE5NDg0MDU1MTYxNzY3NDM5.jpg')
-        db.session.add(style)
+        DB.session.add(style)
 
     def test_deletion(self):
         """
         Test deletion
         """
-        db.session.remove()
-        db.drop_all()
+        DB.session.remove()
+        DB.drop_all()
 
     def test_find_all(self):
         """
@@ -257,11 +222,11 @@ class TestStyle(TestCase):
         Test adding and deleting
         """
         style = Style('2','Modern', 'kinda wierd', 'http://a5.files.biography.com/image/upload/c_fit,cs_srgb,dpr_1.0,h_1200,q_80,w_1200/MTE5NDg0MDU1MTYxNzY3NDM5.jpg')
-        db.session.add(style)
-        db.session.commit()
+        DB.session.add(style)
+        DB.session.commit()
         self.assertEqual(len(Style.query.all()), 2)
         Style.query.filter(Style.name == 'Modern').delete()
-        db.session.commit()
+        DB.session.commit()
         self.assertEqual(len(Style.query.all()), 1)
 
 # ----
