@@ -1,5 +1,6 @@
 import os
 #import model
+import json
 
 from flask import Flask, send_from_directory, render_template
 
@@ -15,7 +16,11 @@ def hello():
 
 @app.route('/artists')
 def artists():
-    return render_template('artists.html')
+	with open('tempArtists.json') as json_data:
+		artists = json.load(json_data)
+	if artists is None :
+		raise Exception
+	return render_template('artists.html', result=artists)
 
 # @app.route('/artists/<int: id>')
 # def artist(id) :
@@ -30,7 +35,11 @@ def about():
 
 @app.route('/artworks')
 def artworks():
-    return render_template('artwork.html')
+	with open('tempArtwork.json') as json_data:
+		artworks = json.load(json_data)
+	if artworks is None :
+		raise Exception
+	return render_template('artwork.html', result=artworks)
 
 # @app.route('/artwork/<int: id>')
 # def artwork(id) :
