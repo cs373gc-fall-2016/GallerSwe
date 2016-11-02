@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header class="page_header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h1 class="brand-heading">{{result.get('name')}}</h1>
+            </div>
+        </div>
+    </div>
+</header>
+
+<img src="{{result.get('_links').get('thumbnail').get('href')}}" alt="alternative text" width="256" height="256" ></img>
+
+<div class="col-lg-8 col-lg-offset-2">
+    <div id="display">
+      <table id="data" style="width:90%" class="sortable">
+        {% if result.get('type') == 'artist' %}
+        <tr>
+            <td>Name</td><td>{{result.get('name')}}</td>
+        </tr>
+        <tr>
+            <td>Gender</td><td>{{result.get('gender')}}</td>
+        </tr>
+        <tr>
+            <td>Birth Year</td><td>{{result.get('birthday')}}</td>
+        </tr>
+        <tr>
+            <td>Birth Place</td><td>{{result.get('hometown')}}</td>
+        </tr>
+        <tr>
+            <td>Artwork</td><td>{{artwork}}</td>
+        </tr>
+        {% elif result.get('type') == 'artwork' %}
+        <tr>
+            <td>Title</td><td>{{result.get('gender')}}</td>
+        </tr>
+        <tr>
+            <td>Artist</td><td>{{result.get('birthday')}}</td>
+        </tr>
+        <tr>
+            <td>Category</td><td>{{result.get('hometown')}}</td>
+        </tr>
+        <tr>
+            <td>Medium</td><td>{{artwork}}</td>
+        </tr>
+        <tr>
+            <td>Style</td><td>{{result.get('style')}}</td>
+        </tr>
+        <tr>
+            <td>Date</td><td>{{result.get('date')}}</td>
+        </tr>
+        {% elif result.get('type') == 'style' %}
+        <tr>
+            <td>Name</td><td>{{result.get('gender')}}</td>
+        </tr>
+        <tr>
+            <td>Description</td><td>{{result.get('birthday')}}</td>
+        </tr>
+        <tr>
+            <td>Sample Piece</td><td>{{result.get('hometown')}}</td>
+        </tr>
+        <tr>
+            <td>Number of Works</td><td>{{artwork}}</td>
+        </tr>
+        <tr>
+            <td>Number of Unique Artists</td><td>{{result.get('hometown')}}</td>
+        </tr>
+        {% elif result.get('type') == 'collection' %}
+        <tr>
+            <td>Name</td><td>{{result.get('gender')}}</td>
+        </tr>
+        <tr>
+            <td>Type</td><td>{{result.get('birthday')}}</td>
+        </tr>
+        <tr>
+            <td>Location</td><td>{{result.get('hometown')}}</td>
+        </tr>
+        <tr>
+            <td>Peices</td><td>{{artwork}}</td>
+        </tr>
+        <tr>
+            <td>Website</td><td>{{result.get('hometown')}}</td>
+        </tr>
+        {% endif %}
+      </table>
+    </div>
+</div>
+
+
+{% endblock %}

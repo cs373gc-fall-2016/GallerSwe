@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header class="page_header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h1 class="brand-heading">Artwork</h1>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+<div class="col-lg-8 col-lg-offset-2">
+    <div id="display">
+      <table id="data" style="width:90%" class="sortable">
+        <tr>
+            <td>Title</td>
+            <td>Artist</td>
+            <td>Style</td>
+            <td>Collection</td>
+            <td>Medium</td>
+            <td>Year</td>
+        </tr>
+        {% for artwork in result.get('_embedded').get('artworks') %}
+        <tr>
+            <td> {{artwork.get('name')}} </td>
+            <td> {{artist}} </td>
+            <td> {{style}} </td>
+            <td> {{collection}} </td>
+            <td> {{artwork.get('medium')}} </td>
+            <td> {{artwork.get('date')}} </td>
+        </tr>
+        {% endfor %}
+        </tr>
+
+      </table>
+    </div>
+  </div>
+{% endblock %}

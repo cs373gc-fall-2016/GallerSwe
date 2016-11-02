@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header class="page_header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h1 class="brand-heading">Style</h1>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+<div class="col-lg-8 col-lg-offset-2">
+    <div id="display">
+      <table id="data" style="width:90%" class="sortable">
+        <tr>
+            <td>Name</td>
+            <td>Description</td>
+            <td>Piece</td>
+            <td>No. of Relevant Works</td>
+            <td>No. of Unique Artists</td>
+        </tr>
+        {% for style in result.get('_embedded').get('styles') %}
+        <tr>
+            <td> {{style.get('name')}} </td>
+            <td> {{style.get('description')}} </td>
+            <td> {{style.get('piece')}} </td>
+            <td> {{style.get('numWorks')}} </td>
+            <td> style </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+</div>
+
+{% endblock %}
