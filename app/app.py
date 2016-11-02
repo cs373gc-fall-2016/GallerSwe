@@ -22,7 +22,7 @@ def artists():
 		raise Exception
 	return render_template('artists.html', result=artists)
 
-@app.route('/artist/<string:id>')
+@app.route('/<string:id>')
 def artist(id) :
 	with open('tempWarhol.json') as json_data:
 		data = json.load(json_data)

@@ -23,10 +23,10 @@
         </tr>
         {% for artist in result.get('_embedded').get('artists') %}
         <tr>
-            <td> 
-                <a class="page-scroll" href="artist/{{artist.get('id')}}">
-                {{artist.get('name')}} 
-                </a> 
+            <td>
+                <a class="page-scroll" href="{{artist.get('id')}}">
+                {{artist.get('name')}}
+                </a>
             </td>
             <td> {{artist.get('gender')}} </td>
             <td> {{artist.get('birthday')}} </td>
@@ -39,5 +39,3 @@
 </div>
 
 {% endblock %}
-
-
