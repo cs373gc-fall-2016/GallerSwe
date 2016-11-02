@@ -102,6 +102,7 @@ class Artwork(DB.Model):
     def __init__(self, id, title, category, medium, date, image):
         self.id = id
         self.title = title
+        self.category = category
         self.medium = medium
         self.date = date
         self.image = image
