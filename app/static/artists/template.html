@@ -1,6 +1,7 @@
 <script src="js/sortable.js"></script>
+
 <div class="container">
-<div ng-show="artist != undefined">
+<div class="page_header" ng-app="ArtSnob" ng-show="artist != undefined">
     <button type="button" ng-click="ArtistDeselected()">X</button>
     <header>
         <div class="container">
@@ -43,7 +44,8 @@
         </div>
     </div>
 </div>
-<div ng-show="artist == undefined" class="col-lg-8 col-lg-offset-2">
+<div class="page_header" ng-app="ArtSnob" ng-show="artist == undefined" >
+  <div class="col-lg-8 col-lg-offset-2">
     <header>
         <div class="container">
             <div class="row">
@@ -75,4 +77,5 @@
         </tr>
       </table>
     </div>
+  </div>
 </div>

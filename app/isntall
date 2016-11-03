@@ -1,5 +1,0 @@
-pip install Flask-Restless
-pip install flask_sqlalchemy
-pip install flask_cache
-brew install postgresql
-pip install psycopg2
