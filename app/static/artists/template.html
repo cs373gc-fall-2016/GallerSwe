@@ -2,12 +2,12 @@
 
 <div class="container">
 <div class="page_header" ng-app="ArtSnob" ng-show="artist != undefined">
-    <button type="button" ng-click="ArtistDeselected()">X</button>
+    <button type="button" class="btn btn-outline-secondary" style = "font-family:Helvetica Neue" ng-click="ArtistDeselected()">Back to Table</button>
     <header>
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
-                    <h1 class="brand-heading">{{artist.name}}</h1>
+                    <h1 class="brand-heading" style="text-align:center;">{{artist.name}}</h1>
                 </div>
             </div>
         </div>
@@ -16,7 +16,7 @@
       <div class="container">
           <div class="row">
               <div class="col-md-8 col-md-offset-2">
-                <p style="text-align:center;"><img src="{{item.thumbnail.href}}" alt="alternative text" width="256" height="256" ></img></p>
+                <p style="text-align:center;"><img src="{{artist.thumbnail.href}}" style = "max-width:95%;border:6px double #545565;" alt="alternative text" width="256" height="256" ></img></p>
               </div>
             </div>
           </div>
@@ -24,21 +24,21 @@
 
     <div class="col-lg-8 col-lg-offset-2">
         <div id="display">
-          <table id="data" style="width:90%" class="sortable">
+          <table id="data" style="width:90%; font-family: Helvetica Neue" class="sortable">
             <tr>
-                <td>Name</td><td>{{artist.name}}</td>
+                <td><b>Name</b></td><td>{{artist.name}}</td>
             </tr>
             <tr>
-                <td>Gender</td><td>{{artist.gender}}</td>
+                <td><b>Gender</b></td><td>{{artist.gender}}</td>
             </tr>
             <tr>
-                <td>Birth Year</td><td>{{artist.birthday}}</td>
+                <td><b>Birth Year</b></td><td>{{artist.birthday}}</td>
             </tr>
             <tr>
-                <td>Birth Place</td><td>{{artist.hometown}}</td>
+                <td><b>Birth Place</b></td><td>{{artist.hometown}}</td>
             </tr>
             <tr>
-                <td>Artwork</td><td>{{artist.artwork}}</td>
+                <td><b>Artwork</b></td><td>{{artist.artwork}}</td>
             </tr>
           </table>
         </div>
