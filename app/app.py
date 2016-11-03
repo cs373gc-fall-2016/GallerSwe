@@ -46,5 +46,14 @@ def artists():
 		raise Exception
 	return flask.jsonify(artists)
 
+# DELETE THIS WHEN WE HAVE REAL API!!!
+@app.route('/hack-api/artwork')
+def artwork():
+	with open('tempArtwork.json') as json_data:
+		artwork = json.load(json_data)
+	if artwork is None :
+		raise Exception
+	return flask.jsonify(artwork)
+
 if __name__ == "__main__":
     app.run()

@@ -34,7 +34,7 @@ angular.module('ArtSnob').config(['$stateProvider', '$urlRouterProvider', functi
 	})
 
 	.state('artwork', {
-		url: '/artworks',
+		url: '/artwork',
 		templateUrl: 'artwork/template.html',
 		resolve: {
 			// timestamps: ['Timestamps', function (TimestampService) {
