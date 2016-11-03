@@ -13,7 +13,7 @@ app = Flask(__name__, static_url_path='')
 app.config["CACHE_TYPE"] = "null"
 
 app.config['DEBUG'] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://cullenbounds@localhost/artsnob'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://courtbohrer@localhost/artsnob'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = flask_sqlalchemy.SQLAlchemy(app)
 #bind_api(app)

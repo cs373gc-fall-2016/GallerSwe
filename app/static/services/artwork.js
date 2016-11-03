@@ -1,7 +1,7 @@
 angular.module('ArtSnob')
 
-    .service('Artists', ['$http', function ($http) {
-
+    .service('Artwork', ['$http', function ($http) {
+        // FIX THIS WHEN API IS DONE
     	var url = '/hack-api/artist';
 
         this.get = function(callback) {
