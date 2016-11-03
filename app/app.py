@@ -1,7 +1,7 @@
 import os
 #import model
 import json
-from api import bind_api
+# from api import bind_api
 import flask
 import flask_sqlalchemy
 import flask_restless
