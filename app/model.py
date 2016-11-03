@@ -1,6 +1,5 @@
 """
 DB for Artsnob
-
 """
 
 from flask import Flask
@@ -63,22 +62,22 @@ class Artist(DB.Model):
 
     
     # def dictionary(self):
-    # 	asdict = {}
-    # 	asdict['id'] = self.id
-    # 	asdict['name'] = self.name
-    # 	asdict['description'] = self.description
-    # 	asdict['birth'] = self.birth
-    # 	asdict['death'] = self.death
-    # 	artwork = list(self.artwork)
-    # 	style = list(self.style)
-    # 	georeg = list(self.georeg)
-    # 	if artwork:
-    # 		asdict['artwork_id'] = [ar.id for ar in artwork]
-    # 	if style:
-    # 		asdict['style'] = [s.name for s in style]
-    # 	if georeg:
-    # 		asdict['nationality'] = [g.name for g in georeg]
-    # 	return asdict
+    #   asdict = {}
+    #   asdict['id'] = self.id
+    #   asdict['name'] = self.name
+    #   asdict['description'] = self.description
+    #   asdict['birth'] = self.birth
+    #   asdict['death'] = self.death
+    #   artwork = list(self.artwork)
+    #   style = list(self.style)
+    #   georeg = list(self.georeg)
+    #   if artwork:
+    #       asdict['artwork_id'] = [ar.id for ar in artwork]
+    #   if style:
+    #       asdict['style'] = [s.name for s in style]
+    #   if georeg:
+    #       asdict['nationality'] = [g.name for g in georeg]
+    #   return asdict
 
 class Artwork(DB.Model):
     """
