@@ -1,7 +1,13 @@
 """
 Unit tests for modely.py
 """
-from db import DB
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
+APP = Flask(__name__)
+APP.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres@localhost/artsnob'
+APP.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+DB = SQLAlchemy(APP)
 
 import unittest
 from unittest import main, TestCase
@@ -170,7 +176,7 @@ class Collection(TestCase):
         DB.session.add(collect)
         DB.session.commit()
         self.assertEqual(len(DB.session.query.all()), 2)
-        Collection.query.filter(Collection.name == 'Kimbell Museum of Art').delete()
+        DB.session.query.filter(Collection.name == 'Kimbell Museum of Art').delete()
         DB.session.commit()
         self.assertEqual(len(DB.session.query.all()), 1)
 
