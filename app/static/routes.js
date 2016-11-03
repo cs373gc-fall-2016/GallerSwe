@@ -34,5 +34,27 @@ angular.module('ArtSnob').config(['$stateProvider', '$urlRouterProvider', functi
 		controller: 'artworkController'
 	})
 	 
+	.state('styles', {
+		url: '/styles',
+		templateUrl: 'style/template.html',
+		resolve: {
+			// timestamps: ['Timestamps', function (TimestampService) {
+			// 	return TimestampService.getAll();
+			// }]
+		},
+		controller: 'stylesController'
+	})
+
+	.state('collections', {
+		url: '/collections',
+		templateUrl: 'collections/template.html',
+		resolve: {
+			// timestamps: ['Timestamps', function (TimestampService) {
+			// 	return TimestampService.getAll();
+			// }]
+		},
+		controller: 'collectionsController'
+	})
+
 	$urlRouterProvider.otherwise('/main');
 }])
