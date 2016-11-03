@@ -61,24 +61,9 @@ class Artist(DB.Model):
         self.nationality = nationality
         self.image = image
 
+    def __repr__(self):
+        return '<User %r>' % self.name
     
-    # def dictionary(self):
-    # 	asdict = {}
-    # 	asdict['id'] = self.id
-    # 	asdict['name'] = self.name
-    # 	asdict['description'] = self.description
-    # 	asdict['birth'] = self.birth
-    # 	asdict['death'] = self.death
-    # 	artwork = list(self.artwork)
-    # 	style = list(self.style)
-    # 	georeg = list(self.georeg)
-    # 	if artwork:
-    # 		asdict['artwork_id'] = [ar.id for ar in artwork]
-    # 	if style:
-    # 		asdict['style'] = [s.name for s in style]
-    # 	if georeg:
-    # 		asdict['nationality'] = [g.name for g in georeg]
-    # 	return asdict
 
 class Artwork(DB.Model):
     """
@@ -106,7 +91,9 @@ class Artwork(DB.Model):
         self.medium = medium
         self.date = date
         self.image = image
-
+    
+    def __repr__(self):
+        return '<User %r>' % self.title
 
 class Collection(DB.Model):
     """
@@ -127,6 +114,9 @@ class Collection(DB.Model):
         self.region = region
         self.type = type
 
+    def __repr__(self):
+        return '<User %r>' % self.institution
+
 class Style(DB.Model):
     """
     The style model contains attributes about a style such as
@@ -144,3 +134,6 @@ class Style(DB.Model):
         self.name = name
         self.description = description
         self.image = image
+
+    def __repr__(self):
+        return '<User %r>' % self.name
