@@ -7,7 +7,7 @@ def bind_api(app):
     api = APIManager(app, flask_sqlalchemy_db=model.db)
 
     api.create_api(
-        model.Artist
+        model.Artist,
         collection_name='artist',
         url_prefix='/api/',
         include_columns=[
@@ -22,7 +22,7 @@ def bind_api(app):
     )
 
     api.create_api(
-        model.Artwork
+        model.Artwork,
         collection_name='artwork',
         url_prefix='/api/',
         include_columns=[
@@ -38,7 +38,7 @@ def bind_api(app):
     )
 
     api.create_api(
-        model.Style
+        model.Style,
         collection_name='style',
         url_prefix='/api/',
         include_columns=[
@@ -52,7 +52,7 @@ def bind_api(app):
     )
 
     api.create_api(
-        model.Collection
+        model.Collection,
         collection_name='collection',
         url_prefix='/api/',
         include_columns=[
