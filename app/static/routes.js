@@ -14,13 +14,13 @@ angular.module('ArtSnob').config(['$stateProvider', '$urlRouterProvider', functi
 	})
 	.state('about', {
 		url: '/about',
-		templateUrl: 'about.html',
+		templateUrl: 'about/template.html',
 		resolve: {
 			// timestamps: ['Timestamps', function (TimestampService) {
 			// 	return TimestampService.getAll();
 			// }]
 		},
-		controller: 'mainController'
+		controller: 'aboutController'
 	})
 	.state('artists', {
 		url: '/artists',

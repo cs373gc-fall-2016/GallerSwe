@@ -7,8 +7,9 @@ import flask_sqlalchemy
 import flask_restless
 from flask import Flask, send_from_directory, render_template
 from flask_cache import Cache
-from model import Artist
-import test
+#from model import Artist
+#import test
+import subprocess
 
 app = Flask(__name__, static_url_path='')
 
@@ -64,16 +65,16 @@ class Artist(DB.Model):
     name = DB.Column(DB.String(NAME_CHARS))
     birth = DB.Column(DB.String(DATE_CHARS))
     gender = DB.Column(DB.String(GENDER_CHARS))
-    nationality = DB.Column(DB.String(NAME_CHARS))
+    hometown = DB.Column(DB.String(NAME_CHARS))
     image = DB.Column(DB.String(LINK_CHARS))
     artworks = DB.relationship('Artwork', back_populates='artists', secondary=ARTWORK_ARTIST)
 
-    def __init__(self, id, name, birth, gender, nationality, image):
+    def __init__(self, id, name, birth, gender, hometown, image):
         self.id = id
         self.name = name
         self.birth = birth
         self.gender = gender
-        self.nationality = nationality
+        self.hometown = hometown
         self.image = image
 
 
@@ -164,7 +165,7 @@ class Style(DB.Model):
 DB.create_all()
 
 # used for testing database contents
-# print(len(DB.session.query(Artist).all()))
+print(len(DB.session.query(Artist).all()))
 
 # Create the Flask-Restless API manager.
 manager = flask_restless.APIManager(app, flask_sqlalchemy_db=DB)
@@ -191,8 +192,9 @@ def artwork():
 ### endpoint used by about page to run unit tests ####
 @app.route('/run-unit-tests')
 def test():
-	## put code here to run tests ##
-	return true
+    proc = subprocess.Popen(["python3 test.py"], stdout=subprocess.PIPE, shell=True)
+    (out, err) = proc.communicate()
+    return out
 
 if __name__ == "__main__":
     app.run()
