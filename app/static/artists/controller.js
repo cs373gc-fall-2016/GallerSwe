@@ -6,7 +6,7 @@ angular.module('ArtSnob')
         $scope.reload = function() {
 			Artists.get(function(response) {
 				$scope.response = response
-                $scope.objects = response.objects
+                // $scope.objects = response.objects
 			    console.log("response is ", $scope.response)
 			});
         }
