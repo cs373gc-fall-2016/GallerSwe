@@ -8,6 +8,7 @@ import flask_restless
 from flask import Flask, send_from_directory, render_template
 from flask_cache import Cache
 from model import Artist
+import test
 
 app = Flask(__name__, static_url_path='')
 
@@ -186,6 +187,12 @@ def artwork():
 	if artwork is None :
 		raise Exception
 	return flask.jsonify(artwork)
+
+### endpoint used by about page to run unit tests ####
+@app.route('/run-unit-tests')
+def test():
+	## put code here to run tests ##
+	return true
 
 if __name__ == "__main__":
     app.run()
