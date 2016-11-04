@@ -21,21 +21,21 @@ LINK_CHARS = 255
 
 ARTWORK_ARTIST = DB.Table('artist_artwork',
                           DB.Column('artist_id', DB.String(ID_CHARS),
-                                    DB.ForeignKey('artist.identification')),
+                                    DB.ForeignKey('artist.id')),
                           DB.Column('artwork_id', DB.String(ID_CHARS),
                                     DB.ForeignKey('artwork.id')))
 
 ARTWORK_COLLECTION = DB.Table('artwork_collection',
                               DB.Column('artwork_id', DB.String(ID_CHARS),
-                                        DB.ForeignKey('artwork.identification')),
+                                        DB.ForeignKey('artwork.id')),
                               DB.Column('collection_id', DB.String(ID_CHARS),
-                                        DB.ForeignKey('collection.identification')))
+                                        DB.ForeignKey('collection.id')))
 
 ARTWORK_STYLE = DB.Table('artworkstyle',
                          DB.Column('artwork_id', DB.String(ID_CHARS),
-                                   DB.ForeignKey('artwork.identification')),
+                                   DB.ForeignKey('artwork.id')),
                          DB.Column('style_id', DB.String(ID_CHARS),
-                                   DB.ForeignKey('style.identification')))
+                                   DB.ForeignKey('style.id')))
 
 
 class Artist(DB.Model):
@@ -46,7 +46,7 @@ class Artist(DB.Model):
     with all of their artworks.
     """
     _tablename_ = 'artist'
-    identification = DB.Column(DB.String(ID_CHARS), primary_key=True)
+    id = DB.Column(DB.String(ID_CHARS), primary_key=True)
     name = DB.Column(DB.String(NAME_CHARS))
     birth = DB.Column(DB.String(DATE_CHARS))
     gender = DB.Column(DB.String(GENDER_CHARS))
@@ -55,8 +55,8 @@ class Artist(DB.Model):
     artworks = DB.relationship(
         'Artwork', back_populates='artists', secondary=ARTWORK_ARTIST)
 
-    def __init__(self, identification, name, birth, gender, nationality, image):
-        self.identification = identification
+    def __init__(self, id, name, birth, gender, nationality, image):
+        self.id = id
         self.name = name
         self.birth = birth
         self.gender = gender
@@ -73,7 +73,7 @@ class Artwork(DB.Model):
     name, medium, description, and style
     """
     __tablename__ = 'artwork'
-    identification = DB.Column(DB.String(ID_CHARS), primary_key=True)
+    id = DB.Column(DB.String(ID_CHARS), primary_key=True)
     title = DB.Column(DB.String(NAME_CHARS))
     category = DB.Column(DB.String(NAME_CHARS))
     medium = DB.Column(DB.String(DESC_CHARS))
@@ -86,8 +86,8 @@ class Artwork(DB.Model):
     collections = DB.relationship('Collection', back_populates='artworks',
                                   secondary=ARTWORK_COLLECTION)
 
-    def __init__(self, identification, title, category, medium, date, image):
-        self.identification = identification
+    def __init__(self, id, title, category, medium, date, image):
+        self.id = id
         self.title = title
         self.category = category
         self.medium = medium
@@ -105,7 +105,7 @@ class Collection(DB.Model):
     and the type of institution
     """
     __tablename__ = 'collection'
-    identification = DB.Column(DB.String(ID_CHARS), primary_key=True)
+    id = DB.Column(DB.String(ID_CHARS), primary_key=True)
     institution = DB.Column(DB.String(NAME_CHARS))
     website = DB.Column(DB.String(LINK_CHARS))
     region = DB.Column(DB.String(NAME_CHARS))
@@ -113,8 +113,8 @@ class Collection(DB.Model):
     artworks = DB.relationship('Artwork', back_populates='collections',
                                secondary=ARTWORK_COLLECTION)
 
-    def __init__(self, identification, institution, website, region, ins_type):
-        self.identification = identification
+    def __init__(self, id, institution, website, region, ins_type):
+        self.id = id
         self.institution = institution
         self.website = website
         self.region = region
@@ -130,15 +130,15 @@ class Style(DB.Model):
     name, description and time period
     """
     __tablename__ = 'style'
-    identification = DB.Column(DB.String(ID_CHARS), primary_key=True)
+    id = DB.Column(DB.String(ID_CHARS), primary_key=True)
     name = DB.Column(DB.String(NAME_CHARS))
     description = DB.Column(DB.String)
     image = DB.Column(DB.String(LINK_CHARS))
     artworks = DB.relationship(
         'Artwork', back_populates='styles', secondary=ARTWORK_STYLE)
 
-    def __init__(self, identification, name, description, image):
-        self.identification = identification
+    def __init__(self, id, name, description, image):
+        self.id = id
         self.name = name
         self.description = description
         self.image = image
