@@ -1,7 +1,7 @@
 angular.module('ArtSnob')
 
-    .service('Collection', ['$http', function ($http) {
-    	var url = '/api/collection';
+    .service('About', ['$http', function ($http) {
+    	var url = '/run-unit-tests';
 
         this.get = function(callback) {
             $http.get(url).then(function(response) {

@@ -164,7 +164,7 @@ class Style(DB.Model):
 DB.create_all()
 
 # used for testing database contents
-# print(len(DB.session.query(Artist).all()))
+print(len(DB.session.query(Artist).all()))
 
 # Create the Flask-Restless API manager.
 manager = flask_restless.APIManager(app, flask_sqlalchemy_db=DB)
