@@ -7,7 +7,7 @@ FILES :=        \
     idb.html \
     app/model.py   \
     app/test.py    \
-    IMDB1.pdf
+    IMDB2.pdf
 ifeq ($(shell uname), Darwin)          # Apple
     PYTHON   := python3.5
     PIP      := pip3.5
