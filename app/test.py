@@ -1,17 +1,10 @@
 """
 Unit tests for modely.py
 """
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-
-APP = Flask(__name__)
-APP.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres@localhost/artsnob'
-APP.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-DB = SQLAlchemy(APP)
 
 import unittest
 from unittest import main, TestCase
-from model import Artist, Artwork, Style, Collection
+from model import Artist, Artwork, Style, Collection, DB
 
 
 
@@ -21,16 +14,15 @@ class TestArtist(TestCase):
     """
     Test cases for Artist
     """
-
-    def test_insertion(self):
-        """
-        Test insertion
-        """
+    def setUp(self):
+        DB.drop_all()
         DB.create_all()
         artist1 = Artist('1','Andy Warhol', '1900', 'Male', 'American','http://a5.files.biography.com/image/upload/c_fit,cs_srgb,dpr_1.0,h_1200,q_80,w_1200/MTE5NDg0MDU1MTYxNzY3NDM5.jpg')
         DB.session.add(artist1)
+        DB.session.commit()
 
-    def test_deletion(self):
+
+    def tearDown(self):
         """
         Test deletion
         """
@@ -48,15 +40,15 @@ class TestArtist(TestCase):
         """
         Test filtering 1
         """
-        artist = Artist.query.filter(Artist.name == 'Andy Warhol')
-        assertEqual(artist.birth, 1900)
+        artist = Artist.query.filter_by(name = 'Andy Warhol').first()
+        self.assertEqual(artist.birth, '1900')
 
     def test_filteration2(self):
         """
         Test filtering 2
         """
-        artist = Artist.query.filter(Artist.birth == 1900)
-        assertEqual(artist.name, 'Andy Warhol')
+        artist = Artist.query.filter_by(birth = '1900').first()
+        self.assertEqual(artist.name, 'Andy Warhol')
 
     def test_addition_deletion(self):
         """
@@ -66,9 +58,9 @@ class TestArtist(TestCase):
         DB.session.add(artist2)
         DB.session.commit()
         self.assertEqual(len(Artist.query.all()), 2)
-        Artist.query.filter(Artist.name == 'Pablo Picasso').delete()
+        Artist.query.filter_by(name = 'Pablo Picasso').delete()
         DB.session.commit()
-        self.assertEqual(len(DB.session.query.all()), 1)
+        self.assertEqual(len(Artist.query.all()), 1)
 
 
 
@@ -77,16 +69,15 @@ class TestArtwork(TestCase):
     """
     Test cases for Artwork
     """
-
-    def test_insertion(self):
-        """
-        Test insertion
-        """
+    def setUp(self):
+        DB.drop_all()
         DB.create_all()
         artwork = Artwork('1','Statue of David', 'statue', 'Statue','1000', 'http://a5.files.biography.com/image/upload/c_fit,cs_srgb,dpr_1.0,h_1200,q_80,w_1200/MTE5NDg0MDU1MTYxNzY3NDM5.jpg')
         DB.session.add(artwork)
+        DB.session.commit()
 
-    def test_deletion(self):
+
+    def tearDown(self):
         """
         Test deletion
         """
@@ -104,15 +95,15 @@ class TestArtwork(TestCase):
         """
         Test filtering 1
         """
-        artwork = DB.session.query.filter(Artwork.name == 'Statue of David')
-        assertEqual(artwork.medium, 'Statue')
+        artwork = Artwork.query.filter_by(title = 'Statue of David').first()
+        self.assertEqual(artwork.medium, 'Statue')
 
     def test_filteration2(self):
         """
         Test filtering 2
         """        
-        artwork = Artwork.query.filter(Artwork.medium == 'Statue')
-        assertEqual(artwork.name, 'Statue of David')
+        artwork = Artwork.query.filter_by(medium = 'Statue').first()
+        self.assertEqual(artwork.title, 'Statue of David')
 
     def test_addition_deletion(self):
         """
@@ -122,25 +113,24 @@ class TestArtwork(TestCase):
         DB.session.add(artwork)
         DB.session.commit()
         self.assertEqual(len(Artwork.query.all()), 2)
-        Artwork.query.filter(Artwork.name == 'Mona Lisa').delete()
+        Artwork.query.filter_by(title = 'Mona Lisa').delete()
         DB.session.commit()
-        self.assertEqual(len(DB.session.query.all()), 1)
+        self.assertEqual(len(Artwork.query.all()), 1)
 
 
 
-class Collection(TestCase):
+class TestCollection(TestCase):
     """
     Test cases for Collection
     """
-
-    def test_insertion(self):
-        """
-        Test insertion
-        """
+    def setUp(self):
+        DB.drop_all()
+        DB.create_all()
         collect = Collection('1', 'National Museum of Art', 'http://www.nga.gov', 'North America', 'Institution')
         DB.session.add(collect)
+        DB.session.commit()
 
-    def test_deletion(self):
+    def tearDown(self):
         """
         Test deletion
         """
@@ -158,15 +148,15 @@ class Collection(TestCase):
         """
         Test filtering 1
         """
-        collect = Collection.query.filter(Collection.name == 'National Museum of Art, Washington D.C.')
-        assertEqual(collect.region, "North America")
+        collect = Collection.query.filter_by(institution = 'National Museum of Art').first()
+        self.assertEqual(collect.region, 'North America')
 
     def test_filteration1(self):
         """
         Test filtering 2
         """  
-        collect = Collection.query.filter(Collection.region == 'North America')
-        assertEqual(collect.name, 'National Museum of Art, Washington D.C.')
+        collect = Collection.query.filter_by(region = 'North America').first()
+        self.assertEqual(collect.institution, 'National Museum of Art')
 
     def test_addition_deletion(self):
         """
@@ -176,7 +166,7 @@ class Collection(TestCase):
         DB.session.add(collect)
         DB.session.commit()
         self.assertEqual(len(Collection.query.all()), 2)
-        Collection.query.filter(Collection.name == 'Kimbell Museum of Art').delete()
+        Collection.query.filter_by(institution = 'Kimbell Museum of Art').delete()
         DB.session.commit()
         self.assertEqual(len(Collection.query.all()), 1)
 
@@ -186,16 +176,14 @@ class TestStyle(TestCase):
     """
     Test cases for Style
     """
-
-    def test_insertion(self):
-        """
-        Test insertion
-        """
+    def setUp(self):
+        DB.drop_all()
         DB.create_all()
         style = Style('1','Pop', 'cool', 'http://a5.files.biography.com/image/upload/c_fit,cs_srgb,dpr_1.0,h_1200,q_80,w_1200/MTE5NDg0MDU1MTYxNzY3NDM5.jpg')
         DB.session.add(style)
+        DB.session.commit()
 
-    def test_deletion(self):
+    def tearDown(self):
         """
         Test deletion
         """
@@ -213,15 +201,15 @@ class TestStyle(TestCase):
         """
         Test filtering 1
         """
-        style = Style.query.filter(Style.description == 'cool')
-        assertEqual(style.name, 'Pop')
+        style = Style.query.filter_by(description = 'cool').first()
+        self.assertEqual(style.name, 'Pop')
 
     def test_filteration2(self):
         """
         Test filtering 2
         """
-        style = Style.query.filter(Style.name == 'Pop')
-        assertEqual(style.description, 'cool')
+        style = Style.query.filter_by(name = 'Pop').first()
+        self.assertEqual(style.description, 'cool')
 
     def test_addition_deletion(self):
         """
@@ -231,7 +219,7 @@ class TestStyle(TestCase):
         DB.session.add(style)
         DB.session.commit()
         self.assertEqual(len(Style.query.all()), 2)
-        DB.session.query.filter(Style.name == 'Modern').delete()
+        Style.query.filter_by(name = 'Modern').delete()
         DB.session.commit()
         self.assertEqual(len(Style.query.all()), 1)
 
