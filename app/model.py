@@ -6,7 +6,7 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
-os.system('createdb testdb')
+#os.system('createdb ardb')
 APP = Flask(__name__)
 APP.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///artsnob'
 APP.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
