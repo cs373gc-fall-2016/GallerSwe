@@ -21,21 +21,21 @@ LINK_CHARS = 255
 
 ARTWORK_ARTIST = DB.Table('artist_artwork',
                           DB.Column('artist_id', DB.String(ID_CHARS),
-                                    DB.ForeignKey('artist.id')),
+                                    DB.ForeignKey('artist.identification')),
                           DB.Column('artwork_id', DB.String(ID_CHARS),
                                     DB.ForeignKey('artwork.id')))
 
 ARTWORK_COLLECTION = DB.Table('artwork_collection',
                               DB.Column('artwork_id', DB.String(ID_CHARS),
-                                        DB.ForeignKey('artwork.id')),
+                                        DB.ForeignKey('artwork.identification')),
                               DB.Column('collection_id', DB.String(ID_CHARS),
-                                        DB.ForeignKey('collection.id')))
+                                        DB.ForeignKey('collection.identification')))
 
 ARTWORK_STYLE = DB.Table('artworkstyle',
                          DB.Column('artwork_id', DB.String(ID_CHARS),
-                                   DB.ForeignKey('artwork.id')),
+                                   DB.ForeignKey('artwork.identification')),
                          DB.Column('style_id', DB.String(ID_CHARS),
-                                   DB.ForeignKey('style.id')))
+                                   DB.ForeignKey('style.identification')))
 
 
 class Artist(DB.Model):
