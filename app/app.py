@@ -7,8 +7,8 @@ import flask_sqlalchemy
 import flask_restless
 from flask import Flask, send_from_directory, render_template
 from flask_cache import Cache
-from model import Artist
-import test
+#from model import Artist
+#import test
 import subprocess
 
 app = Flask(__name__, static_url_path='')
