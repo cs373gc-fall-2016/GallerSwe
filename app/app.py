@@ -9,6 +9,7 @@ from flask import Flask, send_from_directory, render_template
 from flask_cache import Cache
 from model import Artist
 import test
+import subprocess
 
 app = Flask(__name__, static_url_path='')
 
@@ -191,8 +192,9 @@ def artwork():
 ### endpoint used by about page to run unit tests ####
 @app.route('/run-unit-tests')
 def test():
-	## put code here to run tests ##
-	return true
+    proc = subprocess.Popen(["python3 test.py"], stdout=subprocess.PIPE, shell=True)
+    (out, err) = proc.communicate()
+    return out
 
 if __name__ == "__main__":
     app.run()
