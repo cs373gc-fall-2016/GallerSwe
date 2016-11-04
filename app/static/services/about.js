@@ -5,7 +5,7 @@ angular.module('ArtSnob')
 
         this.get = function(callback) {
             $http.get(url).then(function(response) {
-            	callback(response.data)
+            	callback(response)
             });
 
             return

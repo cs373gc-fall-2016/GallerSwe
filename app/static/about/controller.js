@@ -3,9 +3,12 @@ angular.module('ArtSnob')
     function($scope, About) {
         'use strict';
         
+        $scope.reload = function() {
+        }
+
         $scope.buttonClick = function() {
-            $scope.hasClickedButton = true;
 			About.get(function(response) {
+                console.log("running tests");
 				$scope.response = response
 			});
         }
