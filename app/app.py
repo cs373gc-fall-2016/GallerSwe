@@ -152,10 +152,10 @@ class Style(DB.Model):
     id = DB.Column(DB.String(ID_CHARS), primary_key=True)
     name = DB.Column(DB.String(NAME_CHARS))
     description = DB.Column(DB.String)
-    image = DB.Column(DB.String(LINK_CHARS))
+    image = DB.Column(DB.String(LINK_CHARS)
     artworks = DB.relationship('Artwork', back_populates='styles', secondary=ARTWORK_STYLE)
 
-    def __init__(self, id, name, description, image):
+    def __init__(self, id, name, description, image, nim):
         self.id = id
         self.name = name
         self.description = description
