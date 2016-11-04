@@ -8,7 +8,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 os.system('createdb testdb')
 APP = Flask(__name__)
-APP.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///testdb'
+APP.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///artsnob'
 APP.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 DB = SQLAlchemy(APP)
 
@@ -46,16 +46,17 @@ class Artist(DB.Model):
     with all of their artworks.
     """
     _tablename_ = 'artist'
-    id = DB.Column(DB.String(ID_CHARS), primary_key=True)
+    identification = DB.Column(DB.String(ID_CHARS), primary_key=True)
     name = DB.Column(DB.String(NAME_CHARS))
     birth = DB.Column(DB.String(DATE_CHARS))
     gender = DB.Column(DB.String(GENDER_CHARS))
     nationality = DB.Column(DB.String(NAME_CHARS))
     image = DB.Column(DB.String(LINK_CHARS))
-    artworks = DB.relationship('Artwork', back_populates='artists', secondary=ARTWORK_ARTIST)
+    artworks = DB.relationship(
+        'Artwork', back_populates='artists', secondary=ARTWORK_ARTIST)
 
-    def __init__(self, id, name, birth, gender, nationality, image):
-        self.id = id
+    def __init__(self, identification, name, birth, gender, nationality, image):
+        self.identification = identification
         self.name = name
         self.birth = birth
         self.gender = gender
@@ -64,7 +65,7 @@ class Artist(DB.Model):
 
     def __repr__(self):
         return '<User %r>' % self.name
-    
+
 
 class Artwork(DB.Model):
     """
@@ -72,7 +73,7 @@ class Artwork(DB.Model):
     name, medium, description, and style
     """
     __tablename__ = 'artwork'
-    id = DB.Column(DB.String(ID_CHARS), primary_key=True)
+    identification = DB.Column(DB.String(ID_CHARS), primary_key=True)
     title = DB.Column(DB.String(NAME_CHARS))
     category = DB.Column(DB.String(NAME_CHARS))
     medium = DB.Column(DB.String(DESC_CHARS))
@@ -85,22 +86,26 @@ class Artwork(DB.Model):
     collections = DB.relationship('Collection', back_populates='artworks',
                                   secondary=ARTWORK_COLLECTION)
 
-    def __init__(self, id, title, category, medium, date, image):
-        self.id = id
+    def __init__(self, identification, title, category, medium, date, image):
+        self.identification = identification
         self.title = title
         self.category = category
         self.medium = medium
         self.date = date
         self.image = image
-    
+
     def __repr__(self):
         return '<User %r>' % self.title
 
+
 class Collection(DB.Model):
     """
+    The collection model contains attributes about
+    where a piece is located, the website of the institution,
+    and the type of institution
     """
     __tablename__ = 'collection'
-    id = DB.Column(DB.String(ID_CHARS), primary_key=True)
+    identification = DB.Column(DB.String(ID_CHARS), primary_key=True)
     institution = DB.Column(DB.String(NAME_CHARS))
     website = DB.Column(DB.String(LINK_CHARS))
     region = DB.Column(DB.String(NAME_CHARS))
@@ -108,15 +113,16 @@ class Collection(DB.Model):
     artworks = DB.relationship('Artwork', back_populates='collections',
                                secondary=ARTWORK_COLLECTION)
 
-    def __init__(self, id, institution, website, region, type):
-        self.id = id
+    def __init__(self, identification, institution, website, region, ins_type):
+        self.identification = identification
         self.institution = institution
         self.website = website
         self.region = region
-        self.type = type
+        self.ins_type = ins_type
 
     def __repr__(self):
         return '<User %r>' % self.institution
+
 
 class Style(DB.Model):
     """
@@ -124,14 +130,15 @@ class Style(DB.Model):
     name, description and time period
     """
     __tablename__ = 'style'
-    id = DB.Column(DB.String(ID_CHARS), primary_key=True)
+    identification = DB.Column(DB.String(ID_CHARS), primary_key=True)
     name = DB.Column(DB.String(NAME_CHARS))
     description = DB.Column(DB.String)
     image = DB.Column(DB.String(LINK_CHARS))
-    artworks = DB.relationship('Artwork', back_populates='styles', secondary=ARTWORK_STYLE)
+    artworks = DB.relationship(
+        'Artwork', back_populates='styles', secondary=ARTWORK_STYLE)
 
-    def __init__(self, id, name, description, image):
-        self.id = id
+    def __init__(self, identification, name, description, image):
+        self.identification = identification
         self.name = name
         self.description = description
         self.image = image
