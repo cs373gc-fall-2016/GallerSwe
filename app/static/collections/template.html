@@ -16,7 +16,7 @@
       <div class="container">
           <div class="row">
               <div class="col-md-8 col-md-offset-2">
-                <p style="text-align:center;"><img src="{{collection.thumbnail.href}}" style = "max-width:95%;border:6px double #545565;" alt="alternative text" width=auto height="256" ></img></p>
+                <!-- <p style="text-align:center;"><img src="{{collection.thumbnail.href}}" style = "max-width:95%;border:6px double #545565;" alt="alternative text" width=auto height="256" ></img></p> -->
               </div>
             </div>
           </div>
@@ -26,19 +26,19 @@
         <div id="display">
           <table id="data" style="width:90%; font-family: Helvetica Neue" class="sortable">
             <tr>
-                <td><b>Title</b></td><td>{{collection.name}}</td>
+                <td><b>Name</b></td><td>{{collection.name}}</td>
             </tr>
             <tr>
-                <td><b>Artist</b></td><td>{{collection.artist}}</td>
+                <td><b>Type</b></td><td>{{collection.type}}</td>
             </tr>
             <tr>
-                <td><b>Category</b></td><td>{{collection.category}}</td>
+                <td><b>Region</b></td><td>{{collection.region}}</td>
             </tr>
             <tr>
-                <td><b>Medium</b></td><td>{{collection.medium}}</td>
+                <td><b>Sample Piece</b></td><td>{{collection.piece}}</td>
             </tr>
             <tr>
-                <td><b>Style</b></td><td>{{collection.style}}</td>
+                <td><b>Website</b></td><td>{{collection.website}</td>
             </tr>
           </table>
         </div>
@@ -58,22 +58,22 @@
     <div id="display">
       <table id="data" style="width:90%" class="sortable">
         <tr>
-            <th>Title</td>
-            <th>Artist</td>
-            <th>Category</td>
-            <th>Medium</td>
-            <th>Style</td>
+            <th>Name</td>
+            <th>Type</td>
+            <th>Region</td>
+            <th>Sample Piece</td>
+            <th>Website</td>
         </tr>
         <tr ng-repeat="item in objects track by $index">
             <td>
                 <a class="page-scroll" ng-click="CollectionSelected(item)">
-                {{item.title}}
+                {{item.name}}
                 </a>
             </td>
-            <td> {{item.artist}} </td>
-            <td> {{item.category}} </td>
-            <td> {{item.medium}} </td>
-            <td> {{item.style}} </td>
+            <td> {{item.type}} </td>
+            <td> {{item.region}} </td>
+            <td> {{item.piece}} </td>
+            <td> {{item.website}} </td>
         </tr>
       </table>
     </div>
