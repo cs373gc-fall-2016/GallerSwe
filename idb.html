@@ -6,7 +6,7 @@
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
 <tr bgcolor="#7799ee">
 <td valign=bottom>&nbsp;<br>
-<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>Netflix</strong></big></big></font></td
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>IMDB2</strong></big></big></font></td
 ><td align=right valign=bottom
 ><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/v/filer4b/v38q001/alex/Classes/SWE/idbReal/GallerSWE/app/model.py">/v/filer4b/v38q001/alex/Classes/SWE/idbReal/GallerSWE/app/model.py</a></font></td></tr></table>
     <p><tt>DB&nbsp;for&nbsp;Artsnob</tt></p>
@@ -26,16 +26,18 @@
 <font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-Artist"><strong>Artist</strong></a>(DB.Model)</dt><dd><tt>The&nbsp;the&nbsp;artist&nbsp;model&nbsp;contains&nbsp;attributes&nbsp;about<br>
-an&nbsp;artist&nbsp;such&nbsp;as&nbsp;name,&nbsp;birth,&nbsp;death,&nbsp;and&nbsp;style<br>
+<td width="100%"><dl><dt><a name="-Artist"><strong>Artist</strong></a>(DB.Model)</dt><dd><tt>The&nbsp;artist&nbsp;model&nbsp;contains&nbsp;attributes&nbsp;about&nbsp;an&nbsp;artist&nbsp;such&nbsp;as&nbsp;
+name&nbsp;and&nbsp;birth&nbsp;date.&nbsp;Artists&nbsp;have&nbsp;a&nbsp;number&nbsp;of&nbsp;Artworks.&nbsp;
+To&nbsp;get&nbsp;the&nbsp;styles&nbsp;of&nbsp;an&nbsp;artist,&nbsp;filter&nbsp;the&nbsp;ARTWORK_STYLE&nbsp;table&nbsp;with&nbsp;all&nbsp;of&nbsp;their&nbsp;artworks.</tt></dd></dl>
 
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><dl><dt><a name="-Artwork"><strong>Artwork</strong></a>(DB.Model)</dt><dd><tt>The&nbsp;artwork&nbsp;model&nbsp;contains&nbsp;attributes&nbsp;about&nbsp;an&nbsp;artwork&nbsp;such&nbsp;as&nbsp;name,&nbsp;medium,&nbsp;description,&nbsp;and&nbsp;style</tt></dd></dl>
 
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-GeoReg"><strong>GeoReg</strong></a>(DB.Model)</dt><dd><tt>The&nbsp;geographical&nbsp;region&nbsp;model&nbsp;contains&nbsp;attributes&nbsp;about&nbsp;a&nbsp;region&nbsp;such&nbsp;as&nbsp;location,&nbsp;artworks,&nbsp;and&nbsp;style</tt></dd></dl>
+<td width="100%"><dl><dt><a name="-Collection"><strong>Collection</strong></a>(DB.Model)</dt><dd><tt>The&nbsp;collection&nbsp;model&nbsp;contains&nbsp;attributes&nbsp;about&nbsp;where&nbsp;a&nbsp;piece&nbsp;is&nbsp;located,&nbsp;the&nbsp;website&nbsp;of&nbsp;the&nbsp;institution,&nbsp;and&nbsp;the&nbsp;type&nbsp;of&nbsp;institution</tt></dd></dl>
 
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-Style"><strong>Style</strong></a>(DB.Model)</dt><dd><tt>The&nbsp;style&nbsp;model&nbsp;contains&nbsp;attributes&nbsp;about&nbsp;a&nbsp;style&nbsp;such&nbsp;as&nbsp;name,&nbsp;description,&nbsp;and&nbsp;time&nbsp;period</tt></dd></dl>
+<td width="100%"><dl><dt><a name="-Style"><strong>Style</strong></a>(DB.Model)</dt><dd><tt>The&nbsp;style&nbsp;model&nbsp;contains&nbsp;attributes&nbsp;about&nbsp;a&nbsp;style&nbsp;such&nbsp;as&nbsp;name,&nbsp;description,&nbsp;and&nbsp;
+time&nbsp;period</tt></dd></dl>
 </td></tr></table>
 </body></html>
