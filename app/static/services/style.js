@@ -1,6 +1,6 @@
 angular.module('ArtSnob')
 
-    .service('Styles', ['$http', function ($http) {
+    .service('Style', ['$http', function ($http) {
     	var url = '/api/style';
 
         this.get = function(callback) {
