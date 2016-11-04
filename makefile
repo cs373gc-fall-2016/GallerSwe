@@ -29,4 +29,4 @@ check:
     echo "success";
 
 test:
-	python3 app/tests.py
+	python3 app/test.py
