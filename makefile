@@ -3,11 +3,11 @@ FILES :=        \
     .travis.yml \
     makefile    \
     apiary.apib \
-    IDB.log    \
+    IMDB.log    \
     idb.html \
     app/model.py   \
     app/test.py    \
-    imdb1.pdf
+    IMDB1.pdf
 ifeq ($(shell uname), Darwin)          # Apple
     PYTHON   := python3.5
     PIP      := pip3.5
@@ -38,10 +38,10 @@ else                                   # UTCS
     AUTOPEP8 := autopep8
 endif
 
-# test.tmp: app/test.py app/model.py
-# 	$(COVERAGE) run    --branch app/test.py >  test.tmp 2>&1
-# 	$(COVERAGE) report -m                      >> test.tmp
-# 	cat test.tmp
+test.tmp: app/test.py app/model.py
+	$(COVERAGE) run    --branch app/test.py >  test.tmp 2>&1
+	$(COVERAGE) report -m                      >> test.tmp
+	cat test.tmp
 
 IDB.log: 
 	git log > IDB.log
