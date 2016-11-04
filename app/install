@@ -3,3 +3,13 @@ pip install flask_sqlalchemy
 pip install flask_cache
 brew install postgresql
 pip install psycopg2
+  (if error)
+  Use these following commands, this will solve the error:
+
+  sudo apt-get install postgresql
+  then fire:
+
+  sudo apt-get install python-psycopg2
+  and last:
+
+  sudo apt-get install libpq-dev
