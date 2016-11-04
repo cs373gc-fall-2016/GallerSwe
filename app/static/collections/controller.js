@@ -10,7 +10,7 @@ angular.module('ArtSnob')
             });
         }
 
-        $scope.CollectionSelected = function(artwork) {
+        $scope.CollectionSelected = function(collection) {
             $scope.collection = collection
         }
 
