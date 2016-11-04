@@ -65,16 +65,16 @@ class Artist(DB.Model):
     name = DB.Column(DB.String(NAME_CHARS))
     birth = DB.Column(DB.String(DATE_CHARS))
     gender = DB.Column(DB.String(GENDER_CHARS))
-    nationality = DB.Column(DB.String(NAME_CHARS))
+    hometown = DB.Column(DB.String(NAME_CHARS))
     image = DB.Column(DB.String(LINK_CHARS))
     artworks = DB.relationship('Artwork', back_populates='artists', secondary=ARTWORK_ARTIST)
 
-    def __init__(self, id, name, birth, gender, nationality, image):
+    def __init__(self, id, name, birth, gender, hometown, image):
         self.id = id
         self.name = name
         self.birth = birth
         self.gender = gender
-        self.nationality = nationality
+        self.hometown = hometown
         self.image = image
 
 
