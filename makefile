@@ -3,11 +3,48 @@ FILES :=        \
     .travis.yml \
     makefile    \
     apiary.apib \
-    IDB3.log    \
-    models.html \
-    app/models.py   \
-    app/tests.py    \
-    UML.pdf
+    IDB.log    \
+    idb.html \
+    app/model.py   \
+    app/test.py    \
+    imdb1.pdf
+ifeq ($(shell uname), Darwin)          # Apple
+    PYTHON   := python3.5
+    PIP      := pip3.5
+    PYLINT   := pylint
+    COVERAGE := coverage-3.5
+    PYDOC    := pydoc3.5
+    AUTOPEP8 := autopep8
+else ifeq ($(CI), true)                # Travis CI
+    PYTHON   := python3.5
+    PIP      := pip3.5
+    PYLINT   := pylint
+    COVERAGE := coverage-3.5
+    PYDOC    := pydoc
+    AUTOPEP8 := autopep8
+else ifeq ($(shell uname -p), unknown) # Docker
+    PYTHON   := python3.5
+    PIP      := pip3.5
+    PYLINT   := pylint
+    COVERAGE := coverage-3.5
+    PYDOC    := pydoc3.5
+    AUTOPEP8 := autopep8
+else                                   # UTCS
+    PYTHON   := python3.5
+    PIP      := pip3.5
+    PYLINT   := pylint3.5
+    COVERAGE := coverage-3.5
+    PYDOC    := pydoc3.4
+    AUTOPEP8 := autopep8
+endif
+
+# test.tmp: app/test.py app/model.py
+# 	$(COVERAGE) run    --branch app/test.py >  test.tmp 2>&1
+# 	$(COVERAGE) report -m                      >> test.tmp
+# 	cat test.tmp
+
+IDB.log: 
+	git log > IDB.log
 
 check:
 	@not_found=0;                                 \

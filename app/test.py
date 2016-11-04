@@ -7,9 +7,6 @@ from unittest import main, TestCase
 from model import Artist, Artwork, Style, Collection, DB
 
 
-
-
-
 class TestArtist(TestCase):
     """
     Test cases for Artist
