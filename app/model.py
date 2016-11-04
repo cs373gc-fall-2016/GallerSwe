@@ -6,9 +6,9 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
-#os.system('createdb ardb')
+os.system('createdb testdb')
 APP = Flask(__name__)
-APP.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///artsnob'
+APP.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///testdb'
 APP.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 DB = SQLAlchemy(APP)
 
