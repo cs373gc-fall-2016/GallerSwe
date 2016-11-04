@@ -25,7 +25,7 @@ def root():
 
 
 ###### model.py contets #########
-# delete if we have time to remove circular dependency 
+# delete if we have time to remove circular dependency
 
 ID_CHARS = 24
 NAME_CHARS = 255
@@ -76,7 +76,7 @@ class Artist(DB.Model):
         self.nationality = nationality
         self.image = image
 
-    
+
     # def dictionary(self):
     #   asdict = {}
     #   asdict['id'] = self.id
@@ -177,7 +177,7 @@ manager.create_api(Style, methods=['GET'])
 manager.create_api(Collection, methods=['GET'])
 
 ###### FAKE APIS ############
-# used for testing, point to these fake apis when you want 
+# used for testing, point to these fake apis when you want
 # data to work with while database is still empty
 
 @app.route('/hack-api/artwork')
