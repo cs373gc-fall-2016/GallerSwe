@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <header class="intro">
+      <div class="intro-body">
+        <div class="carousel slide carousel-fade" data-ride="carousel">
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+              <div class="item active">
+              </div>
+              <div class="item">
+              </div>
+              <div class="item">
+              </div>
+          </div>
+      </div>
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-8 col-md-offset-2">
+                      <h1 class="brand-heading">Welcome to ArtSnob</h1>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </header>
+
+  <p> Want a sneak peak? </p>
+  <div id="splashCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#splashCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#splashCarousel" data-slide-to="1"></li>
+      <li data-target="#splashCarousel" data-slide-to="2"></li>
+      <li data-target="#splashCarousel" data-slide-to="3"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="http://www.museumsyndicate.com/images/1/3276.jpg">
+      </div>
+
+      <div class="item">
+        <img src="https://www.nga.gov/feature/artnation/harnett/images/harnett/harnett.jpg">
+      </div>
+
+      <div class="item">
+        <img src="http://d2jv9003bew7ag.cloudfront.net/uploads/What-Is-Pop-Art.jpg">
+      </div>
+
+      <div class="item">
+        <img src="https://uploads1.wikiart.org/images/andy-warhol/campbells-soup-pink.jpg">
+      </div>
+
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#splashCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#splashCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+{% endblock %}

@@ -124,19 +124,20 @@ a:focus {
   padding: 100px 0;
   text-align: center;
   color: white;
-  background: url(../img/Black-And-White-Gallery.jpg) no-repeat bottom center scroll;
+  /*background: url(../img/Black-And-White-Gallery.jpg) no-repeat bottom center scroll;
   background-color: black;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
-  -o-background-size: cover;
+  -o-background-size: cover;*/
 }
 .intro .intro-body {
   display: table-cell;
-  vertical-align: middle;
+  padding: 200px 0;
+  /*vertical-align: middle;*/
 }
 .intro .intro-body .brand-heading {
-  font-size: 40px;
+  font-size: 300px;
 }
 .intro .intro-body .intro-text {
   font-size: 18px;

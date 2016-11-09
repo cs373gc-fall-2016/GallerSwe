@@ -1,0 +1,49 @@
+{
+  "num_results": 3, 
+  "objects": [
+    {
+        "id": "4d8b92b34eb68a1b2c0003f4",
+        "name": "Andy Warhol",
+        "gender": "male",
+        "birthday": "1928",
+        "hometown": "Pittsburgh, Pennsylvania",
+        "artworks": [
+            {"title": "artwork1", "id": "1"},
+            {"title": "artwork2", "id": "2"}
+        ],
+        "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/PFufT6nMKNwLOpPEezf4Ww/four_thirds.jpg"
+        }
+    },
+    {
+        "id": "4d8b92724eb68a1b2c000108",
+        "name": "James Rosenquist",
+        "gender": "male",
+        "birthday": "1933",
+        "hometown": "Grand Forks, North Dakota",
+        "artworks": [
+            {"title": "artwork3", "id": "3"},
+            {"title": "artwork4", "id": "4"}
+        ],
+        "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/3VUm07DpKQNQdA_QfCrPcA/four_thirds.jpg"
+        }
+    },
+    {
+        "id": "4d8b927b4eb68a1b2c000148",
+        "name": "Tom Wesselmann",
+        "gender": "male",
+        "birthday": "1931",
+        "hometown": "Cincinnati, Ohio",
+        "artworks": [
+            {"title": "artwork5", "id": "5"},
+            {"title": "artwork6", "id": "6"}
+        ],
+        "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/8smV519M1L352CTihrfW7A/four_thirds.jpg"
+        }
+    }
+], 
+  "page": 1, 
+  "total_pages": 1
+}

@@ -15,79 +15,43 @@ Art Snob is a simple API allowing consumers to get information about artists and
             {
                 "id": "4d8b92b34eb68a1b2c0003f4",
                 "name": "Andy Warhol",
-                "sortable_name": "Warhol Andy",
                 "gender": "male",
                 "birthday": "1928",
                 "hometown": "Pittsburgh, Pennsylvania",
-                "location": "New York, New York",
-                "_links": {
-                  "thumbnail": {
+                "artworks": [
+                    {"title": "artwork1", "id": "1"},
+                    {"title": "artwork2", "id": "2"}
+                ],
+                "thumbnail": {
                     "href": "https://d32dm0rphc51dk.cloudfront.net/PFufT6nMKNwLOpPEezf4Ww/four_thirds.jpg"
-                  },
-                  "nationality": {
-                    "href": "http://artsnob.me/nationalities/American"
-                  },
-                  "artworks": {
-                    "href": "http://artsnob.me/Artwork/artwork_id/4d8b92b34eb68a1b2c0003f4"
-                  },
-                  "similar_artists": {
-                    "href": "http://artsnob.me/Artist/similar_id/4d8b92b34eb68a1b2c0003f4"
-                  },
-                  "styles": {
-                    "href": "http://artsnob.me/Style/artist_id/4de8b92b34eb68a1b2c0003f4"
-                  }
                 }
             },
             {
                 "id": "4d8b92724eb68a1b2c000108",
                 "name": "James Rosenquist",
-                "sortable_name": "Rosenquist James",
                 "gender": "male",
                 "birthday": "1933",
                 "hometown": "Grand Forks, North Dakota",
-                "location": "Aripeka, Florida",
-                "_links": {
-                  "thumbnail": {
+                "artworks": [
+                    {"title": "artwork3", "id": "3"},
+                    {"title": "artwork4", "id": "4"}
+                ],
+                "thumbnail": {
                     "href": "https://d32dm0rphc51dk.cloudfront.net/3VUm07DpKQNQdA_QfCrPcA/four_thirds.jpg"
-                  },
-                  "nationality": {
-                    "href": "http://artsnob.me/nationalities/American"
-                  },
-                  "artworks": {
-                    "href": "http://artsnob.me/Artwork/artwork_id/4d8b92724eb68a1b2c000108"
-                  },
-                  "similar_artists": {
-                    "href": "http://artsnob.me/Artist/similar_id/4d8b92724eb68a1b2c000108"
-                  },
-                  "styles": {
-                    "href": "http://artsnob.me/Style/artist_id/4d8b92724eb68a1b2c000108"
-                  }
                 }
             },
             {
                 "id": "4d8b927b4eb68a1b2c000148",
                 "name": "Tom Wesselmann",
-                "sortable_name": "Wesselmann Tom",
                 "gender": "male",
                 "birthday": "1931",
                 "hometown": "Cincinnati, Ohio",
-                "location": "New York, New York",
-                "_links": {
-                  "thumbnail": {
+                "artworks": [
+                    {"title": "artwork5", "id": "5"},
+                    {"title": "artwork6", "id": "6"}
+                ],
+                "thumbnail": {
                     "href": "https://d32dm0rphc51dk.cloudfront.net/8smV519M1L352CTihrfW7A/four_thirds.jpg"
-                  },
-                  "nationality": {
-                    "href": "http://artsnob.me/nationalities/American"
-                  },
-                  "artworks": {
-                    "href": "http://artsnob.me/Artwork/artwork_id/4d8b927b4eb68a1b2c000148"
-                  },
-                  "similar_artists": {
-                    "href": "http://artsnob.me/Artist/similar_id/4d8b927b4eb68a1b2c000148"
-                  },
-                  "styles": {
-                    "href": "http://artsnob.me/Style/artist_id/4d8b927b4eb68a1b2c000148"
-                  }
                 }
             }
         ]
@@ -103,231 +67,18 @@ Art Snob is a simple API allowing consumers to get information about artists and
         {
             "id": "4d8b92b34eb68a1b2c0003f4",
             "name": "Andy Warhol",
-            "sortable_name": "Warhol Andy",
             "gender": "male",
             "birthday": "1928",
             "hometown": "Pittsburgh, Pennsylvania",
-            "location": "New York, New York",
-            "_links": {
-              "thumbnail": {
-                "href": "https://d32dm0rphc51dk.cloudfront.net/PFufT6nMKNwLOpPEezf4Ww/four_thirds.jpg"
-              },
-              "nationality": {
-                    "href": "http://artsnob.me/nationalities/American"
-              },
-              "artworks": {
-                "href": "http://artsnob.me/Artwork/artwork_id/4d8b92b34eb68a1b2c0003f4"
-              },
-              "similar_artists": {
-                "href": "http://artsnob.me/Artist/similar_id/4d8b92b34eb68a1b2c0003f4"
-              },
-              "styles": {
-                "href": "http://artsnob.me/Style/artist_id/4de8b92b34eb68a1b2c0003f4"
-              }
+            "artworks": [
+                {"title": "artwork1", "id": "1"},
+                {"title": "artwork2", "id": "2"}
+            ],
+            "thumbnail": {
+                    "href": "https://d32dm0rphc51dk.cloudfront.net/PFufT6nMKNwLOpPEezf4Ww/four_thirds.jpg"
             }
         }
 
-### Get similar artists' information [GET /Artist/similar_id/{id}]
-
-+ Parameters
-
-    + id: `1` (number, required) - The unique id of the artist you want similar artists to
-    
-+ Response 200 (application/json)
-
-        [
-            {
-                "id": "4d8b92724eb68a1b2c000108",
-                "name": "James Rosenquist",
-                "sortable_name": "Rosenquist James",
-                "gender": "male",
-                "birthday": "1933",
-                "hometown": "Grand Forks, North Dakota",
-                "location": "Aripeka, Florida",
-                "_links": {
-                  "thumbnail": {
-                    "href": "https://d32dm0rphc51dk.cloudfront.net/3VUm07DpKQNQdA_QfCrPcA/four_thirds.jpg"
-                  },
-                  "nationality": {
-                    "href": "http://artsnob.me/nationalities/American"
-                  },
-                  "artworks": {
-                    "href": "http://artsnob.me/Artwork/artwork_id/4d8b92724eb68a1b2c000108"
-                  },
-                  "similar_artists": {
-                    "href": "http://artsnob.me/Artist/similar_id/4d8b92724eb68a1b2c000108"
-                  },
-                  "styles": {
-                    "href": "http://artsnob.me/Style/artist_id/4d8b92724eb68a1b2c000108"
-                  }
-                }
-            },
-            {
-                "id": "4d8b927b4eb68a1b2c000148",
-                "name": "Tom Wesselmann",
-                "sortable_name": "Wesselmann Tom",
-                "gender": "male",
-                "birthday": "1931",
-                "hometown": "Cincinnati, Ohio",
-                "location": "New York, New York",
-                "_links": {
-                  "thumbnail": {
-                    "href": "https://d32dm0rphc51dk.cloudfront.net/8smV519M1L352CTihrfW7A/four_thirds.jpg"
-                  },
-                  "nationality": {
-                    "href": "http://artsnob.me/nationalities/American"
-                  },
-                  "artworks": {
-                    "href": "http://artsnob.me/Artwork/artwork_id/4d8b927b4eb68a1b2c000148"
-                  },
-                  "similar_artists": {
-                    "href": "http://artsnob.me/Artist/similar_id/4d8b927b4eb68a1b2c000148"
-                  },
-                  "styles": {
-                    "href": "http://artsnob.me/Style/artist_id/4d8b927b4eb68a1b2c000148"
-                  }
-                }
-            }
-        ]
-
-### Get the artists of an artwork [GET /Artist/artwork_id/{id}]
-
-+ Parameters
-
-    + id: `1` (number, required) - The unique id of the artwork
-    
-+ Response 200 (application/json)
-
-        [
-            {
-                "id": "4d8b92724eb68a1b2c000108",
-                "name": "James Rosenquist",
-                "sortable_name": "Rosenquist James",
-                "gender": "male",
-                "birthday": "1933",
-                "hometown": "Grand Forks, North Dakota",
-                "location": "Aripeka, Florida",
-                "_links": {
-                  "thumbnail": {
-                    "href": "https://d32dm0rphc51dk.cloudfront.net/3VUm07DpKQNQdA_QfCrPcA/four_thirds.jpg"
-                  },
-                  "nationality": {
-                    "href": "http://artsnob.me/nationalities/American"
-                  },
-                  "artworks": {
-                    "href": "http://artsnob.me/Artwork/artwork_id/4d8b92724eb68a1b2c000108"
-                  },
-                  "similar_artists": {
-                    "href": "http://artsnob.me/Artist/similar_id/4d8b92724eb68a1b2c000108"
-                  },
-                  "styles": {
-                    "href": "http://artsnob.me/Style/artist_id/4d8b92724eb68a1b2c000108"
-                  }
-                
-                }
-            }
-        ]
-
-### Get the artists with a certain style [GET /Artist/style_id/{id}]
-
-+ Parameters
-
-    + id: `1` (number, required) - The unique id of the style
-    
-+ Response 200 (application/json)
-
-        [
-            {
-                "id": "4d8b92724eb68a1b2c000108",
-                "name": "James Rosenquist",
-                "sortable_name": "Rosenquist James",
-                "gender": "male",
-                "birthday": "1933",
-                "hometown": "Grand Forks, North Dakota",
-                "location": "Aripeka, Florida",
-                "_links": {
-                  "thumbnail": {
-                    "href": "https://d32dm0rphc51dk.cloudfront.net/3VUm07DpKQNQdA_QfCrPcA/four_thirds.jpg"
-                  },
-                  "nationality": {
-                    "href": "http://artsnob.me/nationalities/American"
-                  },
-                  "artworks": {
-                    "href": "http://artsnob.me/Artwork/artwork_id/4d8b92724eb68a1b2c000108"
-                  },
-                  "similar_artists": {
-                    "href": "http://artsnob.me/Artist/similar_id/4d8b92724eb68a1b2c000108"
-                  },
-                  "styles": {
-                    "href": "http://artsnob.me/Style/artist_id/4d8b92724eb68a1b2c000108"
-                  }
-                
-                }
-            },
-            {
-                "id": "4d8b92b34eb68a1b2c0003f4",
-                "name": "Andy Warhol",
-                "sortable_name": "Warhol Andy",
-                "gender": "male",
-                "birthday": "1928",
-                "hometown": "Pittsburgh, Pennsylvania",
-                "location": "New York, New York",
-                "_links": {
-                  "thumbnail": {
-                    "href": "https://d32dm0rphc51dk.cloudfront.net/PFufT6nMKNwLOpPEezf4Ww/four_thirds.jpg"
-                  },
-                  "nationality": {
-                    "href": "http://artsnob.me/nationalities/American"
-                  },
-                  "artworks": {
-                    "href": "http://artsnob.me/Artwork/artwork_id/4d8b92b34eb68a1b2c0003f4"
-                  },
-                  "similar_artists": {
-                    "href": "http://artsnob.me/Artist/similar_id/4d8b92b34eb68a1b2c0003f4"
-                  },
-                  "styles": {
-                    "href": "http://artsnob.me/Style/artist_id/4de8b92b34eb68a1b2c0003f4"
-                  }
-                }
-            }
-        ]
-
-### Get the artists with a certain nationality [GET /Artist/nationality/{nationality}]
-
-+ Parameters
-
-    + nationality: `American` (string, required) - The nationality of the artist
-    
-+ Response 200 (application/json)
-
-        [
-            {
-                "id": "4d8b927b4eb68a1b2c000148",
-                "name": "Tom Wesselmann",
-                "sortable_name": "Wesselmann Tom",
-                "gender": "male",
-                "birthday": "1931",
-                "hometown": "Cincinnati, Ohio",
-                "location": "New York, New York",
-                "_links": {
-                  "thumbnail": {
-                    "href": "https://d32dm0rphc51dk.cloudfront.net/8smV519M1L352CTihrfW7A/four_thirds.jpg"
-                  },
-                  "nationality": {
-                    "href": "http://artsnob.me/nationalities/American"
-                  },
-                  "artworks": {
-                    "href": "http://artsnob.me/Artwork/artwork_id/4d8b927b4eb68a1b2c000148"
-                  },
-                  "similar_artists": {
-                    "href": "http://artsnob.me/Artist/similar_id/4d8b927b4eb68a1b2c000148"
-                  },
-                  "styles": {
-                    "href": "http://artsnob.me/Style/artist_id/4d8b927b4eb68a1b2c000148"
-                  }
-                }
-            }
-        ]
 
 ## Artwork Collection [/Artwork]
 
@@ -342,23 +93,15 @@ Art Snob is a simple API allowing consumers to get information about artists and
                 "category": "Painting",
                 "medium": "Oil on canvas",
                 "date": "1886",
-                "dimensions": "38 × 23 5/8 in",
-                "collecting_institution": "National Gallery of Art, Washington D.C.",
-                "_links": {
+                "artists": [
+                    {"name": "Artist1", "id": "1"}
+                ],
+                "styles": [
+                    {"name": "Style1", "id": "1"}
+                ],
                 "thumbnail": {
                   "href": "https://d32dm0rphc51dk.cloudfront.net/dTGcd0Xx0aEp_MDFdHIUIw/medium.jpg"
                 },
-                "styles": {
-                  "href": "http://artsnob.me/Style/artwork_id/516dfb9ab31e2b2270000c45"
-                },
-                "artists": {
-                  "href": "http://artsnob.me/Artist/artwork_id/516dfb9ab31e2b2270000c45"
-                },
-                "similar_artworks": {
-                  "href": "http://artsnob.me/Artwork/similar_id/516dfb9ab31e2b2270000c45"
-                }
-                
-                }
             },
             {
                 "id": "515b1b6d223afae9a5000bb4",
@@ -366,21 +109,14 @@ Art Snob is a simple API allowing consumers to get information about artists and
                 "category": "Drawing, Collage or other Work on Paper",
                 "medium": "Brush and black ink with gray wash over graphite on wove paper",
                 "date": "1890s",
-                "dimensions": "11 1/16 × 12 1/16 in",
-                "collecting_institution": "National Gallery of Art, Washington D.C.",
-                "_links": {
-                  "thumbnail": {
+                "artists": [
+                    {"name": "Artist2", "id": "2"}
+                ],
+                "styles": [
+                    {"name": "Style2", "id": "2"}
+                ],
+                "thumbnail": {
                     "href": "https://d32dm0rphc51dk.cloudfront.net/BxVDS1bsl3gi_ukXsWgyKw/medium.jpg"
-                  },
-                  "styles": {
-                    "href": "http://artsnob.me/Style/artwork_id/515b1b6d223afae9a5000bb4"
-                  },
-                  "artists": {
-                    "href": "http://artsnob.me/Artist/artwork_id/515b1b6d223afae9a5000bb4"
-                  },
-                  "similar_artworks": {
-                    "href": "http://artsnob.me/Artwork/similar_id/515b1b6d223afae9a5000bb4"
-                  }
                 }
             },
             {
@@ -389,21 +125,14 @@ Art Snob is a simple API allowing consumers to get information about artists and
                 "category": "Drawing, Collage or other Work on Paper",
                 "medium": "Pen and black ink touched with white on buff prepared laid paper",
                 "date": "late 1880s",
-                "dimensions": "10 1/2 × 8 1/4 in",
-                "collecting_institution": "National Gallery of Art, Washington D.C.",
-                "_links": {
-                  "thumbnail": {
+                "artists": [
+                    {"name": "Artist3", "id": "3"}
+                ],
+                "styles": [
+                    {"name": "Style3", "id": "3"}
+                ],
+                "thumbnail": {
                     "href": "https://d32dm0rphc51dk.cloudfront.net/-uYxnuQbaAxE_0do29CNeQ/medium.jpg"
-                  },
-                  "styles": {
-                    "href": "http://artsnob.me/Style/artwork_id/515b9d2e94714c2e38000920"
-                  },
-                  "artists": {
-                    "href": "http://artsnob.me/Artist/artwork_id/515b1b6d223afae9a5000bb4"
-                  },
-                  "similar_artworks": {
-                    "href": "http://artsnob.me/Artwork/similar_id/515b1b6d223afae9a5000bb4"
-                  }
                 }
             }
         ]
@@ -416,199 +145,22 @@ Art Snob is a simple API allowing consumers to get information about artists and
 + Response 200 (application/json)
 
         {
-            "id": "516dfb9ab31e2b2270000c45",
-            "title": "The Old Violin",
-            "category": "Painting",
-            "medium": "Oil on canvas",
-            "date": "1886",
-            "dimensions": "38 × 23 5/8 in",
-            "collecting_institution": "National Gallery of Art, Washington D.C.",
-            "_links": {
+                "id": "516dfb9ab31e2b2270000c45",
+                "title": "The Old Violin",
+                "category": "Painting",
+                "medium": "Oil on canvas",
+                "date": "1886",
+                "artists": [
+                    {"name": "Artist1", "id": "1"}
+                ],
+                "styles": [
+                    {"name": "Style1", "id": "1"}
+                ],
                 "thumbnail": {
                   "href": "https://d32dm0rphc51dk.cloudfront.net/dTGcd0Xx0aEp_MDFdHIUIw/medium.jpg"
                 },
-                "styles": {
-                  "href": "http://artsnob.me/Style/artwork_id/516dfb9ab31e2b2270000c45"
-                },
-                "artists": {
-                  "href": "http://artsnob.me/Artist/artwork_id/516dfb9ab31e2b2270000c45"
-                },
-                "similar_artworks": {
-                  "href": "http://artsnob.me/Artwork/similar_id/516dfb9ab31e2b2270000c45"
-                }
             }
-        }
 
-### Get similar artworks' information [GET /Artwork/similar_id/{id}]
-
-+ Parameters
-
-    + id: `1` (number, required) - The unique id of the artwork you want similar artworks to
-    
-+ Response 200 (application/json)
-
-        [
-            {
-                "id": "515b1b6d223afae9a5000bb4",
-                "title": "Interior, Fitzwilliam Museum",
-                "category": "Drawing, Collage or other Work on Paper",
-                "medium": "Brush and black ink with gray wash over graphite on wove paper",
-                "date": "1890s",
-                "dimensions": "11 1/16 × 12 1/16 in",
-                "collecting_institution": "National Gallery of Art, Washington D.C.",
-                "_links": {
-                  "thumbnail": {
-                    "href": "https://d32dm0rphc51dk.cloudfront.net/BxVDS1bsl3gi_ukXsWgyKw/medium.jpg"
-                  },
-                  "styles": {
-                    "href": "http://artsnob.me/Style/artwork_id/515b1b6d223afae9a5000bb4"
-                  },
-                  "artists": {
-                    "href": "http://artsnob.me/Artist/artwork_id/515b1b6d223afae9a5000bb4"
-                  },
-                  "similar_artworks": {
-                    "href": "http://artsnob.me/Artwork/similar_id/515b1b6d223afae9a5000bb4"
-                  }
-                }
-            },
-            {
-                "id": "515b9d2e94714c2e38000920",
-                "title": "Aldrich's Dog",
-                "category": "Drawing, Collage or other Work on Paper",
-                "medium": "Pen and black ink touched with white on buff prepared laid paper",
-                "date": "late 1880s",
-                "dimensions": "10 1/2 × 8 1/4 in",
-                "collecting_institution": "National Gallery of Art, Washington D.C.",
-                "_links": {
-                  "thumbnail": {
-                    "href": "https://d32dm0rphc51dk.cloudfront.net/-uYxnuQbaAxE_0do29CNeQ/medium.jpg"
-                  },
-                  "styles": {
-                    "href": "http://artsnob.me/Style/artwork_id/515b9d2e94714c2e38000920"
-                  },
-                  "artists": {
-                    "href": "http://artsnob.me/Artist/artwork_id/515b1b6d223afae9a5000bb4"
-                  },
-                  "similar_artworks": {
-                    "href": "http://artsnob.me/Artwork/similar_id/515b1b6d223afae9a5000bb4"
-                  }
-                }
-            }
-        ]
-
-### Get the artworks with a certain style [GET /Artworks/style_id/{id}]
-
-+ Parameters
-
-    + id: `1` (number, required) - The unique id of the style
-    
-+ Response 200 (application/json)
-
-        [
-            {
-                "id": "515b9d2e94714c2e38000920",
-                "title": "Aldrich's Dog",
-                "category": "Drawing, Collage or other Work on Paper",
-                "medium": "Pen and black ink touched with white on buff prepared laid paper",
-                "date": "late 1880s",
-                "dimensions": "10 1/2 × 8 1/4 in",
-                "collecting_institution": "National Gallery of Art, Washington D.C.",
-                "_links": {
-                  "thumbnail": {
-                    "href": "https://d32dm0rphc51dk.cloudfront.net/-uYxnuQbaAxE_0do29CNeQ/medium.jpg"
-                  },
-                  "styles": {
-                    "href": "http://artsnob.me/Style/artwork_id/515b9d2e94714c2e38000920"
-                  },
-                  "artists": {
-                    "href": "http://artsnob.me/Artist/artwork_id/515b1b6d223afae9a5000bb4"
-                  },
-                  "similar_artworks": {
-                    "href": "http://artsnob.me/Artwork/similar_id/515b1b6d223afae9a5000bb4"
-                  }
-                }
-            },
-            {
-                "id": "516dfb9ab31e2b2270000c45",
-                "title": "The Old Violin",
-                "category": "Painting",
-                "medium": "Oil on canvas",
-                "date": "1886",
-                "dimensions": "38 × 23 5/8 in",
-                "collecting_institution": "National Gallery of Art, Washington D.C.",
-                "_links": {
-                    "thumbnail": {
-                      "href": "https://d32dm0rphc51dk.cloudfront.net/dTGcd0Xx0aEp_MDFdHIUIw/medium.jpg"
-                    },
-                    "styles": {
-                      "href": "http://artsnob.me/Style/artwork_id/516dfb9ab31e2b2270000c45"
-                    },
-                    "artists": {
-                      "href": "http://artsnob.me/Artist/artwork_id/516dfb9ab31e2b2270000c45"
-                    },
-                    "similar_artworks": {
-                      "href": "http://artsnob.me/Artwork/similar_id/516dfb9ab31e2b2270000c45"
-                    }
-                }
-            }
-        ]
-
-### Get the artworks created by artists with a certain nationality [GET /Artwork/nationality/{nationality}]
-
-+ Parameters
-
-    + nationality: `American` (string, required) - The nationality
-    
-+ Response 200 (application/json)
-
-        [
-            {
-                "id": "515b9d2e94714c2e38000920",
-                "title": "Aldrich's Dog",
-                "category": "Drawing, Collage or other Work on Paper",
-                "medium": "Pen and black ink touched with white on buff prepared laid paper",
-                "date": "late 1880s",
-                "dimensions": "10 1/2 × 8 1/4 in",
-                "collecting_institution": "National Gallery of Art, Washington D.C.",
-                "_links": {
-                  "thumbnail": {
-                    "href": "https://d32dm0rphc51dk.cloudfront.net/-uYxnuQbaAxE_0do29CNeQ/medium.jpg"
-                  },
-                  "styles": {
-                    "href": "http://artsnob.me/Style/artwork_id/515b9d2e94714c2e38000920"
-                  },
-                  "artists": {
-                    "href": "http://artsnob.me/Artist/artwork_id/515b1b6d223afae9a5000bb4"
-                  },
-                  "similar_artworks": {
-                    "href": "http://artsnob.me/Artwork/similar_id/515b1b6d223afae9a5000bb4"
-                  }
-                }
-            },
-            {
-                "id": "516dfb9ab31e2b2270000c45",
-                "title": "The Old Violin",
-                "category": "Painting",
-                "medium": "Oil on canvas",
-                "date": "1886",
-                "dimensions": "38 × 23 5/8 in",
-                "collecting_institution": "National Gallery of Art, Washington D.C.",
-                "_links": {
-                    "thumbnail": {
-                      "href": "https://d32dm0rphc51dk.cloudfront.net/dTGcd0Xx0aEp_MDFdHIUIw/medium.jpg"
-                    },
-                    "styles": {
-                      "href": "http://artsnob.me/Style/artwork_id/516dfb9ab31e2b2270000c45"
-                    },
-                    "artists": {
-                      "href": "http://artsnob.me/Artist/artwork_id/516dfb9ab31e2b2270000c45"
-                    },
-                    "similar_artworks": {
-                      "href": "http://artsnob.me/Artwork/similar_id/516dfb9ab31e2b2270000c45"
-                    }
-                }
-            }
-        ]
 
 ## Style Collection [/Style]
 
@@ -621,16 +173,26 @@ Art Snob is a simple API allowing consumers to get information about artists and
                 "id": "4e5e41670d2c670001030350",
                 "name": "Pop Art",
                 "description": "_“The Pop artists did images that anybody walking down Broadway could recognize in a split second—comics, picnic tables, men’s trousers, celebrities, shower curtains, refrigerators, coke bottles—all the great modern things that the Abstract Expressionists tried so hard not to notice at all.” –[Andy Warhol](/artist/andy-warhol)_\n\nPop Art was the dominant movement in early 1960s American art. Short for “popular art,” it featured common household objects and consumer products like Coca-Cola and Campbell’s Soup cans, as well as forms of media—such as comics, newspapers, and magazines—recognizable to the masses. Artists often created Pop works using mechanical or commercial techniques, such as [silk-screening](/gene/silkscreen-1). As Warhol suggested, the choice of mundane subject matter and machine-like techniques was a blunt rejection of the heroic subjects and methods of [Abstract Expressionism](/gene/abstract-expressionism), the leading American movement of the 1950s. Not often discussed is the fact that Pop Art originated in England and paralleled similar movements in France and Germany. Pop Art was incredibly diverse, especially in its international variants, which included Nouveau Réalisme in France, Capitalist Realism in Germany, and Anti-Art in Japan. ",
-                "_links": {
-                  "thumbnail": {
+                "artworks": [
+                    {"title": "artwork1", "id": "1"},
+                    {"title": "artwork2", "id": "2"}
+                ],
+                "number_of_artists": "2",
+                "thumbnail": {
                     "href": "https://d32dm0rphc51dk.cloudfront.net/zwMP_9kbs2XcSPTaGLJ6qw/big_and_tall.jpg"
-                  },
-                  "artworks": {
-                    "href": "http://artsnob.me/Artwork/style_id/4e5e41670d2c670001030350"
-                  },
-                  "artists": {
-                    "href": "http://artsnob.me/Artist/style_id/4e5e41670d2c670001030350"
-                  }
+                }
+            },
+            {
+                "id": "4f3eba372ee99a0001000665",
+                "name": "Advertising and Brands",
+                "description": "Artworks that feature advertisements and logos. [Andy Warhol](/artist/andy-warhol) is most often associated with this practice. His [Pop Art](/gene/pop-art) paintings featuring Campbell’s soup cans and Coca-Cola bottles are icons of contemporary art history. While Pop Art is most often credited with introducing these types of visuals into art history—and moreover, making them the primary feature of an artwork—the practice dates back to [cubist](/gene/cubism) [collage](/gene/collage) in the 1910s. [Pablo Picasso](/artist/pablo-picasso) and [George Braque’s](/artist/georges-braque) papier-collé works commonly included newspaper advertisements. Today, [street artists](/gene/graffiti-slash-street-art) commonly use corporate logos in their work to criticize corporate practices and globalization.",
+                "artworks": [
+                    {"title": "artwork3", "id": "3"},
+                    {"title": "artwork4", "id": "4"}
+                ],
+                "number_of_artists": "2",
+                "thumbnail": {
+                    "href": "https://d32dm0rphc51dk.cloudfront.net/jki8jRj3XCMS70bJqN5D2Q/big_and_tall.jpg"
                 }
             }
         ]
@@ -646,189 +208,56 @@ Art Snob is a simple API allowing consumers to get information about artists and
             "id": "4e5e41670d2c670001030350",
             "name": "Pop Art",
             "description": "_“The Pop artists did images that anybody walking down Broadway could recognize in a split second—comics, picnic tables, men’s trousers, celebrities, shower curtains, refrigerators, coke bottles—all the great modern things that the Abstract Expressionists tried so hard not to notice at all.” –[Andy Warhol](/artist/andy-warhol)_\n\nPop Art was the dominant movement in early 1960s American art. Short for “popular art,” it featured common household objects and consumer products like Coca-Cola and Campbell’s Soup cans, as well as forms of media—such as comics, newspapers, and magazines—recognizable to the masses. Artists often created Pop works using mechanical or commercial techniques, such as [silk-screening](/gene/silkscreen-1). As Warhol suggested, the choice of mundane subject matter and machine-like techniques was a blunt rejection of the heroic subjects and methods of [Abstract Expressionism](/gene/abstract-expressionism), the leading American movement of the 1950s. Not often discussed is the fact that Pop Art originated in England and paralleled similar movements in France and Germany. Pop Art was incredibly diverse, especially in its international variants, which included Nouveau Réalisme in France, Capitalist Realism in Germany, and Anti-Art in Japan. ",
-            "_links": {
-              "thumbnail": {
+            "artworks": [
+                {"title": "artwork1", "id": "1"},
+                {"title": "artwork2", "id": "2"}
+            ],
+            "number_of_artists": "2",
+            "thumbnail": {
                 "href": "https://d32dm0rphc51dk.cloudfront.net/zwMP_9kbs2XcSPTaGLJ6qw/big_and_tall.jpg"
-              },
-              "artworks": {
-                "href": "http://artsnob.me/Artwork/style_id/4e5e41670d2c670001030350"
-              },
-              "artists": {
-                "href": "http://artsnob.me/Artist/style_id/4e5e41670d2c670001030350"
-              }
             }
         }
 
-### Get styles for an artist [GET /Style/artist_id/{id}]
 
-+ Parameters
+## Collection Collection [/Collection]
 
-    + id: `1` (number, required) - The unique id of the artist
-    
-+ Response 200 (application/json)
-
-        [
-            {
-            "id": "51b661ae275b24d15b000047",
-            "name": "1960s",
-            "description": "One of the most significant decades in 20th-century art, the 1960s saw the rise of [Pop Art](/gene/pop-art), [Op Art](/gene/op-art), [Minimalism](/gene/minimalism), [Conceptual Art](/gene/conceptual-art), [Performance Art](/gene/performance-art), and [Feminist Art](/gene/feminist-art), among countless other styles and movements. Among the leading artists of the period—many of whom continue to influence contemporary artists today—are [Andy Warhol](/artist/andy-warhol), [Bridget Riley](/artist/bridget-riley), [Donald Judd](/artist/donald-judd), [Robert Morris](/artist/robert-morris), [Sol LeWitt](/artist/sol-lewitt), [Vito Acconci](/artist/vito-acconci), and [Judy Chicago](/artist/judy-chicago).",
-            "_links": {
-              "thumbnail": {
-                "href": "https://d32dm0rphc51dk.cloudfront.net/x58nFWvLKxL59Mu3AC_gkg/big_and_tall.jpg"
-              },
-              "artworks": {
-                "href": "http://artsnob.me/Artwork/style_id/51b661ae275b24d15b000047"
-              },
-              "artists": {
-                "href": "http://artsnob.me/Artist/style_id/51b661ae275b24d15b000047"
-              }
-            }
-          },
-          {
-            "id": "4f3eba372ee99a0001000665",
-            "name": "Advertising and Brands",
-            "description": "Artworks that feature advertisements and logos. [Andy Warhol](/artist/andy-warhol) is most often associated with this practice. His [Pop Art](/gene/pop-art) paintings featuring Campbell’s soup cans and Coca-Cola bottles are icons of contemporary art history. While Pop Art is most often credited with introducing these types of visuals into art history—and moreover, making them the primary feature of an artwork—the practice dates back to [cubist](/gene/cubism) [collage](/gene/collage) in the 1910s. [Pablo Picasso](/artist/pablo-picasso) and [George Braque’s](/artist/georges-braque) papier-collé works commonly included newspaper advertisements. Today, [street artists](/gene/graffiti-slash-street-art) commonly use corporate logos in their work to criticize corporate practices and globalization.",
-            "_links": {
-              "thumbnail": {
-                "href": "https://d32dm0rphc51dk.cloudfront.net/jki8jRj3XCMS70bJqN5D2Q/big_and_tall.jpg"
-              },
-              "artworks": {
-                "href": "http://artsnob.me/Artwork/style_id/4f3eba372ee99a0001000665"
-              },
-              "artists": {
-                "href": "http://artsnob.me/Artist/style_id/4f3eba372ee99a0001000665"
-              }
-            }
-          }
-        ]
-
-### Get styles for an artwork [GET /Style/artwork_id/{id}]
-
-+ Parameters
-
-    + id: `1` (number, required) - The unique id of the artwork
-    
-+ Response 200 (application/json)
-
-        [
-            {
-                "id": "4e5e41670d2c670001030350",
-                "name": "Pop Art",
-                "description": "_“The Pop artists did images that anybody walking down Broadway could recognize in a split second—comics, picnic tables, men’s trousers, celebrities, shower curtains, refrigerators, coke bottles—all the great modern things that the Abstract Expressionists tried so hard not to notice at all.” –[Andy Warhol](/artist/andy-warhol)_\n\nPop Art was the dominant movement in early 1960s American art. Short for “popular art,” it featured common household objects and consumer products like Coca-Cola and Campbell’s Soup cans, as well as forms of media—such as comics, newspapers, and magazines—recognizable to the masses. Artists often created Pop works using mechanical or commercial techniques, such as [silk-screening](/gene/silkscreen-1). As Warhol suggested, the choice of mundane subject matter and machine-like techniques was a blunt rejection of the heroic subjects and methods of [Abstract Expressionism](/gene/abstract-expressionism), the leading American movement of the 1950s. Not often discussed is the fact that Pop Art originated in England and paralleled similar movements in France and Germany. Pop Art was incredibly diverse, especially in its international variants, which included Nouveau Réalisme in France, Capitalist Realism in Germany, and Anti-Art in Japan. ",
-                "_links": {
-                  "thumbnail": {
-                    "href": "https://d32dm0rphc51dk.cloudfront.net/zwMP_9kbs2XcSPTaGLJ6qw/big_and_tall.jpg"
-                  },
-                  "artworks": {
-                    "href": "http://artsnob.me/Artwork/style_id/4e5e41670d2c670001030350"
-                  },
-                  "artists": {
-                    "href": "http://artsnob.me/Artist/style_id/4e5e41670d2c670001030350"
-                  }
-                }
-           },
-           {
-                "id": "4f3eba372ee99a0001000665",
-                "name": "Advertising and Brands",
-                "description": "Artworks that feature advertisements and logos. [Andy Warhol](/artist/andy-warhol) is most often associated with this practice. His [Pop Art](/gene/pop-art) paintings featuring Campbell’s soup cans and Coca-Cola bottles are icons of contemporary art history. While Pop Art is most often credited with introducing these types of visuals into art history—and moreover, making them the primary feature of an artwork—the practice dates back to [cubist](/gene/cubism) [collage](/gene/collage) in the 1910s. [Pablo Picasso](/artist/pablo-picasso) and [George Braque’s](/artist/georges-braque) papier-collé works commonly included newspaper advertisements. Today, [street artists](/gene/graffiti-slash-street-art) commonly use corporate logos in their work to criticize corporate practices and globalization.",
-                "_links": {
-                  "thumbnail": {
-                    "href": "https://d32dm0rphc51dk.cloudfront.net/jki8jRj3XCMS70bJqN5D2Q/big_and_tall.jpg"
-                  },
-                  "artworks": {
-                    "href": "http://artsnob.me/Artwork/style_id/4f3eba372ee99a0001000665"
-                  },
-                  "artists": {
-                    "href": "http://artsnob.me/Artist/style_id/4f3eba372ee99a0001000665"
-                  }
-                }
-           }
-        ]
-
-### Get the styles for a natinoality [GET /Style/nationality/{nationality}]
-
-+ Parameters
-
-    + nationality: `American` (string, required) - The nationality
-    
-+ Response 200 (application/json)
-
-        [
-            {
-                "id": "4e5e41670d2c670001030350",
-                "name": "Pop Art",
-                "description": "_“The Pop artists did images that anybody walking down Broadway could recognize in a split second—comics, picnic tables, men’s trousers, celebrities, shower curtains, refrigerators, coke bottles—all the great modern things that the Abstract Expressionists tried so hard not to notice at all.” –[Andy Warhol](/artist/andy-warhol)_\n\nPop Art was the dominant movement in early 1960s American art. Short for “popular art,” it featured common household objects and consumer products like Coca-Cola and Campbell’s Soup cans, as well as forms of media—such as comics, newspapers, and magazines—recognizable to the masses. Artists often created Pop works using mechanical or commercial techniques, such as [silk-screening](/gene/silkscreen-1). As Warhol suggested, the choice of mundane subject matter and machine-like techniques was a blunt rejection of the heroic subjects and methods of [Abstract Expressionism](/gene/abstract-expressionism), the leading American movement of the 1950s. Not often discussed is the fact that Pop Art originated in England and paralleled similar movements in France and Germany. Pop Art was incredibly diverse, especially in its international variants, which included Nouveau Réalisme in France, Capitalist Realism in Germany, and Anti-Art in Japan. ",
-                "_links": {
-                  "thumbnail": {
-                    "href": "https://d32dm0rphc51dk.cloudfront.net/zwMP_9kbs2XcSPTaGLJ6qw/big_and_tall.jpg"
-                  },
-                  "artworks": {
-                    "href": "http://artsnob.me/Artwork/style_id/4e5e41670d2c670001030350"
-                  },
-                  "artists": {
-                    "href": "http://artsnob.me/Artist/style_id/4e5e41670d2c670001030350"
-                  }
-                }
-           },
-           {
-                "id": "4f3eba372ee99a0001000665",
-                "name": "Advertising and Brands",
-                "description": "Artworks that feature advertisements and logos. [Andy Warhol](/artist/andy-warhol) is most often associated with this practice. His [Pop Art](/gene/pop-art) paintings featuring Campbell’s soup cans and Coca-Cola bottles are icons of contemporary art history. While Pop Art is most often credited with introducing these types of visuals into art history—and moreover, making them the primary feature of an artwork—the practice dates back to [cubist](/gene/cubism) [collage](/gene/collage) in the 1910s. [Pablo Picasso](/artist/pablo-picasso) and [George Braque’s](/artist/georges-braque) papier-collé works commonly included newspaper advertisements. Today, [street artists](/gene/graffiti-slash-street-art) commonly use corporate logos in their work to criticize corporate practices and globalization.",
-                "_links": {
-                  "thumbnail": {
-                    "href": "https://d32dm0rphc51dk.cloudfront.net/jki8jRj3XCMS70bJqN5D2Q/big_and_tall.jpg"
-                  },
-                  "artworks": {
-                    "href": "http://artsnob.me/Artwork/style_id/4f3eba372ee99a0001000665"
-                  },
-                  "artists": {
-                    "href": "http://artsnob.me/Artist/style_id/4f3eba372ee99a0001000665"
-                  }
-                }
-           }
-        ]
-
-## Nationality Collection [/Nationality]
-
-### List All Geographic Regions [GET /Nationality]
+### List All Collections [GET /Collection]
 
 + Response 200 (application/json)
 
         [
             {
-                "nationality": "American",
-                "_links": {
-                  "artworks": {
-                    "href": "http://artsnob.me/Artwork/nationality/American"
-                  },
-                  "artists": {
-                    "href": "http://artsnob.me/Artist/nationality/American"
-                  },
-                  "related_styles": {
-                    "href": "http://artsnob.me/Style/nationality/American"
-                  }
+                "id": "4f99c7b793ab4b0001000179",
+                "type": "Institution",
+                "name": "National Gallery of Art, Washington, D.C.",
+                "region": "North America",
+                "artworks": [
+                    {"title": "artwork1", "id": "1"},
+                    {"title": "artwork2", "id": "2"}
+                ],
+                "website": {
+                  "href": "http://www.nga.gov"
                 }
             }
         ]
   
-### Nationality information [GET /Nationality/{nationality}]
+### Nationality information [GET /Collection/{id}]
 
 + Parameters
-    + nationality: `American` (string, required) - The name of the nationality
+    + id: `1` (number, required) - The unique id of the collection
 
 + Response 200 (application/json)
 
         {
-            "nationality": "American",
-            "_links": {
-              "artworks": {
-                "href": "http://artsnob.me/Artwork/nationality/American"
-              },
-              "artists": {
-                "href": "http://artsnob.me/Artist/nationality/American"
-              },
-              "related_styles": {
-                "href": "http://artsnob.me/Style/nationality/American"
-              }
-            }
+                "id": "4f99c7b793ab4b0001000179",
+                "type": "Institution",
+                "name": "National Gallery of Art, Washington, D.C.",
+                "region": "North America",
+                "artworks": [
+                    {"title": "artwork1", "id": "1"},
+                    {"title": "artwork2", "id": "2"}
+                ],
+                "website": {
+                  "href": "http://www.nga.gov"
+                }
         }

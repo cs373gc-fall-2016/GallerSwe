@@ -1,0 +1,57 @@
+{
+	"num_results": 3,
+	"objects": [{
+		"id": "516dfb9ab31e2b2270000c45",
+		"title": "The Old Violin",
+		"category": "Painting",
+		"medium": "Oil on canvas",
+		"date": "1886",
+		"artists": [{
+			"name": "Artist1",
+			"id": "1"
+		}],
+		"styles": [{
+			"name": "Style1",
+			"id": "1"
+		}],
+		"thumbnail": {
+			"href": "https://d32dm0rphc51dk.cloudfront.net/dTGcd0Xx0aEp_MDFdHIUIw/medium.jpg"
+		}
+	}, {
+		"id": "515b1b6d223afae9a5000bb4",
+		"title": "Interior, Fitzwilliam Museum",
+		"category": "Drawing, Collage or other Work on Paper",
+		"medium": "Brush and black ink with gray wash over graphite on wove paper",
+		"date": "1890s",
+		"artists": [{
+			"name": "Artist2",
+			"id": "2"
+		}],
+		"styles": [{
+			"name": "Style2",
+			"id": "2"
+		}],
+		"thumbnail": {
+			"href": "https://d32dm0rphc51dk.cloudfront.net/BxVDS1bsl3gi_ukXsWgyKw/medium.jpg"
+		}
+	}, {
+		"id": "515b9d2e94714c2e38000920",
+		"title": "Aldrich's Dog",
+		"category": "Drawing, Collage or other Work on Paper",
+		"medium": "Pen and black ink touched with white on buff prepared laid paper",
+		"date": "late 1880s",
+		"artists": [{
+			"name": "Artist3",
+			"id": "3"
+		}],
+		"styles": [{
+			"name": "Style3",
+			"id": "3"
+		}],
+		"thumbnail": {
+			"href": "https://d32dm0rphc51dk.cloudfront.net/-uYxnuQbaAxE_0do29CNeQ/medium.jpg"
+		}
+	}],
+	"page": 1,
+	"total_pages": 1
+}

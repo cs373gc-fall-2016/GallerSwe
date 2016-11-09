@@ -1,0 +1,81 @@
+<script src="sorttable.js"></script>
+
+<div class="container">
+<div class="page_header" ng-app="ArtSnob" ng-show="collection != undefined">
+    <button type="button" class="btn btn-outline-secondary" style = "font-family:Helvetica Neue" ng-click="CollectionDeselected()">Back to Table</button>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1 class="brand-heading" style="text-align:center;">{{collection.name}}</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="my-block">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-8 col-md-offset-2">
+                <!-- <p style="text-align:center;"><img src="{{collection.thumbnail.href}}" style = "max-width:95%;border:6px double #545565;" alt="alternative text" width=auto height="256" ></img></p> -->
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <div class="col-lg-8 col-lg-offset-2">
+        <div id="display">
+          <table id="data" style="width:90%; font-family: Helvetica Neue" class="sortable">
+            <tr>
+                <td><b>Name</b></td><td>{{collection.institution}}</td>
+            </tr>
+            <tr>
+                <td><b>Type</b></td><td>{{collection.type}}</td>
+            </tr>
+            <tr>
+                <td><b>Region</b></td><td>{{collection.region}}</td>
+            </tr>
+            <tr>
+                <td><b>Sample Piece</b></td><td>{{collection.piece}}</td>
+            </tr>
+            <tr>
+                <td><b>Website</b></td><td>{{collection.website}</td>
+            </tr>
+          </table>
+        </div>
+    </div>
+</div>
+<div class="page_header" ng-app="ArtSnob" ng-show="collection == undefined" >
+  <div class="col-lg-8 col-lg-offset-2">
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1 class="brand-heading">Collections</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div id="display">
+      <table id="data" style="width:90%" class="sortable">
+        <tr>
+            <th>Name</td>
+            <th>Type</td>
+            <th>Region</td>
+            <th>Sample Piece</td>
+            <th>Website</td>
+        </tr>
+        <tr ng-repeat="item in objects track by $index">
+            <td>
+                <a class="page-scroll" ng-click="CollectionSelected(item)">
+                {{item.institution}}
+                </a>
+            </td>
+            <td> {{item.type}} </td>
+            <td> {{item.region}} </td>
+            <td> {{item.artworks}} </td>
+            <td> {{item.website}} </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
