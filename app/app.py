@@ -11,6 +11,11 @@ from flask_cache import Cache
 #import test
 import subprocess
 
+def add_cors_headers(response):
+    response.headers['Access-Control-Allow-Origin'] = 'artsnob.me'
+    response.headers['Access-Control-Allow-Credentials'] = 'true'
+    return response
+
 app = Flask(__name__, static_url_path='')
 
 app.config["CACHE_TYPE"] = "null"
@@ -18,7 +23,7 @@ app.config["CACHE_TYPE"] = "null"
 app.config['DEBUG'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///artsnob'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-DB = SQLAlchemy(APP)
+DB = flask_sqlalchemy.SQLAlchemy(app)
 
 ID_CHARS = 24
 NAME_CHARS = 255
@@ -157,7 +162,7 @@ class Style(DB.Model):
 DB.create_all()
 
 # Create the Flask-Restless API manager.
-manager = flask_restless.APIManager(APP, flask_sqlalchemy_db=DB)
+manager = flask_restless.APIManager(app, flask_sqlalchemy_db=DB)
 
 # Create API endpoints, which will be available at /api/<tablename> by
 # default. Allowed HTTP methods can be specified as well.
