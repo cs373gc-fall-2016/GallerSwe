@@ -11,11 +11,6 @@ from flask_cache import Cache
 #import test
 import subprocess
 
-def add_cors_headers(response):
-    response.headers['Access-Control-Allow-Origin'] = 'artsnob.me'
-    response.headers['Access-Control-Allow-Credentials'] = 'true'
-    return response
-
 app = Flask(__name__, static_url_path='')
 
 app.config["CACHE_TYPE"] = "null"
@@ -24,6 +19,14 @@ app.config['DEBUG'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///artsnob'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 DB = flask_sqlalchemy.SQLAlchemy(app)
+
+@app.route('/')
+def root():
+    return app.send_static_file('index.html')
+
+
+###### model.py contets #########
+# delete if we have time to remove circular dependency
 
 ID_CHARS = 24
 NAME_CHARS = 255
@@ -50,7 +53,6 @@ ARTWORK_STYLE = DB.Table('artworkstyle',
                          DB.Column('style_id', DB.String(ID_CHARS),
                                    DB.ForeignKey('style.id')))
 
-
 class Artist(DB.Model):
     """
     The artist model contains attributes about an artist such as
@@ -59,26 +61,40 @@ class Artist(DB.Model):
     with all of their artworks.
     """
     _tablename_ = 'artist'
-    identification = DB.Column(DB.String(ID_CHARS), primary_key=True)
+    id = DB.Column(DB.String(ID_CHARS), primary_key=True)
     name = DB.Column(DB.String(NAME_CHARS))
     birth = DB.Column(DB.String(DATE_CHARS))
     gender = DB.Column(DB.String(GENDER_CHARS))
-    nationality = DB.Column(DB.String(NAME_CHARS))
+    hometown = DB.Column(DB.String(NAME_CHARS))
     image = DB.Column(DB.String(LINK_CHARS))
-    artworks = DB.relationship(
-        'Artwork', back_populates='artists', secondary=ARTWORK_ARTIST)
+    artworks = DB.relationship('Artwork', back_populates='artists', secondary=ARTWORK_ARTIST)
 
-    def __init__(self, identification, name, birth, gender, nationality, image):
-        self.identification = identification
+    def __init__(self, id, name, birth, gender, hometown, image):
+        self.id = id
         self.name = name
         self.birth = birth
         self.gender = gender
-        self.nationality = nationality
+        self.hometown = hometown
         self.image = image
 
-    def __repr__(self):
-        return '<User %r>' % self.name
 
+    # def dictionary(self):
+    #   asdict = {}
+    #   asdict['id'] = self.id
+    #   asdict['name'] = self.name
+    #   asdict['description'] = self.description
+    #   asdict['birth'] = self.birth
+    #   asdict['death'] = self.death
+    #   artwork = list(self.artwork)
+    #   style = list(self.style)
+    #   georeg = list(self.georeg)
+    #   if artwork:
+    #       asdict['artwork_id'] = [ar.id for ar in artwork]
+    #   if style:
+    #       asdict['style'] = [s.name for s in style]
+    #   if georeg:
+    #       asdict['nationality'] = [g.name for g in georeg]
+    #   return asdict
 
 class Artwork(DB.Model):
     """
@@ -86,7 +102,7 @@ class Artwork(DB.Model):
     name, medium, description, and style
     """
     __tablename__ = 'artwork'
-    identification = DB.Column(DB.String(ID_CHARS), primary_key=True)
+    id = DB.Column(DB.String(ID_CHARS), primary_key=True)
     title = DB.Column(DB.String(NAME_CHARS))
     category = DB.Column(DB.String(NAME_CHARS))
     medium = DB.Column(DB.String(DESC_CHARS))
@@ -99,26 +115,20 @@ class Artwork(DB.Model):
     collections = DB.relationship('Collection', back_populates='artworks',
                                   secondary=ARTWORK_COLLECTION)
 
-    def __init__(self, identification, title, category, medium, date, image):
-        self.identification = identification
+    def __init__(self, id, title, category, medium, date, image):
+        self.id = id
         self.title = title
         self.category = category
         self.medium = medium
         self.date = date
         self.image = image
 
-    def __repr__(self):
-        return '<User %r>' % self.title
-
 
 class Collection(DB.Model):
     """
-    The collection model contains attributes about
-    where a piece is located, the website of the institution,
-    and the type of institution
     """
     __tablename__ = 'collection'
-    identification = DB.Column(DB.String(ID_CHARS), primary_key=True)
+    id = DB.Column(DB.String(ID_CHARS), primary_key=True)
     institution = DB.Column(DB.String(NAME_CHARS))
     website = DB.Column(DB.String(LINK_CHARS))
     region = DB.Column(DB.String(NAME_CHARS))
@@ -126,16 +136,12 @@ class Collection(DB.Model):
     artworks = DB.relationship('Artwork', back_populates='collections',
                                secondary=ARTWORK_COLLECTION)
 
-    def __init__(self, identification, institution, website, region, ins_type):
-        self.identification = identification
+    def __init__(self, id, institution, website, region, type):
+        self.id = id
         self.institution = institution
         self.website = website
         self.region = region
-        self.ins_type = ins_type
-
-    def __repr__(self):
-        return '<User %r>' % self.institution
-
+        self.type = type
 
 class Style(DB.Model):
     """
@@ -143,41 +149,45 @@ class Style(DB.Model):
     name, description and time period
     """
     __tablename__ = 'style'
-    identification = DB.Column(DB.String(ID_CHARS), primary_key=True)
+    id = DB.Column(DB.String(ID_CHARS), primary_key=True)
     name = DB.Column(DB.String(NAME_CHARS))
     description = DB.Column(DB.String)
     image = DB.Column(DB.String(LINK_CHARS))
-    artworks = DB.relationship(
-        'Artwork', back_populates='styles', secondary=ARTWORK_STYLE)
+    artworks = DB.relationship('Artwork', back_populates='styles', secondary=ARTWORK_STYLE)
 
-    def __init__(self, identification, name, description, image):
-        self.identification = identification
+    def __init__(self, id, name, description, image, nim):
+        self.id = id
         self.name = name
         self.description = description
         self.image = image
 
-    def __repr__(self):
-        return '<User %r>' % self.name
-
+# Create the database tables.
 DB.create_all()
+
+# used for testing database contents
+print(len(DB.session.query(Artist).all()))
 
 # Create the Flask-Restless API manager.
 manager = flask_restless.APIManager(app, flask_sqlalchemy_db=DB)
 
 # Create API endpoints, which will be available at /api/<tablename> by
 # default. Allowed HTTP methods can be specified as well.
-blueprint1 = manager.create_api_blueprint(Artist, methods=['GET'])
-blueprint1.after_request(add_cors_headers)
-blueprint2 = manager.create_api_blueprint(Artwork, methods=['GET'])
-blueprint2.after_request(add_cors_headers)
-blueprint3 = manager.create_api_blueprint(Style, methods=['GET'])
-blueprint3.after_request(add_cors_headers)
-blueprint3 = manager.create_api_blueprint(Collection, methods=['GET'])
-blueprint3.after_request(add_cors_headers)
+manager.create_api(Artist, methods=['GET'])
+manager.create_api(Artwork, methods=['GET'])
+manager.create_api(Style, methods=['GET'])
+manager.create_api(Collection, methods=['GET'])
 
-@app.route('/')
-def root():
-    return app.send_static_file('index.html')
+###### FAKE APIS ############
+# used for testing, point to these fake apis when you want
+# data to work with while database is still empty
+
+@app.route('/hack-api/artwork')
+def artwork():
+	with open('tempArtwork.json') as json_data:
+		artwork = json.load(json_data)
+	if artwork is None :
+		raise Exception
+	return flask.jsonify(artwork)
 
 ### endpoint used by about page to run unit tests ####
 @app.route('/run-unit-tests')
