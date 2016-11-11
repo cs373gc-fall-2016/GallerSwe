@@ -4,13 +4,15 @@ DB for Artsnob
 import os
 
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+import flask_sqlalchemy
+import flask_restless
 
 os.system('createdb testdb')
 APP = Flask(__name__)
 APP.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///testdb'
 APP.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-DB = SQLAlchemy(APP)
+DB = flask_sqlalchemy.SQLAlchemy(APP)
+
 
 ID_CHARS = 24
 NAME_CHARS = 255
