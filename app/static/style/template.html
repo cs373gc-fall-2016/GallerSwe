@@ -61,7 +61,7 @@
             <th>Name</td>
             <th>Description</td>
             <th>No. of Works</td>
-            <th>No. of Artists</td>
+            <!-- <th>No. of Artists</td> -->
             <th>Sample Piece</td>
         </tr>
         <tr ng-repeat="item in objects track by $index">
@@ -71,9 +71,8 @@
                 </a>
             </td>
             <td> {{item.description}} </td>
-            <td> {{item.numworks}} </td>
-            <td> {{item.numartists}} </td>
-            <td> {{item.piece}} </td>
+            <td> {{item.artworks}} </td>
+            <td> {{item.artworks} </td>
         </tr>
       </table>
     </div>

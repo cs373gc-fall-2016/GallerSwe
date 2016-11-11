@@ -159,3 +159,4 @@ manager.create_api(Artist, methods=['GET'])
 manager.create_api(Artwork, methods=['GET'])
 manager.create_api(Style, methods=['GET'])
 manager.create_api(Collection, methods=['GET'])
+
