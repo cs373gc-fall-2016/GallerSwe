@@ -145,3 +145,15 @@ class Style(DB.Model):
 
     def __repr__(self):
         return '<User %r>' % self.name
+
+DB.create_all()
+
+# Create the Flask-Restless API manager.
+manager = flask_restless.APIManager(app, flask_sqlalchemy_db=DB)
+
+# Create API endpoints, which will be available at /api/<tablename> by
+# default. Allowed HTTP methods can be specified as well.
+manager.create_api(Artist, methods=['GET'])
+manager.create_api(Artwork, methods=['GET'])
+manager.create_api(Style, methods=['GET'])
+manager.create_api(Collection, methods=['GET'])
