@@ -16,7 +16,7 @@
       <div class="container">
           <div class="row">
               <div class="col-md-8 col-md-offset-2">
-                <p style="text-align:center;"><img src="{{artist.thumbnail.href}}" style = "max-width:95%;border:6px double #545565;" alt="alternative text" width="256" height="256" ></img></p>
+                <p style="text-align:center;"><img src="{{artist.image}}" style = "max-width:95%;border:6px double #545565;" alt="alternative text" width="256" height="256" ></img></p>
               </div>
             </div>
           </div>
@@ -32,13 +32,13 @@
                 <td><b>Gender</b></td><td>{{artist.gender}}</td>
             </tr>
             <tr>
-                <td><b>Birth Year</b></td><td>{{artist.birthday}}</td>
+                <td><b>Birth Year</b></td><td>{{artist.birth}}</td>
             </tr>
             <tr>
                 <td><b>Birth Place</b></td><td>{{artist.hometown}}</td>
             </tr>
             <tr>
-                <td><b>Artwork</b></td><td>{{artist.artwork}}</td>
+                <td><b>Artwork</b></td><td>{{artist.artworks}}</td>
             </tr>
           </table>
         </div>
@@ -69,11 +69,11 @@
                 <a class="page-scroll" ng-click="ArtistSelected(item)">
                 {{item.name}}
                 </a>
-            </td>
+
             <td> {{item.gender}} </td>
-            <td> {{item.birthday}} </td>
+            <td> {{item.birth}} </td>
             <td> {{item.hometown}} </td>
-            <td> {{item.style}} </td>
+            <td> {{item.artworks}} </td>
         </tr>
       </table>
     </div>

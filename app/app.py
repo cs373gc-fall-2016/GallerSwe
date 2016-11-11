@@ -7,8 +7,8 @@ import flask_sqlalchemy
 import flask_restless
 from flask import Flask, send_from_directory, render_template
 from flask_cache import Cache
-from model import Artist
-import test
+#from model import Artist
+#import test
 import subprocess
 
 app = Flask(__name__, static_url_path='')
@@ -65,16 +65,16 @@ class Artist(DB.Model):
     name = DB.Column(DB.String(NAME_CHARS))
     birth = DB.Column(DB.String(DATE_CHARS))
     gender = DB.Column(DB.String(GENDER_CHARS))
-    nationality = DB.Column(DB.String(NAME_CHARS))
+    hometown = DB.Column(DB.String(NAME_CHARS))
     image = DB.Column(DB.String(LINK_CHARS))
     artworks = DB.relationship('Artwork', back_populates='artists', secondary=ARTWORK_ARTIST)
 
-    def __init__(self, id, name, birth, gender, nationality, image):
+    def __init__(self, id, name, birth, gender, hometown, image):
         self.id = id
         self.name = name
         self.birth = birth
         self.gender = gender
-        self.nationality = nationality
+        self.hometown = hometown
         self.image = image
 
 
@@ -155,7 +155,7 @@ class Style(DB.Model):
     image = DB.Column(DB.String(LINK_CHARS))
     artworks = DB.relationship('Artwork', back_populates='styles', secondary=ARTWORK_STYLE)
 
-    def __init__(self, id, name, description, image):
+    def __init__(self, id, name, description, image, nim):
         self.id = id
         self.name = name
         self.description = description
