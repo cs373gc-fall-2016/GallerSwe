@@ -7,6 +7,11 @@ from flask import Flask
 import flask_sqlalchemy
 import flask_restless
 
+def add_cors_headers(response):
+    response.headers['Access-Control-Allow-Origin'] = 'artsnob.me'
+    response.headers['Access-Control-Allow-Credentials'] = 'true'
+    return response
+
 os.system('createdb testdb')
 APP = Flask(__name__)
 APP.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///testdb'
@@ -155,10 +160,15 @@ manager = flask_restless.APIManager(APP, flask_sqlalchemy_db=DB)
 
 # Create API endpoints, which will be available at /api/<tablename> by
 # default. Allowed HTTP methods can be specified as well.
-manager.create_api(Artist, methods=['GET'])
-manager.create_api(Artwork, methods=['GET'])
-manager.create_api(Style, methods=['GET'])
-manager.create_api(Collection, methods=['GET'])
+blueprint = manager.create_api(Artist, methods=['GET'])
+blueprint.after_request(add_cors_headers)
+blue[rint = manager.create_api(Artwork, methods=['GET'])
+blueprint.after_request(add_cors_headers)
+blueprint = manager.create_api(Style, methods=['GET'])
+blueprint.after_request(add_cors_headers)
+blueprint = manager.create_api(Collection, methods=['GET'])
+blueprint.after_request(add_cors_headers)
+
 
 if __name__ == "__main__":
     APP.run()
