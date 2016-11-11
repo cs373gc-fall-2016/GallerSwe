@@ -50,7 +50,7 @@ class Artist(DB.Model):
     name = DB.Column(DB.String(NAME_CHARS))
     birth = DB.Column(DB.String(DATE_CHARS))
     gender = DB.Column(DB.String(GENDER_CHARS))
-    nationality = DB.Column(DB.String(NAME_CHARS))
+    hometown = DB.Column(DB.String(NAME_CHARS))
     image = DB.Column(DB.String(LINK_CHARS))
     artworks = DB.relationship(
         'Artwork', back_populates='artists', secondary=ARTWORK_ARTIST)
@@ -60,7 +60,7 @@ class Artist(DB.Model):
         self.name = name
         self.birth = birth
         self.gender = gender
-        self.nationality = nationality
+        self.hometown = hometown
         self.image = image
 
     def __repr__(self):
@@ -149,7 +149,7 @@ class Style(DB.Model):
 DB.create_all()
 
 # Create the Flask-Restless API manager.
-manager = flask_restless.APIManager(app, flask_sqlalchemy_db=DB)
+manager = flask_restless.APIManager(APP, flask_sqlalchemy_db=DB)
 
 # Create API endpoints, which will be available at /api/<tablename> by
 # default. Allowed HTTP methods can be specified as well.
@@ -158,3 +158,5 @@ manager.create_api(Artwork, methods=['GET'])
 manager.create_api(Style, methods=['GET'])
 manager.create_api(Collection, methods=['GET'])
 
+if __name__ == "__main__":
+    APP.run()
