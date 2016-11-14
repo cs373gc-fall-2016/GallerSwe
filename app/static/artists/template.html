@@ -21,7 +21,6 @@
             </div>
           </div>
     </div>
-
     <div class="col-lg-8 col-lg-offset-2">
         <div id="display">
           <table id="data" style="width:90%; font-family: Helvetica Neue" class="sortable">
@@ -38,7 +37,12 @@
                 <td><b>Birth Place</b></td><td>{{artist.hometown}}</td>
             </tr>
             <tr>
-                <td><b>Artwork</b></td><td>{{artist.artworks}}</td>
+                <td><b>Artwork</b></td>
+                <td>
+                    <a class="page-scroll" ng-repeat="artwork in artist.artworks track by $index" ng-click="ArtworkSelected(artwork)"> 
+                    {{artwork.title}}  
+                </a>
+                </td>
             </tr>
           </table>
         </div>
@@ -62,7 +66,7 @@
             <th>Gender</td>
             <th>Birth Year</td>
             <th>Birth Place</td>
-            <th>Styles</td>
+            <th>Artwork</td>
         </tr>
         <tr ng-repeat="item in objects track by $index">
             <td>
@@ -73,7 +77,11 @@
             <td> {{item.gender}} </td>
             <td> {{item.birth}} </td>
             <td> {{item.hometown}} </td>
-            <td> {{item.artworks}} </td>
+            <td> 
+                <a class="page-scroll" ng-click="ArtworkSelected(item.artworks[0])"> 
+                    {{item.artworks[0].title}}  
+                </a>
+            </td>
         </tr>
       </table>
     </div>

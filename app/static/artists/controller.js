@@ -19,6 +19,9 @@ angular.module('ArtSnob')
             $scope.artist = undefined
         }
 
+        $scope.ArtworkSelected = function(artwork) {
+        }
+
         //
         //	Initial load
         //
