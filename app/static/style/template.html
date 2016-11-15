@@ -54,12 +54,32 @@
     <div id="display">
       <table id="data" style="width:90%" class="sortable">
         <tr>
-            <th>Name</td>
-            <th>Description</td>
-            <th>No. of Works</td>
-            <th>Sample Piece</td>
+            <th>
+              <a ng-click="sortType = 'name'; sortReverse = !sortReverse">
+                 <span ng-show="sortType == 'name'" class="fa fa-caret-down"></span>
+                 <font size="+1">Name</font>
+               </a>
+            </td>
+            <th>
+              <a ng-click="sortType = 'desc'; sortReverse = !sortReverse">
+                 <span ng-show="sortType == 'desc'" class="fa fa-caret-down"></span>
+                 <font size="+1">Description</font>
+               </a>
+             </td>
+            <th>
+              <a ng-click="sortType = 'numworks'; sortReverse = !sortReverse">
+                 <span ng-show="sortType == 'numworks'" class="fa fa-caret-down"></span>
+                 <font size="+1">No. of Works</font>
+               </a>
+             </td>
+            <th>
+              <a ng-click="sortType = 'samp'; sortReverse = !sortReverse">
+                 <span ng-show="sortType == 'samp'" class="fa fa-caret-down"></span>
+                 <font size="+1">Sample Piece</font>
+               </a>
+             </td>
         </tr>
-        <tr ng-repeat="item in objects track by $index">
+        <tr ng-repeat="item in objects | orderBy:sortType:sortReverse">
             <td>
                 <a class="page-scroll" ng-click="StyleSelected(item)">
                 {{item.name}}
@@ -68,9 +88,9 @@
             <td> {{item.description}} </td>
             <!-- this is not actually a possibility because it is always 1 -->
             <td> {{item.artworks.length}} </td>
-            <td> 
+            <td>
                 <a class="page-scroll" ng-click="ArtworkSelected(item.artworks[0].id)" href="#/artwork">
-                {{item.artworks[0].title}} 
+                {{item.artworks[0].title}}
                 </a>
             </td>
         </tr>
