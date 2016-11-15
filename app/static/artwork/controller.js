@@ -1,6 +1,6 @@
 angular.module('ArtSnob')
-.controller('artworkController', ['$scope', 'Artwork',
-    function($scope, Artwork) {
+.controller('artworkController', ['$scope', '$rootScope', 'Artwork',
+    function($scope, $rootScope, Artwork) {
         'use strict';
 
         $scope.reload = function() {
@@ -18,6 +18,21 @@ angular.module('ArtSnob')
         $scope.ArtworkDeselected = function() {
             $scope.artwork = undefined
         }
+
+        $scope.ArtistSelected = function(artist_id) {
+            $rootScope.$broadcast('rootScope:artistSelected', artist_id);
+        }
+
+        $scope.StyleSelected = function(style_id) {
+            $rootScope.$broadcast('rootScope:styleSelected', style_id);
+        }
+
+        //listens to see if artwork is selected from a different model
+        $rootScope.$on('rootScope:artworkSelected', function (event, data) {
+            //this is where we will set artwork once we know how to request from API with an ID
+            console.log("Artwork selected with id: "+ data); 
+        });
+
 
         //
         //	Initial load
