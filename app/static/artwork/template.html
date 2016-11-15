@@ -73,7 +73,7 @@
                 {{item.artists[0].name}}
             </a> </td>
             <td> {{item.medium}} </td>
-            <td> <div ng-if = "item.styles" ><a class="page-scroll" ng-click="StyleSelected(item.styles[0])">
+            <td> <div ng-if = "item.styles" ><a class="page-scroll" ng-click="StyleSelected(item.styles[0].id)" href="#/styles">
                 {{item.styles[0].name}}
             </a></div>
           </td>

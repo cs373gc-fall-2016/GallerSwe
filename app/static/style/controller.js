@@ -22,6 +22,11 @@ angular.module('ArtSnob')
             $rootScope.$broadcast('rootScope:artworkSelected', artwork_id);
         }
 
+        $rootScope.$on('rootScope:styleSelected', function (event, data) {
+            //this is where we will set style once we know how to request from API with an ID
+            console.log("Style selected with id: "+ data); 
+        });
+
         //
         //	Initial load
         //

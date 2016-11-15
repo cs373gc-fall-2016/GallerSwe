@@ -23,6 +23,10 @@ angular.module('ArtSnob')
             $rootScope.$broadcast('rootScope:artistSelected', artist_id);
         }
 
+        $scope.StyleSelected = function(style_id) {
+            $rootScope.$broadcast('rootScope:styleSelected', style_id);
+        }
+
         //listens to see if artwork is selected from a different model
         $rootScope.$on('rootScope:artworkSelected', function (event, data) {
             //this is where we will set artwork once we know how to request from API with an ID
