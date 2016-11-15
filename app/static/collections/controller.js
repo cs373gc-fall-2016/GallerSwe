@@ -18,6 +18,10 @@ angular.module('ArtSnob')
             $scope.collection = undefined
         }
 
+        $scope.ArtworkSelected = function(artwork_id) {
+            $rootScope.$broadcast('rootScope:artworkSelected', artwork_id);
+        }
+
         //
         //  Initial load
         //
