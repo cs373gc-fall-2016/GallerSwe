@@ -63,13 +63,38 @@
     <div id="display">
       <table id="data" style="width:90%" class="sortable">
         <tr>
-            <th>Name</td>
-            <th>Type</td>
-            <th>Region</td>
-            <th>Sample Piece</td>
-            <th>Website</td>
+            <th>
+              <a ng-click="sortType = 'institution'; sortReverse = !sortReverse">
+                 <span ng-show="sortType == 'institution'" class="fa fa-caret-down"></span>
+                 Name
+               </a>
+               </td>
+            <th>
+              <a ng-click="sortType = 'type'; sortReverse = !sortReverse">
+                 <span ng-show="sortType == 'type'" class="fa fa-caret-down"></span>
+                 Type
+               </a>
+            </td>
+            <th>
+              <a ng-click="sortType = 'region'; sortReverse = !sortReverse">
+                 <span ng-show="sortType == 'region'" class="fa fa-caret-down"></span>
+                 Region
+               </a>
+            </td>
+            <th>
+              <a ng-click="sortType = 'piece'; sortReverse = !sortReverse">
+                 <span ng-show="sortType == 'piece'" class="fa fa-caret-down"></span>
+                 Sample Piece
+               </a>
+            </td>
+            <th>
+              <a ng-click="sortType = 'website'; sortReverse = !sortReverse">
+                 <span ng-show="sortType == 'website'" class="fa fa-caret-down"></span>
+                 Website
+               </a>
+            </td>
         </tr>
-        <tr ng-repeat="item in objects track by $index">
+        <tr ng-repeat="item in objects | orderBy:sortType:sortReverse">
             <td>
                 <a class="page-scroll" ng-click="CollectionSelected(item)">
                 {{item.institution}}
@@ -77,7 +102,7 @@
             </td>
             <td> {{item.type}} </td>
             <td> {{item.region}} </td>
-            <td> 
+            <td>
                 <a class="page-scroll" ng-click="ArtworkSelected(item.artworks[0].id)" href="#/artwork">
                     {{item.artworks[0].title}}
                 </a>
