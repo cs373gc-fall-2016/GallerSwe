@@ -35,10 +35,10 @@
                 <td><b>Region</b></td><td>{{collection.region}}</td>
             </tr>
             <tr>
-                <td><b>Sample Piece</b></td><td>{{collection.piece}}</td>
+                <td><b>Sample Piece</b></td><td>{{collection.artworks[0].title}}</td>
             </tr>
             <tr>
-                <td><b>Website</b></td><td>{{collection.website}</td>
+                <td><b>Website</b></td><td><a class="page-scroll" href ="{{collection.website}}">{{collection.website}} </a></td>
             </tr>
           </table>
         </div>
@@ -72,8 +72,11 @@
             </td>
             <td> {{item.type}} </td>
             <td> {{item.region}} </td>
-            <td> {{item.artworks}} </td>
-            <td> {{item.website}} </td>
+            <td> {{item.artworks[0].title}} </td>
+            <td>
+              <a class="page-scroll" href ="{{item.website}}">
+                {{item.website}} </td>
+              </a>
         </tr>
       </table>
     </div>
