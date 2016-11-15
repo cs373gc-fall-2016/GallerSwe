@@ -30,9 +30,11 @@ angular.module('ArtSnob')
         //listens to see if artwork is selected from a different model
         $rootScope.$on('rootScope:artworkSelected', function (event, data) {
             //this is where we will set artwork once we know how to request from API with an ID
-            console.log("Artwork selected with id: "+ data); 
+            console.log("Artwork selected with id: "+ data);
         });
 
+        $scope.sortType     = 'title'; // set the default sort type
+        $scope.sortReverse  = false;  // set the default sort order
 
         //
         //	Initial load
