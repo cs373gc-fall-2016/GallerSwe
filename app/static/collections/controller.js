@@ -1,6 +1,6 @@
 angular.module('ArtSnob')
-.controller('collectionsController', ['$scope', 'Collection',
-    function($scope, Collection) {
+.controller('collectionsController', ['$scope', '$rootScope', 'Collection',
+    function($scope, $rootScope, Collection) {
         'use strict';
         
         $scope.reload = function() {

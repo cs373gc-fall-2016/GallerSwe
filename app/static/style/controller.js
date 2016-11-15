@@ -1,6 +1,6 @@
 angular.module('ArtSnob')
-.controller('stylesController', ['$scope', 'Style',
-    function($scope, Style) {
+.controller('stylesController', ['$scope', '$rootScope', 'Style',
+    function($scope, $rootScope, Style) {
         'use strict';
         
         $scope.reload = function() {
@@ -17,6 +17,7 @@ angular.module('ArtSnob')
         $scope.StyleDeselected = function() {
             $scope.syle = undefined
         }
+
 
         //
         //	Initial load
