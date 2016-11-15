@@ -1,6 +1,6 @@
 angular.module('ArtSnob')
-.controller('stylesController', ['$scope', 'Style',
-    function($scope, Style) {
+.controller('stylesController', ['$scope', '$rootScope', 'Style',
+    function($scope, $rootScope, Style) {
         'use strict';
         
         $scope.reload = function() {
@@ -17,6 +17,15 @@ angular.module('ArtSnob')
         $scope.StyleDeselected = function() {
             $scope.syle = undefined
         }
+
+        $scope.ArtworkSelected = function(artwork_id) {
+            $rootScope.$broadcast('rootScope:artworkSelected', artwork_id);
+        }
+
+        $rootScope.$on('rootScope:styleSelected', function (event, data) {
+            //this is where we will set style once we know how to request from API with an ID
+            console.log("Style selected with id: "+ data); 
+        });
 
         //
         //	Initial load

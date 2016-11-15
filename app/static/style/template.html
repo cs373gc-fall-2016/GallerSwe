@@ -68,7 +68,11 @@
             <td> {{item.description}} </td>
             <!-- this is not actually a possibility because it is always 1 -->
             <td> {{item.artworks.length}} </td>
-            <td> {{item.artworks[0].title}} </td>
+            <td> 
+                <a class="page-scroll" ng-click="ArtworkSelected(item.artworks[0].id)" href="#/artwork">
+                {{item.artworks[0].title}} 
+                </a>
+            </td>
         </tr>
       </table>
     </div>
