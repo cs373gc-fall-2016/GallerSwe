@@ -22,6 +22,8 @@ angular.module('ArtSnob')
         $scope.ArtworkSelected = function(artwork) {
         }
 
+        $scope.sortType     = 'name'; // set the default sort type
+        $scope.sortReverse  = false;  // set the default sort order
         //
         //	Initial load
         //
