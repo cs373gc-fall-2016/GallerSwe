@@ -3,12 +3,14 @@ DB for Artsnob
 """
 import os
 
-from flask import Flask, after_request
+from flask import Flask
 import flask_sqlalchemy
 import flask_restless
+from flask_cors import CORS, cross_origin
 
 #os.system('createdb testdb')
 APP = Flask(__name__)
+CORS(APP)
 APP.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///artsnob'
 APP.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 DB = flask_sqlalchemy.SQLAlchemy(APP)
