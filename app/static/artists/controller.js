@@ -19,7 +19,8 @@ angular.module('ArtSnob')
             $scope.artist = undefined
         }
 
-        $scope.ArtworkSelected = function(artwork) {
+        $scope.ArtworkSelected = function(artwork_id) {
+            $rootScope.$broadcast('rootScope:artworkSelected', artwork_id);
         }
 
         //listens to see if artist is selected from a different model
