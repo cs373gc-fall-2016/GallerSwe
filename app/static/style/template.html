@@ -16,12 +16,11 @@
       <div class="container">
           <div class="row">
               <div class="col-md-8 col-md-offset-2">
-                <p style="text-align:center;"><img src="{{style.thumbnail.href}}" style = "max-width:95%;border:6px double #545565;" alt="alternative text" width=auto height="256" ></img></p>
+                <p style="text-align:center;"><img src="{{style.image}}" style = "max-width:95%;border:6px double #545565;" alt="alternative text" width=auto height="256" ></img></p>
               </div>
             </div>
           </div>
     </div>
-
     <div class="col-lg-8 col-lg-offset-2">
         <div id="display">
           <table id="data" style="width:90%; font-family: Helvetica Neue" class="sortable">
@@ -32,13 +31,10 @@
                 <td><b>Description</b></td><td>{{style.description}}</td>
             </tr>
             <tr>
-                <td><b>Sample Piece</b></td><td>{{style.piece}}</td>
+                <td><b>No. of Works</b></td><td>{{style.artworks.length}}</td>
             </tr>
             <tr>
-                <td><b>No. of Works</b></td><td>{{style.numworks}}</td>
-            </tr>
-            <tr>
-                <td><b>No. of Artists</b></td><td>{{style.numartists}</td>
+                <td><b>Sample Piece</b></td><td>{{style.artworks[0].title}}</td>
             </tr>
           </table>
         </div>
@@ -61,7 +57,6 @@
             <th>Name</td>
             <th>Description</td>
             <th>No. of Works</td>
-            <!-- <th>No. of Artists</td> -->
             <th>Sample Piece</td>
         </tr>
         <tr ng-repeat="item in objects track by $index">
@@ -71,8 +66,9 @@
                 </a>
             </td>
             <td> {{item.description}} </td>
-            <td> {{item.artworks}} </td>
-            <td> {{item.artworks} </td>
+            <!-- this is not actually a possibility because it is always 1 -->
+            <td> {{item.artworks.length}} </td>
+            <td> {{item.artworks[0].title}} </td>
         </tr>
       </table>
     </div>
