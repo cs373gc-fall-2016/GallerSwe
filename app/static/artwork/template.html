@@ -60,6 +60,7 @@
     </header>
     <div id="display">
       <table id="data" style="width:90%" class="sortable">
+    <!-- <table  id = "data" ng-table="vm.tableParams" class="table" show-filter="true" > -->
         <tr>
             <th>
               <a ng-click="sortType = 'title'; sortReverse = !sortReverse">
@@ -109,6 +110,13 @@
           </td>
         </tr>
       </table>
+    <uib-pagination
+      ng-model="pageNumber"
+      total-items="totalArtworks"
+      max-size="maxSize"
+      boundary-links="true"
+      ng-change="changePage()">
+    </uib-pagination>
     </div>
   </div>
 </div>

@@ -188,3 +188,7 @@ td{
 .below_header {
   padding-top: 200px;
 }
+
+.pointer {
+    cursor: pointer;
+}

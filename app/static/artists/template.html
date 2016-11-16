@@ -1,5 +1,3 @@
-<script src="sorttable.js"></script>
-
 <div class="container">
 <div class="page_header" ng-app="ArtSnob" ng-show="artist != undefined">
     <button type="button" class="btn btn-outline-secondary" style = "font-family:Helvetica Neue" ng-click="ArtistDeselected()">Back to Table</button>
@@ -74,7 +72,7 @@
         </div>
     </header>
     <div id="display">
-      <table id="data" style="width:90%" class="sortable">
+      <!-- <table id="data" style="width:90%" class="sortable">
         <tr>
             <th>
               <a ng-click="sortType = 'name'; sortReverse = !sortReverse">
@@ -118,11 +116,39 @@
             <td> {{item.hometown}} </td>
             <td>
                 <a class="page-scroll" ng-click="ArtworkSelected(item.artworks[0].id)" href="#/artwork">
-                    {{item.artworks[0].title}}  
+                    {{item.artworks[0].title}}
                 </a>
             </td>
         </tr>
-      </table>
+      </table> -->
+
+      <table st-table="objects" class="table" st-safe-src="rowCollection">
+      <thead>
+      <tr>
+        <th st-sort="name" st-sort-default="true">Name</th>
+        <th st-sort="gender">Gender</th>
+        <th st-sort="birth">Birthyear</th>
+        <th st-sort="hometown">Hometown</th>
+        <th st-sort="artworks[0].title">Sample Piece</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="row in objects">
+        <td><a class="page-scroll" ng-click="ArtistSelected(row)">{{row.name}}</a></td>
+        <td>{{row.gender}}</td>
+        <td>{{row.birth}}</td>
+        <td>{{row.hometown}}</td>
+        <td><a class="page-scroll" ng-click="ArtworkSelected(item.artworks[0].id)" href="#/artwork">{{row.artworks[0].title}}</a></td>
+      </tr>
+      </tbody>
+      <tfoot>
+      <tr>
+        <td colspan="5" class="text-center">
+          <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="10"></div>
+        </td>
+      </tr>
+    </tfoot>
+    </table>
     </div>
   </div>
 </div>
