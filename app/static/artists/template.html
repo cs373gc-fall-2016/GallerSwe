@@ -122,33 +122,33 @@
         </tr>
       </table> -->
 
-      <table st-table="objects" class="table" st-safe-src="rowCollection">
-      <thead>
-      <tr>
-        <th st-sort="name" st-sort-default="true">Name</th>
-        <th st-sort="gender">Gender</th>
-        <th st-sort="birth">Birthyear</th>
-        <th st-sort="hometown">Hometown</th>
-        <th st-sort="artworks[0].title">Sample Piece</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr ng-repeat="row in objects">
-        <td><a class="page-scroll" ng-click="ArtistSelected(row)">{{row.name}}</a></td>
-        <td>{{row.gender}}</td>
-        <td>{{row.birth}}</td>
-        <td>{{row.hometown}}</td>
-        <td><a class="page-scroll" ng-click="ArtworkSelected(item.artworks[0].id)" href="#/artwork">{{row.artworks[0].title}}</a></td>
-      </tr>
-      </tbody>
-      <tfoot>
-      <tr>
-        <td colspan="5" class="text-center">
-          <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="10"></div>
-        </td>
-      </tr>
-    </tfoot>
-    </table>
+        <table st-table="objects" class="table" st-safe-src="rowCollection">
+        <thead>
+        <tr>
+          <th st-sort="name" st-sort-default="true">Name</th>
+          <th st-sort="gender">Gender</th>
+          <th st-sort="birth">Birthyear</th>
+          <th st-sort="hometown">Hometown</th>
+          <th st-sort="artworks[0].title">Sample Piece</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="row in objects">
+          <td><a class="page-scroll" ng-click="ArtistSelected(row)">{{row.name}}</a></td>
+          <td>{{row.gender}}</td>
+          <td>{{row.birth}}</td>
+          <td>{{row.hometown}}</td>
+          <td><a class="page-scroll" ng-click="ArtworkSelected(item.artworks[0].id)" href="#/artwork">{{row.artworks[0].title}}</a></td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+          <td colspan="5" class="text-center">
+            <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="10"></div>
+          </td>
+        </tr>
+      </tfoot>
+      </table>
     </div>
   </div>
 </div>
