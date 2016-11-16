@@ -35,10 +35,15 @@
                 <td><b>Region</b></td><td>{{collection.region}}</td>
             </tr>
             <tr>
-                <td><b>Sample Piece</b></td><td>{{collection.piece}}</td>
+                <td><b>Sample Piece</b></td>
+                <td>
+                    <a class="page-scroll" ng-click="ArtworkSelected(item.artworks[0].id)" href="#/artwork">
+                    {{collection.artworks[0].title}}
+                    </a>
+                </td>
             </tr>
             <tr>
-                <td><b>Website</b></td><td>{{collection.website}</td>
+                <td><b>Website</b></td><td><a class="page-scroll" href ="{{collection.website}}">{{collection.website}} </a></td>
             </tr>
           </table>
         </div>
@@ -58,13 +63,38 @@
     <div id="display">
       <table id="data" style="width:90%" class="sortable">
         <tr>
-            <th>Name</td>
-            <th>Type</td>
-            <th>Region</td>
-            <th>Sample Piece</td>
-            <th>Website</td>
+            <th>
+              <a ng-click="sortType = 'institution'; sortReverse = !sortReverse">
+                 <span ng-show="sortType == 'institution'" class="fa fa-caret-down"></span>
+                 <font size="+1">Name</font>
+               </a>
+               </td>
+            <th>
+              <a ng-click="sortType = 'type'; sortReverse = !sortReverse">
+                 <span ng-show="sortType == 'type'" class="fa fa-caret-down"></span>
+                 <font size="+1">Type</font>
+               </a>
+            </td>
+            <th>
+              <a ng-click="sortType = 'region'; sortReverse = !sortReverse">
+                 <span ng-show="sortType == 'region'" class="fa fa-caret-down"></span>
+                 <font size="+1">Region</font>
+               </a>
+            </td>
+            <th>
+              <a ng-click="sortType = 'piece'; sortReverse = !sortReverse">
+                 <span ng-show="sortType == 'piece'" class="fa fa-caret-down"></span>
+                 <font size="+1">Sample Piece</font>
+               </a>
+            </td>
+            <th>
+              <a ng-click="sortType = 'website'; sortReverse = !sortReverse">
+                 <span ng-show="sortType == 'website'" class="fa fa-caret-down"></span>
+                 <font size="+1">Website</font>
+               </a>
+            </td>
         </tr>
-        <tr ng-repeat="item in objects track by $index">
+        <tr ng-repeat="item in objects | orderBy:sortType:sortReverse">
             <td>
                 <a class="page-scroll" ng-click="CollectionSelected(item)">
                 {{item.institution}}
@@ -72,8 +102,15 @@
             </td>
             <td> {{item.type}} </td>
             <td> {{item.region}} </td>
-            <td> {{item.artworks}} </td>
-            <td> {{item.website}} </td>
+            <td>
+                <a class="page-scroll" ng-click="ArtworkSelected(item.artworks[0].id)" href="#/artwork">
+                    {{item.artworks[0].title}}
+                </a>
+            </td>
+            <td>
+              <a class="page-scroll" href ="{{item.website}}">
+                {{item.website}} </td>
+              </a>
         </tr>
       </table>
     </div>
