@@ -101,20 +101,23 @@ def get_artwork_results(artwork, phrase):
     """
     results = []
     phrase = phrase.lower()
-    if artwork.title.lower().find(phrase) != -1:
-        results.append({"title"    : artwork.title,
-                        "context" : "Title: " + artwork.title,
-                        "id"      : artwork.id})
+    if artwork.title :
+        if artwork.title.lower().find(phrase) != -1:
+            results.append({"title"    : artwork.title,
+                            "context" : "Title: " + artwork.title,
+                            "id"      : artwork.id})
 
-    if artwork.date.lower().find(phrase) != -1:
-        results.append({"title"    : artwork.title,
-                        "context" : "Date: " + artwork.date,
-                        "id"      : artwork.id})
+    if artwork.date:
+        if artwork.date.lower().find(phrase) != -1:
+            results.append({"title"    : artwork.title,
+                            "context" : "Date: " + artwork.date,
+                            "id"      : artwork.id})
 
-    if artwork.medium.lower().find(phrase) != -1:
-        results.append({"title"    : artwork.title,
-                        "context" : "Medium: " + artwork.medium,
-                        "id"      : artwork.id})
+    if artwork.medium :
+        if artwork.medium.lower().find(phrase) != -1:
+            results.append({"title"    : artwork.title,
+                            "context" : "Medium: " + artwork.medium,
+                            "id"      : artwork.id})
 
     return results
 
