@@ -7,6 +7,7 @@ angular.module('ArtSnob')
 			Artists.get(function(response) {
 				$scope.response = response
                 $scope.objects = response.objects
+                $scope.rowCollection = response.objects
 			});
             maybeArtist = $localStorage.get("artist");
             if (maybeArtist != undefined){
@@ -31,10 +32,10 @@ angular.module('ArtSnob')
         $scope.sortReverse  = false;  // set the default sort order
 
         $rootScope.$on('rootScope:artistSelected', function (event, data) {
+
             SingleArtist.get( data, function(artistData) { 
                 $scope.artist = artistData 
                 $localStorage.setItem("artist", artistData);
-
                 console.log("scope artist:");
                 console.log($scope.artist);
             });

@@ -123,7 +123,7 @@
         <tbody>
         <tr ng-repeat="row in objects">
           <td><a class="page-scroll" ng-click="ArtworkSelected(row)">{{row.title}}</a></td>
-          <td>{{row.artists[0].name}}</td>
+          <td><a class="page-scroll" ng-click="ArtistSelected(item.artists[0].id)" href="#/artists">{{row.artists[0].name}}</a></td>
           <td>{{row.date}}</td>
           <td>{{row.medium}}</td>
           <td><a class="page-scroll" ng-click="StyleSelected(item.styles[0].id)" href="#/styles">{{row.styles[0].name}}</a></td>
