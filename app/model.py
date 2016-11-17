@@ -4,19 +4,17 @@ DB for Artsnob
 import os
 
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+import flask_sqlalchemy
 import flask_restless
+from flask_cors import CORS, cross_origin
 
-def add_cors_headers(response):
-    response.headers['Access-Control-Allow-Origin'] = 'artsnob.me'
-    response.headers['Access-Control-Allow-Credentials'] = 'true'
-    return response
-
-#os.system('createdb ardb')
+#os.system('createdb testdb')
 APP = Flask(__name__)
+CORS(APP)
 APP.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///artsnob'
 APP.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-DB = SQLAlchemy(APP)
+DB = flask_sqlalchemy.SQLAlchemy(APP)
+
 
 ID_CHARS = 24
 NAME_CHARS = 255
@@ -52,21 +50,21 @@ class Artist(DB.Model):
     with all of their artworks.
     """
     _tablename_ = 'artist'
-    identification = DB.Column(DB.String(ID_CHARS), primary_key=True)
+    id = DB.Column(DB.String(ID_CHARS), primary_key=True)
     name = DB.Column(DB.String(NAME_CHARS))
     birth = DB.Column(DB.String(DATE_CHARS))
     gender = DB.Column(DB.String(GENDER_CHARS))
-    nationality = DB.Column(DB.String(NAME_CHARS))
+    hometown = DB.Column(DB.String(NAME_CHARS))
     image = DB.Column(DB.String(LINK_CHARS))
     artworks = DB.relationship(
         'Artwork', back_populates='artists', secondary=ARTWORK_ARTIST)
 
-    def __init__(self, identification, name, birth, gender, nationality, image):
-        self.identification = identification
+    def __init__(self, id, name, birth, gender, nationality, image):
+        self.id = id
         self.name = name
         self.birth = birth
         self.gender = gender
-        self.nationality = nationality
+        self.hometown = hometown
         self.image = image
 
     def __repr__(self):
@@ -79,7 +77,7 @@ class Artwork(DB.Model):
     name, medium, description, and style
     """
     __tablename__ = 'artwork'
-    identification = DB.Column(DB.String(ID_CHARS), primary_key=True)
+    id = DB.Column(DB.String(ID_CHARS), primary_key=True)
     title = DB.Column(DB.String(NAME_CHARS))
     category = DB.Column(DB.String(NAME_CHARS))
     medium = DB.Column(DB.String(DESC_CHARS))
@@ -92,8 +90,8 @@ class Artwork(DB.Model):
     collections = DB.relationship('Collection', back_populates='artworks',
                                   secondary=ARTWORK_COLLECTION)
 
-    def __init__(self, identification, title, category, medium, date, image):
-        self.identification = identification
+    def __init__(self, id, title, category, medium, date, image):
+        self.id = id
         self.title = title
         self.category = category
         self.medium = medium
@@ -111,7 +109,7 @@ class Collection(DB.Model):
     and the type of institution
     """
     __tablename__ = 'collection'
-    identification = DB.Column(DB.String(ID_CHARS), primary_key=True)
+    id = DB.Column(DB.String(ID_CHARS), primary_key=True)
     institution = DB.Column(DB.String(NAME_CHARS))
     website = DB.Column(DB.String(LINK_CHARS))
     region = DB.Column(DB.String(NAME_CHARS))
@@ -119,8 +117,8 @@ class Collection(DB.Model):
     artworks = DB.relationship('Artwork', back_populates='collections',
                                secondary=ARTWORK_COLLECTION)
 
-    def __init__(self, identification, institution, website, region, ins_type):
-        self.identification = identification
+    def __init__(self, id, institution, website, region, ins_type):
+        self.id = id
         self.institution = institution
         self.website = website
         self.region = region
@@ -136,15 +134,15 @@ class Style(DB.Model):
     name, description and time period
     """
     __tablename__ = 'style'
-    identification = DB.Column(DB.String(ID_CHARS), primary_key=True)
+    id = DB.Column(DB.String(ID_CHARS), primary_key=True)
     name = DB.Column(DB.String(NAME_CHARS))
     description = DB.Column(DB.String)
     image = DB.Column(DB.String(LINK_CHARS))
     artworks = DB.relationship(
         'Artwork', back_populates='styles', secondary=ARTWORK_STYLE)
 
-    def __init__(self, identification, name, description, image):
-        self.identification = identification
+    def __init__(self, id, name, description, image):
+        self.id = id
         self.name = name
         self.description = description
         self.image = image
@@ -159,11 +157,10 @@ manager = flask_restless.APIManager(APP, flask_sqlalchemy_db=DB)
 
 # Create API endpoints, which will be available at /api/<tablename> by
 # default. Allowed HTTP methods can be specified as well.
-blueprint1 = manager.create_api_blueprint(Artist, methods=['GET'])
-blueprint1.after_request(add_cors_headers)
-blueprint2 = manager.create_api_blueprint(Artwork, methods=['GET'])
-blueprint2.after_request(add_cors_headers)
-blueprint3 = manager.create_api_blueprint(Style, methods=['GET'])
-blueprint3.after_request(add_cors_headers)
-blueprint3 = manager.create_api_blueprint(Collection, methods=['GET'])
-blueprint3.after_request(add_cors_headers)
+manager.create_api(Artist, methods=['GET'], results_per_page = -1)
+manager.create_api(Artwork, methods=['GET'], results_per_page = -1)
+manager.create_api(Style, methods=['GET'], results_per_page = -1)
+manager.create_api(Collection, methods=['GET'], results_per_page = 75)
+
+if __name__ == "__main__":
+    APP.run()

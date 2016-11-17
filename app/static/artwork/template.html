@@ -29,16 +29,19 @@
                 <td><b>Title</b></td><td>{{artwork.title}}</td>
             </tr>
             <tr>
-                <td><b>Artist</b></td><td>{{artwork.date}}</td>
+                <td><b>Artist</b></td><td>{{artwork.artists[0].name}}</td>
             </tr>
             <tr>
-                <td><b>Category</b></td><td>{{artwork.category}}</td>
+                <td><b>Date</b></td><td>{{artwork.date}}</td>
+            </tr>
+            <tr>
+                <td><b>Institution</b></td><td>{{artwork.collections[0].institution}}</td>
             </tr>
             <tr>
                 <td><b>Medium</b></td><td>{{artwork.medium}}</td>
             </tr>
             <tr>
-                <td><b>Style</b></td><td>{{artwork.styles}}</td>
+                <td><b>Style</b></td><td>{{artwork.styles[0].name}}</td>
             </tr>
           </table>
         </div>
@@ -56,26 +59,84 @@
         </div>
     </header>
     <div id="display">
-      <table id="data" style="width:90%" class="sortable">
-        <tr>
-            <th>Title</td>
-            <th>Artist</td>
-            <th>Category</td>
-            <th>Medium</td>
-            <th>Style</td>
+      <!-- <table id="data" style="width:90%" class="sortable"> -->
+    <!-- <table  id = "data" ng-table="vm.tableParams" class="table" show-filter="true" > -->
+        <!-- <tr>
+            <th>
+              <a ng-click="sortType = 'title'; sortReverse = !sortReverse">
+                 <span ng-show="sortType == 'title'" class="fa fa-caret-down"></span>
+                 Title
+               </a>
+               </td>
+            <th>
+              <a ng-click="sortType = 'artist'; sortReverse = !sortReverse">
+                 <span ng-show="sortType == 'artist'" class="fa fa-caret-down"></span>
+                 Artist
+               </a>
+               </td>
+            <th>
+               <a ng-click="sortType = 'date'; sortReverse = !sortReverse">
+                  <span ng-show="sortType == 'date'" class="fa fa-caret-down"></span>
+                  Date
+                </a>
+                </td>
+            <th>
+              <a ng-click="sortType = 'medium'; sortReverse = !sortReverse">
+                 <span ng-show="sortType == 'medium'" class="fa fa-caret-down"></span>
+                 Medium
+               </a>
+               </td>
+            <th>
+              <a ng-click="sortType = 'style'; sortReverse = !sortReverse">
+                 <span ng-show="sortType == 'style'" class="fa fa-caret-down"></span>
+                 Style
+               </a>
+               </td>
         </tr>
-        <tr ng-repeat="item in objects track by $index">
+        <tr ng-repeat="item in objects | orderBy:sortType:sortReverse">
             <td>
                 <a class="page-scroll" ng-click="ArtworkSelected(item)">
                 {{item.title}}
                 </a>
             </td>
-            <td> {{item.artist}} </td>
-            <td> {{item.category}} </td>
+            <td> <a class="page-scroll" ng-click="ArtistSelected(item.artists[0].id)" href="#/artists">
+                {{item.artists[0].name}}
+            </a> </td>
+            <td> {{item.date}}   </td>
             <td> {{item.medium}} </td>
-            <td> {{item.styles}} </td>
+            <td> <div ng-if = "item.styles" ><a class="page-scroll" ng-click="StyleSelected(item.styles[0].id)" href="#/styles">
+                {{item.styles[0].name}}
+            </a></div>
+          </td>
         </tr>
+      </table> -->
+        <table st-table="objects" class="table" st-safe-src="rowCollection">
+        <thead>
+        <tr>
+          <th st-sort="title" st-sort-default="true">Title</th>
+          <th st-sort="artists[0].name">Artist</th>
+          <th st-sort="date">Date</th>
+          <th st-sort="medium">Medium</th>
+          <th st-sort="styles[0].name">Style</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="row in objects">
+          <td><a class="page-scroll" ng-click="ArtworkSelected(row)">{{row.title}}</a></td>
+          <td>{{row.artists[0].name}}</td>
+          <td>{{row.date}}</td>
+          <td>{{row.medium}}</td>
+          <td><a class="page-scroll" ng-click="StyleSelected(item.styles[0].id)" href="#/styles">{{row.styles[0].name}}</a></td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+          <td colspan="5" class="text-center">
+            <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="10"></div>
+          </td>
+        </tr>
+      </tfoot>
       </table>
-    </div>
+      </div>
   </div>
 </div>
