@@ -114,7 +114,7 @@
         <thead>
         <tr>
           <th st-sort="title" st-sort-default="true">Title</th>
-          <th st-sort="artists[0].name">Artist</th>
+          <th st-sort="artists[0].name"><a class="page-scroll" ng-click="ArtistSelected(item.artists[0].id)" href="#/artists">Artist</a></th>
           <th st-sort="date">Date</th>
           <th st-sort="medium">Medium</th>
           <th st-sort="styles[0].name">Style</th>
