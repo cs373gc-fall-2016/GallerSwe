@@ -52,7 +52,7 @@
         </div>
     </header>
     <div id="display">
-      <table id="data" style="width:90%" class="sortable">
+      <!-- <table id="data" style="width:90%" class="sortable">
         <tr>
             <th>
               <a ng-click="sortType = 'name'; sortReverse = !sortReverse">
@@ -86,7 +86,7 @@
                 </a>
             </td>
             <td> {{item.description}} </td>
-            <!-- this is not actually a possibility because it is always 1 -->
+             this is not actually a possibility because it is always 1
             <td> {{item.artworks.length}} </td>
             <td>
                 <a class="page-scroll" ng-click="ArtworkSelected(item.artworks[0].id)" href="#/artwork">
@@ -94,7 +94,34 @@
                 </a>
             </td>
         </tr>
-      </table>
+      </table> -->
+      <table st-table="objects" class="table" st-safe-src="rowCollection">
+      <thead>
+      <tr>
+        <th st-sort="name" st-sort-default="true">Name</th>
+        <th st-sort="description">Description</th>
+        <th st-sort="artworks.length">Numworks</th>
+        <th st-sort="artworks[0].name">Sample Piece</th>
+        <th st-sort="artworks[0].date">Piece Date</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="row in objects">
+        <td><a class="page-scroll" ng-click="StyleSelected(row)">{{row.name}}</a></td>
+        <td>{{row.description}}</td>
+        <td>{{row.artworks.length}}</td>
+        <td><a class="page-scroll" ng-click="ArtworkSelected(row.artworks[0].id)" href="#/artwork">{{row.artworks[0].title}}</td>
+        <td>{{row.artworks[0].date}}</td>
+      </tr>
+      </tbody>
+      <tfoot>
+      <tr>
+        <td colspan="5" class="text-center">
+          <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="10"></div>
+        </td>
+      </tr>
+    </tfoot>
+    </table>
     </div>
   </div>
 </div>

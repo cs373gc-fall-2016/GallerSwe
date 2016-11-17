@@ -7,6 +7,7 @@ angular.module('ArtSnob')
 			Style.get(function(response) {
 				$scope.response = response
                 $scope.objects = response.objects
+                $scope.rowCollection = response.objects;
 			});
         }
 
