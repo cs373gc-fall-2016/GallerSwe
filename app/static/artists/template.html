@@ -1,5 +1,5 @@
 <div class="container">
-<div class="page_header" ng-app="ArtSnob" ng-show="my.artist != undefined">
+<div class="page_header" ng-app="ArtSnob" ng-show="artist != undefined">
     <button type="button" class="btn btn-outline-secondary" style = "font-family:Helvetica Neue" ng-click="ArtistDeselected()">Back to Table</button>
     <header>
         <div class="container">
@@ -14,7 +14,7 @@
       <div class="container">
           <div class="row">
               <div class="col-md-8 col-md-offset-2">
-                <p style="text-align:center;"><img src="{{artist.image}}" style = "max-width:95%;border:6px double #545565;" alt="alternative text" width="256" height="256" ></img></p>
+                <p style="text-align:center;"><img src="{{artist.image}}" style = "max-width:95%;border:6px double #545565;" alt="alternative text" width=auto height="256" ></img></p>
               </div>
             </div>
           </div>
@@ -34,21 +34,43 @@
                 <tr>
                     <td><b>Birth Place</b></td><td>{{artist.hometown}}</td>
                 </tr>
-                <tr>
+                <tr><td><b>Works</b></td>
+                <!-- <tr>
                     <td><b>Artwork</b></td>
                     <td>
                         <a class="page-scroll" ng-click="ArtworkSelected(artist.artworks[0])">
                             {{artist.artworks[0].title}}
-                        </a>
+                        </a> -->
                         <!--idk why this is only working when it is p, I'll fix it later -Courtney -->
                         <!-- <p ng-repeat="artwork in artist.artworks track by $index">
                             <a class="page-scroll" ng-click="ArtworkSelected(artwork)">
                             {{artwork.title}}
                             </a>
                         </p> -->
-                    </td>
+                    <!-- </td>
+                </tr> -->
+            <td></table>
+                <table class="table" align="center">
+                <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Date</th>
+                  <th>Medium</th>
                 </tr>
-            </table>
+                </thead>
+                <tbody>
+                <tr ng-repeat="row in artist.artworks">
+                  <td><a class="page-scroll" ng-click="ArtworkSelected(row.id)" href="#/artwork">{{row.title}}</a></td>
+                  <td>{{row.date}}</td>
+                  <td>{{row.medium}}</td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                </tr>
+              </tfoot>
+            </table></td>
+            </tr>
             <!-- or maybe we could put a table at the bottom with all the artwork? -Courtney -->
 <!--             <h3>Artwork</h3>
             <table id="data" style="width:90%; font-family: Helvetica Neue" class="sortable">
@@ -131,6 +153,7 @@
           <th st-sort="hometown">Hometown</th>
           <th st-sort="artworks[0].title">Sample Piece</th>
         </tr>
+				<th colspan="5"><input st-search="" class="form-control" placeholder="Search..." type="text"/></th>
         </thead>
         <tbody>
         <tr ng-repeat="row in objects">
@@ -138,13 +161,13 @@
           <td>{{row.gender}}</td>
           <td>{{row.birth}}</td>
           <td>{{row.hometown}}</td>
-          <td><a class="page-scroll" ng-click="ArtworkSelected(item.artworks[0].id)" href="#/artwork">{{row.artworks[0].title}}</a></td>
+          <td><a class="page-scroll" ng-click="ArtworkSelected(row.artworks[0].id)" href="#/artwork">{{row.artworks[0].title}}</a></td>
         </tr>
         </tbody>
         <tfoot>
         <tr>
           <td colspan="5" class="text-center">
-            <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="10"></div>
+            <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
           </td>
         </tr>
       </tfoot>

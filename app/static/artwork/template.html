@@ -29,19 +29,19 @@
                 <td><b>Title</b></td><td>{{artwork.title}}</td>
             </tr>
             <tr>
-                <td><b>Artist</b></td><td>{{artwork.artists[0].name}}</td>
+                <td><b>Artist</b></td><td><a class="page-scroll" ng-click="ArtistSelected(artwork.artists[0].id)" href="#/artists">{{artwork.artists[0].name}}</a></td>
             </tr>
             <tr>
                 <td><b>Date</b></td><td>{{artwork.date}}</td>
             </tr>
             <tr>
-                <td><b>Institution</b></td><td>{{artwork.collections[0].institution}}</td>
+                <td><b>Institution</b></td><td><a class="page-scroll" ng-click="CollectionSelected(artwork.collections[0].id)" href="#/collections">{{artwork.collections[0].institution}}</a></td>
             </tr>
             <tr>
                 <td><b>Medium</b></td><td>{{artwork.medium}}</td>
             </tr>
             <tr>
-                <td><b>Style</b></td><td>{{artwork.styles[0].name}}</td>
+                <td><b>Style</b></td><td><a class="page-scroll" ng-click="StyleSelected(artwork.styles[0].id)" href="#/styles">{{artwork.styles[0].name}}</a></td>
             </tr>
           </table>
         </div>
@@ -113,20 +113,23 @@
         <table st-table="objects" class="table" st-safe-src="rowCollection">
         <thead>
         <tr>
-          <th st-sort="title" st-sort-default="true">Title</th>
+          <th st-sort="title">Title</th>
           <th st-sort="artists[0].name">Artist</th>
           <th st-sort="date">Date</th>
           <th st-sort="medium">Medium</th>
           <th st-sort="styles[0].name">Style</th>
         </tr>
+        <tr>
+        <th colspan="5"><input st-search="" class="form-control" placeholder="Search..." type="text"/></th>
+        </tr>
         </thead>
         <tbody>
         <tr ng-repeat="row in objects">
           <td><a class="page-scroll" ng-click="ArtworkSelected(row)">{{row.title}}</a></td>
-          <td>{{row.artists[0].name}}</td>
+          <td><a class="page-scroll" ng-click="ArtistSelected(row.artists[0].id)" href="#/artists">{{row.artists[0].name}}</a></td>
           <td>{{row.date}}</td>
           <td>{{row.medium}}</td>
-          <td><a class="page-scroll" ng-click="StyleSelected(item.styles[0].id)" href="#/styles">{{row.styles[0].name}}</a></td>
+          <td><a class="page-scroll" ng-click="StyleSelected(row.styles[0].id)" href="#/styles">{{row.styles[0].name}}</a></td>
         </tr>
         </tbody>
         <tfoot>
