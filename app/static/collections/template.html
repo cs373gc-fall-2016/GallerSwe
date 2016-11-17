@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
-                    <h1 class="brand-heading" style="text-align:center;">{{collection.name}}</h1>
+                    <h1 class="brand-heading" style="text-align:center;">{{collection.institution}}</h1>
                 </div>
             </div>
         </div>
@@ -35,16 +35,31 @@
                 <td><b>Region</b></td><td>{{collection.region}}</td>
             </tr>
             <tr>
-                <td><b>Sample Piece</b></td>
-                <td>
-                    <a class="page-scroll" ng-click="ArtworkSelected(item.artworks[0].id)" href="#/artwork">
-                    {{collection.artworks[0].title}}
-                    </a>
-                </td>
-            </tr>
-            <tr>
                 <td><b>Website</b></td><td><a class="page-scroll" href ="{{collection.website}}">{{collection.website}} </a></td>
             </tr>
+            <tr><td><b>Works</b></td>
+              <td></table>
+                  <table class="table" align="center">
+                  <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Medium</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr ng-repeat="row in collection.artworks">
+                    <td><a class="page-scroll" ng-click="ArtworkSelected(row.id)">{{row.title}}</a></td>
+                    <td>{{row.date}}</td>
+                    <td>{{row.medium}}</td>
+                  </tr>
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                  </tr>
+                </tfoot>
+              </table></td>
+              </tr>
           </table>
         </div>
     </div>
@@ -123,6 +138,9 @@
     		<th st-sort="artworks[0].title">Piece</th>
     		<th st-sort="website">Website</th>
     	</tr>
+      <tr>
+      <th colspan="5"><input st-search="" class="form-control" placeholder="Search..." type="text"/></th>
+      </tr>
     	</thead>
     	<tbody>
     	<tr ng-repeat="row in objects">

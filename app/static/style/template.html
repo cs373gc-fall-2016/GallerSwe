@@ -104,11 +104,14 @@
         <th st-sort="artworks[0].name">Sample Piece</th>
         <th st-sort="artworks[0].date">Piece Date</th>
       </tr>
+      <tr>
+      <th colspan="5"><input st-search="" class="form-control" placeholder="Search..." type="text"/></th>
+      </tr>
       </thead>
       <tbody>
       <tr ng-repeat="row in objects">
         <td><a class="page-scroll" ng-click="StyleSelected(row)">{{row.name}}</a></td>
-        <td>{{row.description}}</td>
+        <td>{{row.description | limitTo:50}}...</td>
         <td>{{row.artworks.length}}</td>
         <td><a class="page-scroll" ng-click="ArtworkSelected(row.artworks[0].id)" href="#/artwork">{{row.artworks[0].title}}</td>
         <td>{{row.artworks[0].date}}</td>

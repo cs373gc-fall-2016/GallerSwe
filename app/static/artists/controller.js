@@ -27,6 +27,7 @@ angular.module('ArtSnob')
         $scope.sortReverse  = false;  // set the default sort order
 
         $rootScope.$on('rootScope:artistSelected', function (event, data) {
+            console.log("getting this :" + data)
             SingleArtist.get( data, function(artistData) {
                 $scope.artist = artistData
                 console.log("scope artist:");
