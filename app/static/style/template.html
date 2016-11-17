@@ -33,9 +33,28 @@
             <tr>
                 <td><b>No. of Works</b></td><td>{{style.artworks.length}}</td>
             </tr>
-            <tr>
-                <td><b>Sample Piece</b></td><td>{{style.artworks[0].title}}</td>
-            </tr>
+            <tr><td><b>Works</b></td>
+              <td></table>
+                  <table class="table" align="center">
+                  <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Medium</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr ng-repeat="row in style.artworks | limitTo:5">
+                    <td><a class="page-scroll" ng-click="ArtworkSelected(row.id)" href="#/artwork">{{row.title}}</a></td>
+                    <td>{{row.date}}</td>
+                    <td>{{row.medium}}</td>
+                  </tr>
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                  </tr>
+                </tfoot>
+              </table></td>
           </table>
         </div>
     </div>

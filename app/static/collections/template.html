@@ -49,7 +49,7 @@
                   </thead>
                   <tbody>
                   <tr ng-repeat="row in collection.artworks">
-                    <td><a class="page-scroll" ng-click="ArtworkSelected(row.id)">{{row.title}}</a></td>
+                    <td><a class="page-scroll" ng-click="ArtworkSelected(row.id)" href="#/artwork">{{row.title}}</a></td>
                     <td>{{row.date}}</td>
                     <td>{{row.medium}}</td>
                   </tr>

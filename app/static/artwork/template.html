@@ -29,19 +29,19 @@
                 <td><b>Title</b></td><td>{{artwork.title}}</td>
             </tr>
             <tr>
-                <td><b>Artist</b></td><td>{{artwork.artists[0].name}}</td>
+                <td><b>Artist</b></td><td><a class="page-scroll" ng-click="ArtistSelected(artwork.artists[0].id)" href="#/artists">{{artwork.artists[0].name}}</a></td>
             </tr>
             <tr>
                 <td><b>Date</b></td><td>{{artwork.date}}</td>
             </tr>
             <tr>
-                <td><b>Institution</b></td><td>{{artwork.collections[0].institution}}</td>
+                <td><b>Institution</b></td><td><a class="page-scroll" ng-click="CollectionSelected(artwork.collections[0].id)" href="#/collections">{{artwork.collections[0].institution}}</a></td>
             </tr>
             <tr>
                 <td><b>Medium</b></td><td>{{artwork.medium}}</td>
             </tr>
             <tr>
-                <td><b>Style</b></td><td>{{artwork.styles[0].name}}</td>
+                <td><b>Style</b></td><td><a class="page-scroll" ng-click="StyleSelected(artwork.styles[0].id)" href="#/styles">{{artwork.styles[0].name}}</a></td>
             </tr>
           </table>
         </div>

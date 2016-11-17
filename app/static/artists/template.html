@@ -14,7 +14,7 @@
       <div class="container">
           <div class="row">
               <div class="col-md-8 col-md-offset-2">
-                <p style="text-align:center;"><img src="{{artist.image}}" style = "max-width:95%;border:6px double #545565;" alt="alternative text" width=auto height="300" ></img></p>
+                <p style="text-align:center;"><img src="{{artist.image}}" style = "max-width:95%;border:6px double #545565;" alt="alternative text" width=auto height="256" ></img></p>
               </div>
             </div>
           </div>
@@ -60,7 +60,7 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="row in artist.artworks">
-                  <td><a class="page-scroll" ng-click="ArtworkSelected(row.id)">{{row.title}}</a></td>
+                  <td><a class="page-scroll" ng-click="ArtworkSelected(row.id)" href="#/artwork">{{row.title}}</a></td>
                   <td>{{row.date}}</td>
                   <td>{{row.medium}}</td>
                 </tr>
