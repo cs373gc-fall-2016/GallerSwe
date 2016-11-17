@@ -1,4 +1,4 @@
-angular.module("ArtSnob", ['ui.router', 'ngResource']);
+angular.module("ArtSnob", ['ui.router', 'ngResource', 'smart-table']);
 
 angular.module('ArtSnob').config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 	$stateProvider

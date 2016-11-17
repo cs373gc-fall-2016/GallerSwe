@@ -133,7 +133,7 @@ a:focus {
 }
 .intro .intro-body {
   display: table-cell;
-  padding: 200px 0;
+  padding: 250px 0;
   /*vertical-align: middle;*/
 }
 .intro .intro-body .brand-heading {

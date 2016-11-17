@@ -59,8 +59,9 @@
         </div>
     </header>
     <div id="display">
-      <table id="data" style="width:90%" class="sortable">
-        <tr>
+      <!-- <table id="data" style="width:90%" class="sortable"> -->
+    <!-- <table  id = "data" ng-table="vm.tableParams" class="table" show-filter="true" > -->
+        <!-- <tr>
             <th>
               <a ng-click="sortType = 'title'; sortReverse = !sortReverse">
                  <span ng-show="sortType == 'title'" class="fa fa-caret-down"></span>
@@ -108,7 +109,34 @@
             </a></div>
           </td>
         </tr>
+      </table> -->
+        <table st-table="objects" class="table" st-safe-src="rowCollection">
+        <thead>
+        <tr>
+          <th st-sort="title" st-sort-default="true">Title</th>
+          <th st-sort="artists[0].name">Artist</th>
+          <th st-sort="date">Date</th>
+          <th st-sort="medium">Medium</th>
+          <th st-sort="styles[0].name">Style</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="row in objects">
+          <td><a class="page-scroll" ng-click="ArtworkSelected(row)">{{row.title}}</a></td>
+          <td>{{row.artists[0].name}}</td>
+          <td>{{row.date}}</td>
+          <td>{{row.medium}}</td>
+          <td><a class="page-scroll" ng-click="StyleSelected(item.styles[0].id)" href="#/styles">{{row.styles[0].name}}</a></td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+          <td colspan="5" class="text-center">
+            <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="10"></div>
+          </td>
+        </tr>
+      </tfoot>
       </table>
-    </div>
+      </div>
   </div>
 </div>

@@ -7,8 +7,10 @@ angular.module('ArtSnob')
             Collection.get(function(response) {
                 $scope.response = response
                 $scope.objects = response.objects
+                $scope.rowCollection = response.objects;
             });
         }
+
 
         $scope.CollectionSelected = function(collection) {
             $scope.collection = collection
@@ -22,8 +24,7 @@ angular.module('ArtSnob')
             $rootScope.$broadcast('rootScope:artworkSelected', artwork_id);
         }
 
-        $scope.sortType     = 'institution'; // set the default sort type
-        $scope.sortReverse  = false;  // set the default sort order
+
 
         //
         //  Initial load

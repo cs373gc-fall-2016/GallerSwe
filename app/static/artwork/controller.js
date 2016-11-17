@@ -5,8 +5,8 @@ angular.module('ArtSnob')
 
         $scope.reload = function() {
 			Artwork.get(function(response) {
-				$scope.response = response
                 $scope.objects = response.objects
+                $scope.rowCollection = response.objects;
                 console.log("response is ", $scope.response)
 			});
         }
@@ -31,6 +31,7 @@ angular.module('ArtSnob')
         $rootScope.$on('rootScope:artworkSelected', function (event, data) {
             //this is where we will set artwork once we know how to request from API with an ID
             console.log("Artwork selected with id: "+ data);
+            $scope.ArtworkSelected('http://www.artsnob.me:5000/api/artist/4eb02481f21e2500010013de');
         });
 
         $scope.sortType     = 'title'; // set the default sort type

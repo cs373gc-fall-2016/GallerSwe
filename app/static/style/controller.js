@@ -15,7 +15,7 @@ angular.module('ArtSnob')
         }
 
         $scope.StyleDeselected = function() {
-            $scope.syle = undefined
+            $scope.style = undefined
         }
 
         $scope.ArtworkSelected = function(artwork_id) {
