@@ -162,4 +162,4 @@ def get_collection_results(collection, phrase):
     return results
 
 if __name__ == "__main__":
-    APP.run()
+    search( 'Guard')
