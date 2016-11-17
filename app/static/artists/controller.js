@@ -1,6 +1,6 @@
 angular.module('ArtSnob')
-.controller('artistsController', ['$scope', '$rootScope', '$timeout', 'Artists', 'SingleArtist',
-    function($scope, $rootScope, $timeout, Artists, SingleArtist) {
+.controller('artistsController', ['$scope', '$rootScope', '$localStorage', 'Artists', 'SingleArtist',
+    function($scope, $rootScope, $localStorage, Artists, SingleArtist) {
         'use strict';
 
         $scope.reload = function() {
@@ -8,6 +8,11 @@ angular.module('ArtSnob')
 				$scope.response = response
                 $scope.objects = response.objects
 			});
+            maybeArtist = $localStorage.get("artist");
+            if (maybeArtist != undefined){
+                $scope.artist = maybeArtist;
+            }
+            
         }
 
         $scope.ArtistSelected = function(artist) {
@@ -28,6 +33,8 @@ angular.module('ArtSnob')
         $rootScope.$on('rootScope:artistSelected', function (event, data) {
             SingleArtist.get( data, function(artistData) { 
                 $scope.artist = artistData 
+                $localStorage.setItem("artist", artistData);
+
                 console.log("scope artist:");
                 console.log($scope.artist);
             });
