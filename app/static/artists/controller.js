@@ -1,19 +1,17 @@
 angular.module('ArtSnob')
-.controller('artistsController', ['$scope', '$rootScope', '$localStorage', 'Artists', 'SingleArtist',
-    function($scope, $rootScope, $localStorage, Artists, SingleArtist) {
+.controller('artistsController', ['$scope', '$rootScope', '$timeout', 'Artists', 'SingleArtist', 'localStorageService',
+    function($scope, $rootScope, $timeout, Artists, SingleArtist, localStorageService) {
         'use strict';
+        SingleArtist.registerObserverCallback(gotArtist($scope));
+
+
 
         $scope.reload = function() {
 			Artists.get(function(response) {
 				$scope.response = response
                 $scope.objects = response.objects
                 $scope.rowCollection = response.objects
-			});
-            maybeArtist = $localStorage.get("artist");
-            if (maybeArtist != undefined){
-                $scope.artist = maybeArtist;
-            }
-            
+			});  
         }
 
         $scope.ArtistSelected = function(artist) {
@@ -33,15 +31,26 @@ angular.module('ArtSnob')
 
         $rootScope.$on('rootScope:artistSelected', function (event, data) {
 
-            SingleArtist.get( data, function(artistData) { 
-                $scope.artist = artistData 
-                $localStorage.setItem("artist", artistData);
-                console.log("scope artist:");
-                console.log($scope.artist);
+            SingleArtist.get( data, function(artistData) {
+                console.log("setting local"); 
+                localStorageService.set("artist", artistData);
             });
 
         });
 
+        function gotArtist($scope) {
+            console.log("in gotArtist");
+            $timeout(function() {
+                if (localStorageService.isSupported){
+                        var maybeArtist = localStorageService.get("artist");
+                        if (maybeArtist != undefined){
+                            $scope.artist = maybeArtist;
+                            localStorageService.set("artist", undefined);
+                            maybeArtist = undefined;
+                        }
+                } 
+            }, 2000); 
+        }
 
 
         //

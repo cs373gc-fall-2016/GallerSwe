@@ -10,4 +10,6 @@ angular.module('ArtSnob')
 
         return
     }
+
+
 }]);
