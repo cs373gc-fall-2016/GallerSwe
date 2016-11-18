@@ -5,6 +5,9 @@ python:
 
 sudo: false
 
+service:
+    - postgresql
+
 install:
     - pip install --upgrade pip
     - pip --version
@@ -21,6 +24,7 @@ before_script:
     - uname -a
     - printenv
     - pip list
+    - psql -c 'create database travis_ci_test;' -U postgres
 
 script:
     - date
