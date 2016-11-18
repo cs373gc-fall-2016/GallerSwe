@@ -68,7 +68,7 @@ angular.module('ArtSnob').config(['$stateProvider', '$urlRouterProvider', functi
 
 	.state('results', {
 		url: '/results',
-		templateUrl: 'results/template.html',
+		templateUrl: 'results/results.html',
 		resolve: {
 			// timestamps: ['Timestamps', function (TimestampService) {
 			// 	return TimestampService.getAll();

@@ -1,6 +1,7 @@
 angular.module('ArtSnob')
-.controller('resultsController', ['$scope', 'SearchResults',
-    function($scope, SearchResults) {
+<<<<<<< HEAD
+.controller('resultsController', ['$scope','$rootScope', 'SearchResults',
+    function($scope, $rootScope, SearchResults) {
         'use strict';
         
         //
@@ -14,8 +15,16 @@ angular.module('ArtSnob')
 			});
         }
 
+      //   $rootScope.$on('rootScope:searchTerm', function (event, data) {
+      //   console.log("getting this :" + data)
+      //   results.get( data, function(artistData) {
+      //       $scope.objects = artistData
+      //   });
+      // });
+
         //
         //	Initial load
         //
         $scope.reload()
 }]);
+

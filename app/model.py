@@ -4,7 +4,7 @@ DB for Artsnob
 import os
 
 from flask import Flask
-import flask_sqlalchemy
+from flask_sqlalchemy import SQLAlchemy
 import flask_restless
 from flask_cors import CORS, cross_origin
 
@@ -13,7 +13,7 @@ APP = Flask(__name__)
 CORS(APP)
 APP.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///artsnob'
 APP.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-DB = flask_sqlalchemy.SQLAlchemy(APP)
+DB = SQLAlchemy(APP)
 
 
 ID_CHARS = 24
@@ -59,7 +59,7 @@ class Artist(DB.Model):
     artworks = DB.relationship(
         'Artwork', back_populates='artists', secondary=ARTWORK_ARTIST)
 
-    def __init__(self, id, name, birth, gender, nationality, image):
+    def __init__(self, id, name, birth, gender, hometown, image):
         self.id = id
         self.name = name
         self.birth = birth
