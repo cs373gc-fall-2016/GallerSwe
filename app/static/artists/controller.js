@@ -4,8 +4,6 @@ angular.module('ArtSnob')
         'use strict';
         SingleArtist.registerObserverCallback(gotArtist($scope));
 
-
-
         $scope.reload = function() {
 			Artists.get(function(response) {
 				$scope.response = response

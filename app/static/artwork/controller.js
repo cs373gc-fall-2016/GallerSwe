@@ -1,7 +1,8 @@
 angular.module('ArtSnob')
-.controller('artworkController', ['$scope', '$rootScope', 'Artwork',
-    function($scope, $rootScope, Artwork) {
+.controller('artworkController', ['$scope', '$rootScope','$timeout', 'Artwork', 'SingleArtwork', 'localStorageService',
+    function($scope, $rootScope, $timeout, Artwork, SingleArtwork, localStorageService) {
         'use strict';
+        SingleArtwork.registerObserverCallback(gotArtwork($scope));
 
         $scope.reload = function() {
 			Artwork.get(function(response) {
@@ -29,10 +30,25 @@ angular.module('ArtSnob')
 
         //listens to see if artwork is selected from a different model
         $rootScope.$on('rootScope:artworkSelected', function (event, data) {
-            //this is where we will set artwork once we know how to request from API with an ID
-            console.log("Artwork selected with id: "+ data);
-            $scope.ArtworkSelected('http://www.artsnob.me:5000/api/artist/4eb02481f21e2500010013de');
+            console.log("heard broadcast");
+            console.log(data);
+            SingleArtwork.get( data, function(callback) {
+                localStorageService.set("artwork", callback);
+            });
         });
+
+        function gotArtwork($scope) {
+            $timeout(function() {
+                if (localStorageService.isSupported){
+                    var tempArtwork = localStorageService.get("artwork");
+                    if (tempArtwork != undefined){
+                        $scope.artwork = tempArtwork;
+                        localStorageService.set("artwork", undefined);
+                        tempArtwork = undefined;
+                    }
+                } 
+            }, 2000); 
+        }
 
         $scope.sortType     = 'title'; // set the default sort type
         $scope.sortReverse  = false;  // set the default sort order
