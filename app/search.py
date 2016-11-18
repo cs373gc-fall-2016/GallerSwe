@@ -13,7 +13,7 @@ def search(phrase):
 
     AND results will be put first followed by OR results
     """
-
+    print("PHRASE: " + phrase)
     artists = Artist.query.all()
     artworks = Artwork.query.all()
     styles = Style.query.all()
