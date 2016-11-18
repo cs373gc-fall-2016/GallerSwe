@@ -1,5 +1,7 @@
-from flask import jsonify
+from flask import Flask, jsonify
 from model import Artist, Artwork, Style, Collection
+
+APP = Flask(__name__)
 
 def search(phrase):
     """
@@ -11,7 +13,7 @@ def search(phrase):
 
     AND results will be put first followed by OR results
     """
-
+    print("PHRASE: " + phrase)
     artists = Artist.query.all()
     artworks = Artwork.query.all()
     styles = Style.query.all()
@@ -33,7 +35,7 @@ def search(phrase):
     for collection in collections:
         andCollectionResults = get_collection_results(collection, phrase)
 
-    andResults = {"artist results" : andArtistResults, 
+    andResults = {"artist results" : andArtistResults,
                   "artwork results" : andArtworkResults,
                   "style results" : andStyleResults,
                   "collection results" : andCollectionResults}
@@ -43,7 +45,7 @@ def search(phrase):
     orStyleResults = []
     orCollectionResults = []
     words = phrase.split()
-    for word in words:                
+    for word in words:
         for artist in artists:
             orArtistResults.extend(get_artist_results(artist, word))
 
@@ -56,7 +58,7 @@ def search(phrase):
         for collection in collections:
             orCollectionResults.extend(get_collection_results(collection, word))
 
-    orResults = {"artist results" : orArtistResults, 
+    orResults = {"artist results" : orArtistResults,
                   "artwork results" : orArtworkResults,
                   "style results" : orStyleResults,
                   "collection results" : orCollectionResults}
@@ -99,20 +101,23 @@ def get_artwork_results(artwork, phrase):
     """
     results = []
     phrase = phrase.lower()
-    if artwork.title.lower().find(phrase) != -1:
-        results.append({"title"    : artwork.title,
-                        "context" : "Title: " + artwork.title,
-                        "id"      : artwork.id})
+    if artwork.title :
+        if artwork.title.lower().find(phrase) != -1:
+            results.append({"title"    : artwork.title,
+                            "context" : "Title: " + artwork.title,
+                            "id"      : artwork.id})
 
-    if artwork.date.lower().find(phrase) != -1:
-        results.append({"title"    : artwork.title,
-                        "context" : "Date: " + artwork.date,
-                        "id"      : artwork.id})
+    if artwork.date:
+        if artwork.date.lower().find(phrase) != -1:
+            results.append({"title"    : artwork.title,
+                            "context" : "Date: " + artwork.date,
+                            "id"      : artwork.id})
 
-    if artwork.medium.lower().find(phrase) != -1:
-        results.append({"title"    : artwork.title,
-                        "context" : "Medium: " + artwork.medium,
-                        "id"      : artwork.id})
+    if artwork.medium :
+        if artwork.medium.lower().find(phrase) != -1:
+            results.append({"title"    : artwork.title,
+                            "context" : "Medium: " + artwork.medium,
+                            "id"      : artwork.id})
 
     return results
 
@@ -158,3 +163,6 @@ def get_collection_results(collection, phrase):
                         "id"      : collection.id})
 
     return results
+
+if __name__ == "__main__":
+    search( 'Guard')
