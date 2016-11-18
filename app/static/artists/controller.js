@@ -30,16 +30,12 @@ angular.module('ArtSnob')
         $scope.sortReverse  = false;  // set the default sort order
 
         $rootScope.$on('rootScope:artistSelected', function (event, data) {
-
             SingleArtist.get( data, function(artistData) {
-                console.log("setting local"); 
                 localStorageService.set("artist", artistData);
             });
-
         });
 
         function gotArtist($scope) {
-            console.log("in gotArtist");
             $timeout(function() {
                 if (localStorageService.isSupported){
                         var maybeArtist = localStorageService.get("artist");

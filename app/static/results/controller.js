@@ -1,26 +1,33 @@
 angular.module('ArtSnob')
-<<<<<<< HEAD
-.controller('resultsController', ['$scope','$rootScope', 'SearchResults',
-    function($scope, $rootScope, SearchResults) {
+
+.controller('resultsController', ['$scope','$rootScope', 'SearchResults', 'localStorageService',
+    function($scope, $rootScope, SearchResults, localStorageService) {
         'use strict';
         
         //
         //	Call the Timestamp service to fetch all the timestamps
         //
         $scope.reload = function() {
-			SearchResults.get(data, function(response) {
-				$scope.response = response
-                $scope.objects = response.objects
-			    console.log("response is ", $scope.response)
-			});
+            console.log("I am loading the resultsController");
+			$scope.objects = localStorageService.get("objects");
         }
 
-      //   $rootScope.$on('rootScope:searchTerm', function (event, data) {
-      //   console.log("getting this :" + data)
-      //   results.get( data, function(artistData) {
-      //       $scope.objects = artistData
-      //   });
-      // });
+        // $rootScope.$on('rootScope:searchTerm', function (event, data) {
+        //     console.log("I heard you");
+        //     SearchResults.get(data, function(response) {
+        //         localStorageService.set("objects", response.objects);
+        //         $scope.response = response
+        //         $scope.objects = response.objects
+        //     });
+        // });
+        
+
+        $rootScope.$on('rootScope:searchTerm', function (event, data) {
+
+            console.log("I heard you");
+            console.log(data);
+
+        });
 
         //
         //	Initial load
