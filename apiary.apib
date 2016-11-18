@@ -5,9 +5,9 @@ HOST: http://artsnob.me/
 
 Art Snob is a simple API allowing consumers to get information about artists and their works
 
-## Artist Collection [/Artist]
+## Artist Collection [/api/artist]
 
-### List All Artists [GET /Artist]
+### List All Artists [GET /artist]
 
 + Response 200 (application/json)
 
@@ -99,7 +99,7 @@ Art Snob is a simple API allowing consumers to get information about artists and
               "name": "Ammi Phillips"
         }
         
-### View an artist's information [GET /Artist/{id}]
+### View an artist's information [GET /api/artist/{id}]
 
 + Parameters
 
@@ -151,9 +151,9 @@ Art Snob is a simple API allowing consumers to get information about artists and
         }
 
 
-## Artwork Collection [/Artwork]
+## Artwork Collection [/api/artwork]
 
-### List All Artworks [GET /Artwork]
+### List All Artworks [GET /api/artwork]
 
 + Response 200 (application/json)
 
@@ -292,7 +292,7 @@ Art Snob is a simple API allowing consumers to get information about artists and
             }
         }
         
-### View an artwork's information [GET /Artwork/{id}]
+### View an artwork's information [GET /api/artwork/{id}]
 
 + Parameters
     + id: `1` (number, required) - The unique id of the artwork
@@ -360,9 +360,9 @@ Art Snob is a simple API allowing consumers to get information about artists and
         }
 
 
-## Style Collection [/Style]
+## Style Collection [/api/style]
 
-### List All Styles [GET /Style]
+### List All Styles [GET /api/style]
 
 + Response 200 (application/json)
 
@@ -403,7 +403,7 @@ Art Snob is a simple API allowing consumers to get information about artists and
             }
         }
   
-### View a style's information [GET /Style/{id}]
+### View a style's information [GET /api/style/{id}]
 
 + Parameters
     + id: `1` (number, required) - The unique id of the style
@@ -428,9 +428,9 @@ Art Snob is a simple API allowing consumers to get information about artists and
         }
 
 
-## Collection Collection [/Collection]
+## Collection Collection [/api/collection]
 
-### List All Collections [GET /Collection]
+### List All Collections [GET /api/collection]
 
 + Response 200 (application/json)
 
@@ -457,7 +457,7 @@ Art Snob is a simple API allowing consumers to get information about artists and
         }
             
   
-### View a collection's information [GET /Collection/{id}]
+### View a collection's information [GET /api/collection/{id}]
 
 + Parameters
     + id: `1` (number, required) - The unique id of the collection
