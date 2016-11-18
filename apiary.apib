@@ -11,50 +11,93 @@ Art Snob is a simple API allowing consumers to get information about artists and
 
 + Response 200 (application/json)
 
-        [
+        {
+          "num_results": 2, 
+          "objects": [
             {
-                "id": "4d8b92b34eb68a1b2c0003f4",
-                "name": "Andy Warhol",
-                "gender": "male",
-                "birthday": "1928",
-                "hometown": "Pittsburgh, Pennsylvania",
-                "artworks": [
-                    {"title": "artwork1", "id": "1"},
-                    {"title": "artwork2", "id": "2"}
-                ],
-                "thumbnail": {
-                    "href": "https://d32dm0rphc51dk.cloudfront.net/PFufT6nMKNwLOpPEezf4Ww/four_thirds.jpg"
+              "artworks": [
+                {
+                  "category": null, 
+                  "date": "1888", 
+                  "id": "4fcf9efbcaabe500010018b3", 
+                  "image": "https://d32dm0rphc51dk.cloudfront.net/d5mINnwq_RFVonAUvOhmvg/medium.jpg", 
+                  "medium": "Oil on canvas", 
+                  "title": "Seascape at Port-en-Bessin, Normandy"
+                }, 
+                {
+                  "category": null, 
+                  "date": "1886", 
+                  "id": "4fcf9efbdc286b0001001725", 
+                  "image": "https://d32dm0rphc51dk.cloudfront.net/pzhfmd4Q04NsjTLEVXe4zA/medium.jpg", 
+                  "medium": "Oil on canvas", 
+                  "title": "The Lighthouse at Honfleur"
+                }, 
+                {
+                  "category": null, 
+                  "date": "1888", 
+                  "id": "515b4125223afaab8f000f9c", 
+                  "image": "https://d32dm0rphc51dk.cloudfront.net/AtfTY0_OwKhP3-vsyVOYeg/medium.jpg", 
+                  "medium": "Pen and brown ink over graphite on wove paper", 
+                  "title": "Study after \"The Models\""
+                }, 
+                {
+                  "category": null, 
+                  "date": "1884/1885", 
+                  "id": "515d70ee7b7057eb4c004f76", 
+                  "image": "https://d32dm0rphc51dk.cloudfront.net/i4Dkd3mp60XpKwoplsEUGA/medium.jpg", 
+                  "medium": "Oil on wood", 
+                  "title": "Study for \"La Grande Jatte\""
+                }, 
+                {
+                  "category": null, 
+                  "date": "1888", 
+                  "id": "516df7d2b31e2b2270000aef", 
+                  "image": "https://d32dm0rphc51dk.cloudfront.net/E_ADM935g2n5TMY1LKAFZQ/medium.jpg", 
+                  "medium": "Oil on canvas", 
+                  "title": "Seascape at Port-en-Bessin, Normandy"
+                }, 
+                {
+                  "category": null, 
+                  "date": "1886", 
+                  "id": "516df9e8b31e2b2270000bab", 
+                  "image": "https://d32dm0rphc51dk.cloudfront.net/eya3cerQhz-lzxzJHvkpQQ/medium.jpg", 
+                  "medium": "Oil on canvas", 
+                  "title": "The Lighthouse at Honfleur"
                 }
-            },
+              ], 
+              "birth": "1859", 
+              "gender": "male", 
+              "hometown": "Paris, France", 
+              "id": "4d8b925d4eb68a1b2c000012", 
+              "image": "https://d32dm0rphc51dk.cloudfront.net/TZrH8xDtvJmjfij5s8zEkA/four_thirds.jpg", 
+              "name": "Georges Seurat"
+            }, 
             {
-                "id": "4d8b92724eb68a1b2c000108",
-                "name": "James Rosenquist",
-                "gender": "male",
-                "birthday": "1933",
-                "hometown": "Grand Forks, North Dakota",
-                "artworks": [
-                    {"title": "artwork3", "id": "3"},
-                    {"title": "artwork4", "id": "4"}
-                ],
-                "thumbnail": {
-                    "href": "https://d32dm0rphc51dk.cloudfront.net/3VUm07DpKQNQdA_QfCrPcA/four_thirds.jpg"
+              "artworks": [
+                {
+                  "category": null, 
+                  "date": "1816", 
+                  "id": "516df67bb31e2bd65e000c0e", 
+                  "image": "https://d32dm0rphc51dk.cloudfront.net/NYccT3hunzBt6Y3zh3cX_g/medium.jpg", 
+                  "medium": "Oil on canvas", 
+                  "title": "Alsa Slade"
+                }, 
+                {
+                  "category": null, 
+                  "date": "1816", 
+                  "id": "516dfd10b31e2b2270000ce0", 
+                  "image": "https://d32dm0rphc51dk.cloudfront.net/FkZ3iEW-asFQxeR4lstbXw/medium.jpg", 
+                  "medium": "Oil on canvas", 
+                  "title": "Joseph Slade"
                 }
-            },
-            {
-                "id": "4d8b927b4eb68a1b2c000148",
-                "name": "Tom Wesselmann",
-                "gender": "male",
-                "birthday": "1931",
-                "hometown": "Cincinnati, Ohio",
-                "artworks": [
-                    {"title": "artwork5", "id": "5"},
-                    {"title": "artwork6", "id": "6"}
-                ],
-                "thumbnail": {
-                    "href": "https://d32dm0rphc51dk.cloudfront.net/8smV519M1L352CTihrfW7A/four_thirds.jpg"
-                }
-            }
-        ]
+              ], 
+              "birth": "1788", 
+              "gender": "male", 
+              "hometown": "Colebrook, Connecticut", 
+              "id": "4d8b925e4eb68a1b2c000030", 
+              "image": "https://d32dm0rphc51dk.cloudfront.net/4JUK6idXaJ-ICejprbLxhQ/four_thirds.jpg", 
+              "name": "Ammi Phillips"
+        }
         
 ### View an artist's information [GET /Artist/{id}]
 
@@ -65,18 +108,46 @@ Art Snob is a simple API allowing consumers to get information about artists and
 + Response 200 (application/json)
 
         {
-            "id": "4d8b92b34eb68a1b2c0003f4",
-            "name": "Andy Warhol",
-            "gender": "male",
-            "birthday": "1928",
-            "hometown": "Pittsburgh, Pennsylvania",
-            "artworks": [
-                {"title": "artwork1", "id": "1"},
-                {"title": "artwork2", "id": "2"}
-            ],
-            "thumbnail": {
-                    "href": "https://d32dm0rphc51dk.cloudfront.net/PFufT6nMKNwLOpPEezf4Ww/four_thirds.jpg"
+          "artworks": [
+            {
+              "category": null, 
+              "date": "1599-1600", 
+              "id": "4eaef38fec5cf6000100a3f9", 
+              "image": "https://d32dm0rphc51dk.cloudfront.net/rqoQ0ln0TqFAf7GcVwBtTw/medium.jpg", 
+              "medium": "Oil on canvas", 
+              "title": "The Calling of St Matthew"
+            }, 
+            {
+              "category": null, 
+              "date": "1589", 
+              "id": "506c670fd207d80002000ff8", 
+              "image": "https://d32dm0rphc51dk.cloudfront.net/xzmxC2zX9QfdBNXwdf5Oew/medium.jpg", 
+              "medium": "Oil on canvas", 
+              "title": "Bacchus"
+            }, 
+            {
+              "category": null, 
+              "date": "1600", 
+              "id": "508175534b42ad0002000df0", 
+              "image": "https://d32dm0rphc51dk.cloudfront.net/LOMU-kJvL1VxpBJ12H5zRA/medium.jpg", 
+              "medium": "Oil on canvas", 
+              "title": "David victorious over Goliath"
+            }, 
+            {
+              "category": null, 
+              "date": "1603-04", 
+              "id": "52161e83275b24e7d0000167", 
+              "image": "https://d32dm0rphc51dk.cloudfront.net/4H05Y_Ce_qz3s11ER-6GXQ/medium.jpg", 
+              "medium": "Oil on canvas", 
+              "title": "Entombment"
             }
+          ], 
+          "birth": "1571", 
+          "gender": "male", 
+          "hometown": "Caravaggio, Italy", 
+          "id": "4d8b92624eb68a1b2c000066", 
+          "image": "https://d32dm0rphc51dk.cloudfront.net/4z6Ljl5oS506sk_0ZbOq6w/four_thirds.jpg", 
+          "name": "Michelangelo Merisi da Caravaggio"
         }
 
 
@@ -86,56 +157,140 @@ Art Snob is a simple API allowing consumers to get information about artists and
 
 + Response 200 (application/json)
 
-        [
+        {
+          "num_results": 2, 
+          "objects": [
             {
-                "id": "516dfb9ab31e2b2270000c45",
-                "title": "The Old Violin",
-                "category": "Painting",
-                "medium": "Oil on canvas",
-                "date": "1886",
-                "artists": [
-                    {"name": "Artist1", "id": "1"}
-                ],
-                "styles": [
-                    {"name": "Style1", "id": "1"}
-                ],
-                "thumbnail": {
-                  "href": "https://d32dm0rphc51dk.cloudfront.net/dTGcd0Xx0aEp_MDFdHIUIw/medium.jpg"
-                },
-            },
-            {
-                "id": "515b1b6d223afae9a5000bb4",
-                "title": "Interior, Fitzwilliam Museum",
-                "category": "Drawing, Collage or other Work on Paper",
-                "medium": "Brush and black ink with gray wash over graphite on wove paper",
-                "date": "1890s",
-                "artists": [
-                    {"name": "Artist2", "id": "2"}
-                ],
-                "styles": [
-                    {"name": "Style2", "id": "2"}
-                ],
-                "thumbnail": {
-                    "href": "https://d32dm0rphc51dk.cloudfront.net/BxVDS1bsl3gi_ukXsWgyKw/medium.jpg"
+              "artists": [
+                {
+                  "birth": "1862", 
+                  "gender": "male", 
+                  "hometown": "Baumgarten, Austria", 
+                  "id": "4d8b92b64eb68a1b2c000414", 
+                  "image": "https://d32dm0rphc51dk.cloudfront.net/n3RTu8EOaXrq3UCBXjh1Ag/four_thirds.jpg", 
+                  "name": "Gustav Klimt"
                 }
-            },
-            {
-                "id": "515b9d2e94714c2e38000920",
-                "title": "Aldrich's Dog",
-                "category": "Drawing, Collage or other Work on Paper",
-                "medium": "Pen and black ink touched with white on buff prepared laid paper",
-                "date": "late 1880s",
-                "artists": [
-                    {"name": "Artist3", "id": "3"}
-                ],
-                "styles": [
-                    {"name": "Style3", "id": "3"}
-                ],
-                "thumbnail": {
-                    "href": "https://d32dm0rphc51dk.cloudfront.net/-uYxnuQbaAxE_0do29CNeQ/medium.jpg"
+              ], 
+              "category": null, 
+              "collections": [
+                {
+                  "id": "51cc9a88275b24f8700000db", 
+                  "institution": "Art History 101", 
+                  "region": "North America", 
+                  "type": "Institution", 
+                  "website": "http://partnerdemo.com"
                 }
+              ], 
+              "date": "1907-1908", 
+              "id": "4d8b92eb4eb68a1b2c000968", 
+              "image": "https://d32dm0rphc51dk.cloudfront.net/NOpIAwQa-3r51Cg9qXKbfA/medium.jpg", 
+              "medium": "Oil and gold leaf on canvas", 
+              "styles": [
+                {
+                  "description": "An international movement that originated in the mid 1890s in Belgium and France and was known in other countries by other names, such as Jugendstil (Germany and Austria), Modernisme (Catalonia), and Tiffany style (United States). Practitioners sought to break with the past, creating a style of ornamentation applicable to architecture, interior design, and objects that was not based on Classical or Renaissance forms. Instead Japanese art was a particular influence, as were exotic flowers and plants. \n", 
+                  "id": "4d90d18fdcdd5f44a500002e", 
+                  "image": "https://d32dm0rphc51dk.cloudfront.net/_gbJ352XfTacfQ32BYihYg/big_and_tall.jpg", 
+                  "name": "Art Nouveau"
+                }, 
+                {
+                  "description": "Artists who are from or who have lived in Austria.", 
+                  "id": "5182bea34b72c8f22300005d", 
+                  "image": "https://d32dm0rphc51dk.cloudfront.net/C_wtDZHVCZhFQAh0lJ40cg/big_and_tall.jpg", 
+                  "name": "Austria"
+                }, 
+                {
+                  "description": "Art that engages with Byzantine and Medieval art\u2014Christian art produced between the 4th and 15th centuries in the Eastern Mediterranean and Europe\u2014and finds inspiration in the religious icons, elaborate altarpieces, gold-leaf mosaics, and stained glass windows produced during this era. Driven by a sense of nostalgia for the religious clarity of the Medieval era, a return to Medieval Gothic architecture, known as the Gothic Revival, began in England in the late 1740s and spread globally. A century later, the Pre-Raphaelites mimicked the sharp focus of Medieval and Early Renaissance painting, while the Viennese Secessionist artist Gustav Klimt paid homage to the ornate patterns of Byzantine mosaics in his iconic painting The Kiss.", 
+                  "id": "56c337486428707983000236", 
+                  "image": "https://d32dm0rphc51dk.cloudfront.net/zlhKEBJ4bu0OQ2KnxvENsQ/tall.jpg", 
+                  "name": "Engaged with Byzantine and Medieval Art"
+                }, 
+                {
+                  "description": "Gold leaf, which is created by hammering gold into very thin sheets, is used to gild paintings, sculptures, and architectural details. In art, the use of gold leaf is perhaps most closely associated with the technique of \u201cgold ground,\u201d a process that involves applying gold leaf to a wooden panel and using a burnisher to create a resplendent shine. In the works of master painters Cimabue and Duccio in 13th-century Italy, where this technique emerged, the surface would then be embellished with incised lines and small, ornamental stamps, often visible in the halos of the deities depicted in the foreground of paintings in tempera paint. The technique became strongly associated with Christian art, and gold ground was often used on devotional objects like altarpieces. Other examples of gold leaf in art include Japanese works-on-paper, and the canvases of Gustav Klimt.", 
+                  "id": "50f07ad0d1ac162574000075", 
+                  "image": "https://d32dm0rphc51dk.cloudfront.net/S3w0QTSh_xU1mdTmI2uIBw/big_and_tall.jpg", 
+                  "name": "Gold Leaf and Gilding"
+                }, 
+                {
+                  "description": "\u201cWe recognize no distinction between high and low art, between art for the rich and art for the poor. Art is a universal good.\u201d \u2014From Ver Sacrum (The Sacred Spring)\n\nOtto Wagner described the goal of the Vienna Secession as to \u201cshow the modern man his true face.\u201d In 1897, Gustav Klimt and his circle of artists sought to create their own unique artistic identity outside the confines of the K\u00fcnstlerhaus, the traditional art academy in Vienna. The Vienna Secession, as it quickly became known, hoped to promote modern art at every level of society by presenting exhibitions free from the strict guidelines of Vienna\u2019s annual salon. This pioneering group, closely associated with Art Nouveau, also strove to create a new style of architecture. Notable members of the Vienna Secession included Josef Hoffmann, Koloman Moser, and Carl Moll, in addition to Wagner and Klimt. In eight years, the group held 23 exhibitions in Joseph Maria Olbrich\u2019s Secessionist Gallery, alongside a monthly publication, Ver Sacrum, that promoted the art of the Vienna Secessionists. In 1903 Secession members Hoffmann and Moser cofounded the Wiener Werkst\u00e4tte. By 1905, Klimt and his followers had left the group; however, the Vienna Secession continued to influence modern art throughout the 20th century.", 
+                  "id": "4de6871ead506e00010054eb", 
+                  "image": "https://d32dm0rphc51dk.cloudfront.net/5gU6G2Ddj-Qq_EhFwWHLLA/big_and_tall.jpg", 
+                  "name": "Vienna Secession"
+                }, 
+                {
+                  "description": "Representations of the human form in which a figure is stylized so as to look elongated or thinned out. As far back as the 16th century, the mannerist painter El Greco departed from the idealized, classical figures of Renaissance art in his drawn-out depictions of the human figure. Egon Schiele later adopted a similar style, often rendering grotesquely thin figures with a long wavering line, as if to express the precarious state of the individual in modern society. In response to the atrocities of World War II, Alberto Giacometti\u2019s textured bronze sculptures of gaunt human figures echoed the emaciated bodies of Jews persecuted during the Holocaust.", 
+                  "id": "515b44b6d0c2ebb9420007c4", 
+                  "image": "https://d32dm0rphc51dk.cloudfront.net/otC9H82N0PmYUrZQvj-96w/big_and_tall.jpg", 
+                  "name": "Attenuated Figure"
+                }, 
+                {
+                  "description": "Works that arouse or are related to sexual desire, often incorporating nude figures. Although the tradition of erotic art harks back to the ancient Venus of Willendorf, eroticism became a major theme of Western art during the Renaissance, with the rise of the female nude (as in Titian's Venus of Urbino, 1538) as an accepted category of painting. However, eroticism was often covert rather than explicit, until the 20th century, when feminism in particular prompted artists and critics to challenge the taboos of depicting sexuality. Since then, erotic content in art has often been subversive\u2014poking fun at or exposing society's prejudices and assumptions about sexuality.", 
+                  "id": "4dcdf34f8080ad0001003a83", 
+                  "image": "https://d32dm0rphc51dk.cloudfront.net/5V2OnDjR_lY4W7XDhhG4Ag/big_and_tall.jpg", 
+                  "name": "Erotic"
+                }
+              ], 
+              "title": "Der Kuss (The Kiss)"
+            }, 
+            {
+              "artists": [
+                {
+                  "birth": "1746", 
+                  "gender": "male", 
+                  "hometown": "Fuendetodos, Spain", 
+                  "id": "4d8b92b44eb68a1b2c0003fe", 
+                  "image": "https://d32dm0rphc51dk.cloudfront.net/rdotrPHi1YqDgOcKDTpsvw/four_thirds.jpg", 
+                  "name": "Francisco de Goya"
+                }
+              ], 
+              "category": null, 
+              "collections": [
+                {
+                  "id": "56f94caf139b21737200320b", 
+                  "institution": "Museo Nacional del Prado", 
+                  "region": "Europe", 
+                  "type": "Institution", 
+                  "website": "https://www.museodelprado.es/en"
+                }
+              ], 
+              "date": "1814", 
+              "id": "4d8b92ee4eb68a1b2c0009ab", 
+              "image": "https://d32dm0rphc51dk.cloudfront.net/m4X41Fun8gpDjn7Gat9cUg/medium.jpg", 
+              "medium": "Oil on canvas", 
+              "styles": [
+                {
+                  "description": "In the West, the 19th century witnessed major social and technological upheavals, spurred in large part by the Industrial Revolution and correlating trends: urbanization, frequently poor working and living conditions, and territorial expansion by emerging global superpowers. In this period, artistic patronage shifted increasingly towards the capitalist bourgeoisie and national academies, with a rising profile for art dealers and critics. The hub of Western artistic activity was Paris, and the French Academy and Salon represented the establishment, favoring Neoclassicism at the beginning of the century and later Romanticism. Social and political commentary appeared in the history paintings of Th\u00e9odore G\u00e9ricault and Francisco Goya as well as the Social Realist works of Gustave Courbet and Honor\u00e9 Daumier. Broad defiance of the Salon system swelled in the second half of the century with provocative works by the likes of \u00c9douard Manet, the new styles of Impressionism and Post-Impressionism, and the birth of the concepts of modernism and the avant-garde. Japan's opening to global trade and the subsequent arrival of Japanese objects in Europe were a significant influence. At the same time, photography emerged as a means of documenting social realities and an art form accessible to non-elites. Architecture was characterized by the use of new industrial materials and techniques, on the the one hand, and the revival of Classical and Gothic styles, on the other. In design and decorative arts, the Arts and Crafts Movement and Art Nouveau both responded to industrialization and mass production through their emphasis on handmade craft and organic forms.\n", 
+                  "id": "51b662628b3b8149ed0002e8", 
+                  "image": "https://d32dm0rphc51dk.cloudfront.net/2uZKVsIf1Ajxlz7KXhIa4w/big_and_tall.jpg", 
+                  "name": "19th Century"
+                }, 
+                {
+                  "description": "The major European artistic style of the 17th- into 18th centuries. Though the term is now outdated because of its extreme variance of styles, historically it refers to a style that departs from strict representation of forms to embrace the more fantastic, bizarre, excessive, and elaborate, especially in terms of architecture.", 
+                  "id": "4d90d194dcdd5f44a50000ad", 
+                  "image": "https://d32dm0rphc51dk.cloudfront.net/4ly-DIuyLoH-JlrLcZjvnw/big_and_tall.jpg", 
+                  "name": "Baroque"
+                }, 
+                {
+                  "description": "The use of clear contrasts of light and dark to create effects like the volume and modeling of the subjects depicted. The term is usually applied to works that deploy these effects dramatically, such as the paintings of Caravaggio.\n", 
+                  "id": "4d90d195dcdd5f44a50000bb", 
+                  "image": "https://d32dm0rphc51dk.cloudfront.net/hHpUZp07K4uPhOWRy8gRQw/big_and_tall.jpg", 
+                  "name": "Chiaroscuro"
+                }, 
+                {
+                  "description": "Used in describing artworks engaged with the history of a national, ethnic, or institutional group, as opposed to the recollections of an individual.", 
+                  "id": "4eb427060253b80001018cc2", 
+                  "image": "https://d32dm0rphc51dk.cloudfront.net/fIXMHos4DUg3NNf81Ic-tw/big_and_tall.jpg", 
+                  "name": "Collective History"
+                }, 
+                {
+                  "description": "Works that include scenes of personal and/or political conflict, including verbal, physical, or ideological struggles for power or agency (as in fights, wars, or arguments) or acts of opposition or antagonism (such as protests).", 
+                  "id": "4db9b645db68d133c600123e", 
+                  "image": "https://d32dm0rphc51dk.cloudfront.net/TR2--uSi28wQsaKCkJ6Q1A/big_and_tall.jpg", 
+                  "name": "Conflict"
+                }
+              ], 
+              "title": "The Third of May"
             }
-        ]
+        }
         
 ### View an artwork's information [GET /Artwork/{id}]
 
@@ -145,21 +300,64 @@ Art Snob is a simple API allowing consumers to get information about artists and
 + Response 200 (application/json)
 
         {
-                "id": "516dfb9ab31e2b2270000c45",
-                "title": "The Old Violin",
-                "category": "Painting",
-                "medium": "Oil on canvas",
-                "date": "1886",
-                "artists": [
-                    {"name": "Artist1", "id": "1"}
-                ],
-                "styles": [
-                    {"name": "Style1", "id": "1"}
-                ],
-                "thumbnail": {
-                  "href": "https://d32dm0rphc51dk.cloudfront.net/dTGcd0Xx0aEp_MDFdHIUIw/medium.jpg"
-                },
+          "artists": [
+            {
+              "birth": "1452", 
+              "gender": "male", 
+              "hometown": "Vinci, Italy", 
+              "id": "4d8b92684eb68a1b2c00009e", 
+              "image": "https://d32dm0rphc51dk.cloudfront.net/s-MV9TavBK6JDW8TGe-Dew/four_thirds.jpg", 
+              "name": "Leonardo da Vinci"
             }
+          ], 
+          "category": null, 
+          "collections": [
+            {
+              "id": "51cc9a88275b24f8700000db", 
+              "institution": "Art History 101", 
+              "region": "North America", 
+              "type": "Institution", 
+              "website": "http://partnerdemo.com"
+            }
+          ], 
+          "date": "ca. 1503-1506", 
+          "id": "4d8b937c4eb68a1b2c001722", 
+          "image": "https://d32dm0rphc51dk.cloudfront.net/5L1xjKC_und1uiKCpUPHhw/medium.jpg", 
+          "medium": "Oil on poplar", 
+          "styles": [
+            {
+              "description": "Artworks that depict a subject who is making direct eye contact with the viewer. In addition to her enigmatic smile, the Mona Lisa has perhaps the most recognized gaze in art history with eyes that reciprocate the viewer\u2019s attention and appear to follow their spectator across the room. Replete with a number of social connotations, eye contact can convey confidence, attraction, humor, and even enmity. Portraying this loaded interaction in art can enable a work\u2019s subject to transcend the picture plane and establish a personal connection with the viewer.\n", 
+              "id": "51efe2708b3b8196fc000462", 
+              "image": "https://d32dm0rphc51dk.cloudfront.net/TaRTIdn2xHnFkernyk1BNg/big_and_tall.jpg", 
+              "name": "Eye Contact"
+            }, 
+            {
+              "description": "A general category for artworks that represent recognizable material in the visible world, as opposed to abstract art. The variety of approaches to figurative art is enormous and almost as diverse as the history of art itself. In painting, figuration ranges from Photorealism (like that of Chuck Close) at one end of the spectrum to nearly abstract (like Pablo Picasso\u2019s Analytic Cubism) at the other. For much of the 20th century, figurative painting was largely ignored by the Western avant-garde, but the course changed with the 1980s emergence of figurative painters like Anselm Kiefer, Jean-Michel Basquiat, and David Salle.", 
+              "id": "520baa99a09a678af00000cc", 
+              "image": "https://d32dm0rphc51dk.cloudfront.net/-9lH74uZM7s4XOEejvDcoA/big_and_tall.jpg", 
+              "name": "Figurative Art"
+            }, 
+            {
+              "description": "Paintings that represent recognizable things in the visible world, as opposed to abstract painting. The variety of approaches to figurative painting is enormous, and almost as diverse as the history of art itself. The two poles are, essentially, stylistic: Photorealism (like that of Chuck Close) at one extreme, and nearly abstract and unrecognizable figuration (like Pablo Picasso's Analytic Cubism) at the other. While for much of the 20th century figurative painting was largely ignored by the Western avant-garde, the course changed with the 1980s emergence of figurative painters like Anselm Kiefer, Jean-Michel Basquiat, and David Salle; this renewed interest in turn shed light on figurative painters who had long been working in the same vein, from Lucian Freud and Alice Neel to Alex Katz, Gerhard Richter, and countless others. Today, painters like John Currin, Kehinde Wiley, Jenny Saville, and Elizabeth Peyton represent the various approaches to figurative work.", 
+              "id": "4fbabaa5be12d400010007c4", 
+              "image": "https://d32dm0rphc51dk.cloudfront.net/EAnTmaoDg3EX-jezJwrtGg/big_and_tall.jpg", 
+              "name": "Figurative Painting"
+            }, 
+            {
+              "description": "Spanning the late 15th and early 16th centuries in Italy, the High Renaissance is often acknowledged as the height of artistic achievement in post-medieval Europe. Culminating during a prolonged cultural awakening and marked by the pursuit of humanist ideals like naturalism, proportion, and Classical bodily forms in painting, sculpture, and architecture, the High Renaissance also encompassed the careers of Leonardo da Vinci, Raphael, and Michelangelo. Da Vinci emerged as the most influential artist and thinker of the time (and perhaps in the history of Western art). The legacy of the High Renaissance is primarily seen through the continued use of da Vinci\u2019s innovative approaches to artmaking, such as freehand sketching and subtle tonal gradation (also known as sfumato).", 
+              "id": "4f26f327dc7f670001000126", 
+              "image": "https://d32dm0rphc51dk.cloudfront.net/yissUz0pN2s23DpX37L1vQ/big_and_tall.jpg", 
+              "name": "High Renaissance"
+            }, 
+            {
+              "description": "Representations of the human figure are some of the earliest depictions found in art across the globe. Drawn, painted, and sculpted images of human beings can be found in Han Dynasty tombs in China, in Mayan art, and even in the nearly 30,000-year-old wall drawings of the Chauvet Caves in southern France. The human figure has also been central to Christian art for thousands of years and fundamental to the art of the Renaissance. Importantly though, many cultures throughout history have not sought to include human figures in their art. Islamic art, for example, did not include people in images due to the belief that only God is able to create living beings. Jewish art similarly refrained from the representation of figures due to its condemnation of idolatry. With its tendency toward abstraction and pursuit of a realm beyond the visible, Modern Art generally moved away from the figure. It was not until the 1980s that figures started to reappear in many avant-garde artists\u2019 works. Human figures have remained a significant subject in contemporary art alongside the continuing interest in abstract and conceptual art.", 
+              "id": "4d90d193dcdd5f44a500007c", 
+              "image": "https://d32dm0rphc51dk.cloudfront.net/bdSaDqzDio-VPvvUWglboA/big_and_tall.jpg", 
+              "name": "Human Figure"
+            }
+          ], 
+          "title": "Mona Lisa"
+        }
 
 
 ## Style Collection [/Style]
@@ -168,34 +366,42 @@ Art Snob is a simple API allowing consumers to get information about artists and
 
 + Response 200 (application/json)
 
-        [
+        {
+          "num_results": 2, 
+          "objects": [
             {
-                "id": "4e5e41670d2c670001030350",
-                "name": "Pop Art",
-                "description": "_“The Pop artists did images that anybody walking down Broadway could recognize in a split second—comics, picnic tables, men’s trousers, celebrities, shower curtains, refrigerators, coke bottles—all the great modern things that the Abstract Expressionists tried so hard not to notice at all.” –[Andy Warhol](/artist/andy-warhol)_\n\nPop Art was the dominant movement in early 1960s American art. Short for “popular art,” it featured common household objects and consumer products like Coca-Cola and Campbell’s Soup cans, as well as forms of media—such as comics, newspapers, and magazines—recognizable to the masses. Artists often created Pop works using mechanical or commercial techniques, such as [silk-screening](/gene/silkscreen-1). As Warhol suggested, the choice of mundane subject matter and machine-like techniques was a blunt rejection of the heroic subjects and methods of [Abstract Expressionism](/gene/abstract-expressionism), the leading American movement of the 1950s. Not often discussed is the fact that Pop Art originated in England and paralleled similar movements in France and Germany. Pop Art was incredibly diverse, especially in its international variants, which included Nouveau Réalisme in France, Capitalist Realism in Germany, and Anti-Art in Japan. ",
-                "artworks": [
-                    {"title": "artwork1", "id": "1"},
-                    {"title": "artwork2", "id": "2"}
-                ],
-                "number_of_artists": "2",
-                "thumbnail": {
-                    "href": "https://d32dm0rphc51dk.cloudfront.net/zwMP_9kbs2XcSPTaGLJ6qw/big_and_tall.jpg"
+              "artworks": [
+                {
+                  "category": null, 
+                  "date": "1619", 
+                  "id": "538f57e24b8480db92000218", 
+                  "image": "https://d32dm0rphc51dk.cloudfront.net/I6XhcChclpALDNY5LE41SA/medium.jpg", 
+                  "medium": "Green glass with diamond engraving, remnants of black in the engraving", 
+                  "title": "Wine Glass engraved with a poem to Constantijn Huygens"
                 }
-            },
+              ], 
+              "description": "\"All the effects of glass are marvelous\u2026 it must be used and kept in mind as an example of the life of man and of the things of this world which, though beautiful, are transitory and frail.\" \u2014Vannoccio Biringuccio\n\nGlass\u2014a hard, transparent material based in silica\u2014is occasionally found in nature, but most often man-made. Since the invention of the glass-blowing process in first-century Syria, a wide array of techniques and uses for the malleable material have been developed around the world. Notable historical examples include Byzantine mosaics, Medieval stained glass, and Art Nouveau glass in the late-19th century. Modern and contemporary artists have used glass to various optical and conceptual ends; Marcel Duchamp, Robert Smithson, and Larry Bell, for instance, continued to explore the potential of the material, while glass has been integral to pioneering works by architects and engineers since the industrial revolution. Capitalizing on advancements in glass and structural engineering, Joseph Paxton's Crystal Palace, Mies Van der Rohe's Seagram Building, Phillip Johnson's Glass House, and I.M. Pei's Pyramide at the Louvre each have shown the ability of glass to be the primary building material.", 
+              "id": "4d90d18edcdd5f44a500000d", 
+              "image": "https://d32dm0rphc51dk.cloudfront.net/QdhTfX-jiPnjEMH6OiyYXg/big_and_tall.jpg", 
+              "name": "Glass as Material"
+            }, 
             {
-                "id": "4f3eba372ee99a0001000665",
-                "name": "Advertising and Brands",
-                "description": "Artworks that feature advertisements and logos. [Andy Warhol](/artist/andy-warhol) is most often associated with this practice. His [Pop Art](/gene/pop-art) paintings featuring Campbell’s soup cans and Coca-Cola bottles are icons of contemporary art history. While Pop Art is most often credited with introducing these types of visuals into art history—and moreover, making them the primary feature of an artwork—the practice dates back to [cubist](/gene/cubism) [collage](/gene/collage) in the 1910s. [Pablo Picasso](/artist/pablo-picasso) and [George Braque’s](/artist/georges-braque) papier-collé works commonly included newspaper advertisements. Today, [street artists](/gene/graffiti-slash-street-art) commonly use corporate logos in their work to criticize corporate practices and globalization.",
-                "artworks": [
-                    {"title": "artwork3", "id": "3"},
-                    {"title": "artwork4", "id": "4"}
-                ],
-                "number_of_artists": "2",
-                "thumbnail": {
-                    "href": "https://d32dm0rphc51dk.cloudfront.net/jki8jRj3XCMS70bJqN5D2Q/big_and_tall.jpg"
+              "artworks": [
+                {
+                  "category": null, 
+                  "date": "1813-1838", 
+                  "id": "5035a0f96cb80200020007b2", 
+                  "image": "https://d32dm0rphc51dk.cloudfront.net/2s9-udsoWt3hC_VDcFhYfQ/medium.jpg", 
+                  "medium": "Ink, gold leaf on paper, lacquered wood", 
+                  "title": "Fusuma: Tigers and Dragon"
                 }
+              ], 
+              "description": "A general label for artworks made from more than one material. Combining materials\u2014especially those associated with different mediums, such as painting and sculpture\u2013is closely associated with a number of important developments in Modern art. Cubist collages, Marcel Duchamp's readymades, and Dada assemblage formed key precedents for later generations working in mixed-media. Notably, Robert Rauschenberg and Jasper Johns\u2014commonly associated with Neo-Dada\u2014were instrumental in including different media on the painted canvas in the 1950s and '60s. Installation, which emerged in the 1960s, continues to be a major practice in contemporary art and often includes a range of media. Central to many contemporary mixed-media works is the inclusion of materials that fall far outside the accepted mediums of art; a commonly-cited example is Damien Hirst's provocative use of dead animals in his sculptures.\n", 
+              "id": "4d90d18edcdd5f44a500000f", 
+              "image": "https://d32dm0rphc51dk.cloudfront.net/mV84Hu6EIOvASdZ5gOGMag/big_and_tall.jpg", 
+              "name": "Mixed-Media"
             }
-        ]
+        }
   
 ### View a style's information [GET /Style/{id}]
 
@@ -205,17 +411,20 @@ Art Snob is a simple API allowing consumers to get information about artists and
 + Response 200 (application/json)
 
         {
-            "id": "4e5e41670d2c670001030350",
-            "name": "Pop Art",
-            "description": "_“The Pop artists did images that anybody walking down Broadway could recognize in a split second—comics, picnic tables, men’s trousers, celebrities, shower curtains, refrigerators, coke bottles—all the great modern things that the Abstract Expressionists tried so hard not to notice at all.” –[Andy Warhol](/artist/andy-warhol)_\n\nPop Art was the dominant movement in early 1960s American art. Short for “popular art,” it featured common household objects and consumer products like Coca-Cola and Campbell’s Soup cans, as well as forms of media—such as comics, newspapers, and magazines—recognizable to the masses. Artists often created Pop works using mechanical or commercial techniques, such as [silk-screening](/gene/silkscreen-1). As Warhol suggested, the choice of mundane subject matter and machine-like techniques was a blunt rejection of the heroic subjects and methods of [Abstract Expressionism](/gene/abstract-expressionism), the leading American movement of the 1950s. Not often discussed is the fact that Pop Art originated in England and paralleled similar movements in France and Germany. Pop Art was incredibly diverse, especially in its international variants, which included Nouveau Réalisme in France, Capitalist Realism in Germany, and Anti-Art in Japan. ",
-            "artworks": [
-                {"title": "artwork1", "id": "1"},
-                {"title": "artwork2", "id": "2"}
-            ],
-            "number_of_artists": "2",
-            "thumbnail": {
-                "href": "https://d32dm0rphc51dk.cloudfront.net/zwMP_9kbs2XcSPTaGLJ6qw/big_and_tall.jpg"
+          "artworks": [
+            {
+              "category": null, 
+              "date": "ca. 1903", 
+              "id": "5035a0f633ed3600020007ab", 
+              "image": "https://d32dm0rphc51dk.cloudfront.net/KeHC46q04PAvaUJyM3v5WA/medium.jpg", 
+              "medium": "Gold, enamel, horn, tortoise shell, agate", 
+              "title": "Tiger Necklace"
             }
+          ], 
+          "description": "Used since the 1960s to refer to a highly decorative style of design, characterized by streamlined geometric forms and bright colors, that was influential in Europe and the United States in the 1920s and 1930s. With roots in Art Nouveau, it was originally promoted by the 1925 Paris Exposition Internationale des Arts D\u00e9coratifs et Industriels Modernes, but one could also argue that it emerged from such 20th-century avant-garde movements as Cubism, Fauvism, and Constructivism.", 
+          "id": "4d90d18fdcdd5f44a500002c", 
+          "image": "https://d32dm0rphc51dk.cloudfront.net/xdqaNDUE0yydHDsxC97TDg/big_and_tall.jpg", 
+          "name": "Art Deco"
         }
 
 
@@ -225,23 +434,30 @@ Art Snob is a simple API allowing consumers to get information about artists and
 
 + Response 200 (application/json)
 
-        [
+        {
+          "num_results": 1, 
+          "objects": [
             {
-                "id": "4f99c7b793ab4b0001000179",
-                "type": "Institution",
-                "name": "National Gallery of Art, Washington, D.C.",
-                "region": "North America",
-                "artworks": [
-                    {"title": "artwork1", "id": "1"},
-                    {"title": "artwork2", "id": "2"}
-                ],
-                "website": {
-                  "href": "http://www.nga.gov"
+              "artworks": [
+                {
+                  "category": null, 
+                  "date": "ca. 1620", 
+                  "id": "4eb8672392f64f00010121e7", 
+                  "image": "https://d32dm0rphc51dk.cloudfront.net/ds6uBshT_b0ImPHjwYDo0A/medium.jpg", 
+                  "medium": "Oil on wood", 
+                  "title": "Winter Scene on a Frozen Canal"
                 }
+              ]
+              "id": "4eb18d6ac8004a0001000001", 
+              "institution": "Los Angeles County Museum of Art", 
+              "region": "North America", 
+              "type": "Institutional Seller", 
+              "website": "http://www.lacma.org/"
             }
-        ]
+        }
+            
   
-### Nationality information [GET /Collection/{id}]
+### View a collection's information [GET /Collection/{id}]
 
 + Parameters
     + id: `1` (number, required) - The unique id of the collection
@@ -249,15 +465,19 @@ Art Snob is a simple API allowing consumers to get information about artists and
 + Response 200 (application/json)
 
         {
-                "id": "4f99c7b793ab4b0001000179",
-                "type": "Institution",
-                "name": "National Gallery of Art, Washington, D.C.",
-                "region": "North America",
-                "artworks": [
-                    {"title": "artwork1", "id": "1"},
-                    {"title": "artwork2", "id": "2"}
-                ],
-                "website": {
-                  "href": "http://www.nga.gov"
-                }
+          "artworks": [
+            {
+              "category": null, 
+              "date": "ca. 1620", 
+              "id": "4eb8672392f64f00010121e7", 
+              "image": "https://d32dm0rphc51dk.cloudfront.net/ds6uBshT_b0ImPHjwYDo0A/medium.jpg", 
+              "medium": "Oil on wood", 
+              "title": "Winter Scene on a Frozen Canal"
+            }
+          ]
+          "id": "4eb18d6ac8004a0001000001", 
+          "institution": "Los Angeles County Museum of Art", 
+          "region": "North America", 
+          "type": "Institutional Seller", 
+          "website": "http://www.lacma.org/"
         }
