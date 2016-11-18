@@ -4,8 +4,8 @@ DB for Artsnob
 import os
 
 from flask import Flask
-import flask_sqlalchemy
-import flask_restless
+from flask import flask_sqlalchemy
+from flask import flask_restless
 from flask_cors import CORS, cross_origin
 
 #os.system('createdb testdb')
