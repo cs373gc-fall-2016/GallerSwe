@@ -1,7 +1,8 @@
 angular.module('ArtSnob')
-.controller('stylesController', ['$scope', '$rootScope', 'Style',
-    function($scope, $rootScope, Style) {
+.controller('stylesController', ['$scope', '$rootScope', '$timeout', 'Style', 'SingleStyle', 'localStorageService',
+    function($scope, $rootScope, $timeout, Style, SingleStyle, localStorageService) {
         'use strict';
+        SingleStyle.registerObserverCallback(gotStyle($scope));
 
         $scope.reload = function() {
 			Style.get(function(response) {
@@ -26,13 +27,27 @@ angular.module('ArtSnob')
         }
 
         $rootScope.$on('rootScope:styleSelected', function (event, data) {
-            //this is where we will set style once we know how to request from API with an ID
             console.log("Style selected with id: "+ data);
+            SingleStyle.get( data, function(callback) {
+                localStorageService.set("style", callback);
+            });
         });
 
         $scope.sortType     = 'name'; // set the default sort type
         $scope.sortReverse  = false;  // set the default sort order
 
+        function gotStyle($scope) {
+            $timeout(function() {
+                if (localStorageService.isSupported){
+                    var tempStyle = localStorageService.get("style");
+                    if (tempStyle != undefined){
+                        $scope.style = tempStyle;
+                        localStorageService.set("style", undefined);
+                        tempStyle = undefined;
+                    }
+                } 
+            }, 2000); 
+        }
         //
         //	Initial load
         //

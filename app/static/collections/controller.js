@@ -21,6 +21,7 @@ angular.module('ArtSnob')
         }
 
         $scope.ArtworkSelected = function(artwork_id) {
+            console.log(artwork_id);
             $rootScope.$broadcast('rootScope:artworkSelected', artwork_id);
         }
 

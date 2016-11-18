@@ -12,22 +12,15 @@ angular.module('ArtSnob')
 			$scope.objects = localStorageService.get("objects");
         }
 
-        // $rootScope.$on('rootScope:searchTerm', function (event, data) {
-        //     console.log("I heard you");
-        //     SearchResults.get(data, function(response) {
-        //         localStorageService.set("objects", response.objects);
-        //         $scope.response = response
-        //         $scope.objects = response.objects
-        //     });
-        // });
-        
-
         $rootScope.$on('rootScope:searchTerm', function (event, data) {
-
             console.log("I heard you");
-            console.log(data);
-
+            SearchResults.get(data, function(response) {
+                localStorageService.set("objects", response.objects);
+                $scope.response = response
+                $scope.objects = response.objects
+            });
         });
+        
 
         //
         //	Initial load

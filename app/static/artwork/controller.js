@@ -13,10 +13,13 @@ angular.module('ArtSnob')
         }
 
         $scope.ArtworkSelected = function(artwork) {
+            console.log("select");
+            console.log(artwork);
             $scope.artwork = artwork
         }
 
         $scope.ArtworkDeselected = function() {
+            console.log("deselecting");
             $scope.artwork = undefined
         }
 
