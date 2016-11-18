@@ -12,6 +12,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular-smart-table": "^2.1.8"
+    "angular-smart-table": "^2.1.8",
+    "angular-local-storage": "^0.5.2"
   }
 }
