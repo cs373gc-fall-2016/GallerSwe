@@ -188,3 +188,11 @@ td{
 .below_header {
   padding-top: 200px;
 }
+
+.pointer {
+    cursor: pointer;
+}
+
+.input-group .input-group-sm .search-group {
+	align: center
+}

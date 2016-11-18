@@ -1,4 +1,4 @@
-angular.module("ArtSnob", ['ui.router', 'ngResource']);
+angular.module("ArtSnob", ['ui.router', 'ngResource', 'smart-table', 'LocalStorageModule']);
 
 angular.module('ArtSnob').config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 	$stateProvider
@@ -64,6 +64,28 @@ angular.module('ArtSnob').config(['$stateProvider', '$urlRouterProvider', functi
 			// }]
 		},
 		controller: 'collectionsController'
+	})
+
+	.state('results', {
+		url: '/results',
+		templateUrl: 'results/results.html',
+		resolve: {
+			// timestamps: ['Timestamps', function (TimestampService) {
+			// 	return TimestampService.getAll();
+			// }]
+		},
+		controller: 'resultsController'
+	})
+
+	.state('states', {
+		url: '/states',
+		templateUrl: 'visual/index.html',
+		resolve: {
+			// timestamps: ['Timestamps', function (TimestampService) {
+			// 	return TimestampService.getAll();
+			// }]
+		},
+		controller: ''
 	})
 
 	$urlRouterProvider.otherwise('/main');

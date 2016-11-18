@@ -1,0 +1,133 @@
+<div class="page_header" ng-app="ArtSnob" ng-show="artwork == undefined" >
+  <div class="col-lg-8 col-lg-offset-2">
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1 class="brand-heading">Search Results</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div id="display">
+      <div class="col-md-8 col-md-offset-2">
+          <h1 class="brand-heading">"And" Results</h1>
+      </div>
+
+      <!-- and artwork results -->
+        <table st-table="objects.and_results.artwork_results" class="table">
+        <thead>
+        <tr>
+          <th st-sort="title">Title</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="row in objects.and_results.artwork_results">
+          <td><a class="page-scroll" ng-click="ArtworkSelected(row)">{{row.title}}</a></td>
+        </tbody>
+
+        <!-- and artist results -->
+          <table st-table="objects.and_results.artist_results" class="table">
+            <thead>
+            <tr>
+              <th st-sort="name">Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="row in objects.and_results.artist_results">
+              <td><a class="page-scroll" ng-click="ArtistSelected(row)">{{row.name}}</a></td>
+            </tr>
+            </tbody>
+          </table>
+
+        <!-- and style results -->
+          <table st-table="objects.and_results.style_results" class="table">
+            <thead>
+            <tr>
+              <th st-sort="name">Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="row in objects.and_results.style_results">
+              <td><a class="page-scroll" ng-click="StyleSelected(row)">{{row.name}}</a></td>
+            </tr>
+            </tbody>
+          </table>
+
+        <!-- and collection results -->
+          <table st-table="objects.and_results.collection_results" class="table">
+            <thead>
+            <tr>
+              <th st-sort="name">Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="row in objects.and_results.collection_results">
+              <td><a class="page-scroll" ng-click="StyleSelected(row)">{{row.name}}</a></td>
+            </tr>
+            </tbody>
+          </table>
+
+          <div class="col-md-8 col-md-offset-2">
+              <h1 class="brand-heading">"Or" Results</h1>
+          </div>
+
+          <!-- or artwork results -->
+            <table st-table="objects.or_results.artwork_results" class="table">
+            <thead>
+            <tr>
+              <th st-sort="title">Title</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="row in objects.or_results.artwork_results">
+              <td><a class="page-scroll" ng-click="ArtworkSelected(row)">{{row.title}}</a></td>
+            </tbody>
+
+            <!-- or artist results -->
+              <table st-table="objects.or_results.artist_results" class="table">
+                <thead>
+                <tr>
+                  <th st-sort="name">Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="row in objects.or_results.artist_results">
+                  <td><a class="page-scroll" ng-click="ArtistSelected(row)">{{row.name}}</a></td>
+                </tr>
+                </tbody>
+              </table>
+
+            <!-- or style results -->
+              <table st-table="objects.or_results.style_results" class="table">
+                <thead>
+                <tr>
+                  <th st-sort="name">Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="row in objects.or_results.style_results">
+                  <td><a class="page-scroll" ng-click="StyleSelected(row)">{{row.name}}</a></td>
+                </tr>
+                </tbody>
+              </table>
+
+            <!-- or collection results -->
+              <table st-table="objects.or_results.collection_results" class="table">
+                <thead>
+                <tr>
+                  <th st-sort="name">Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="row in objects.or_results.collection_results">
+                  <td><a class="page-scroll" ng-click="StyleSelected(row)">{{row.name}}</a></td>
+                </tr>
+                </tbody>
+              </table>
+
+
+      </table>
+      </div>
+  </div>
+</div>

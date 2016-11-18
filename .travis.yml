@@ -5,13 +5,18 @@ python:
 
 sudo: false
 
+service:
+    - postgresql
+
 install:
     - pip install --upgrade pip
     - pip --version
     - pip install Flask
     - pip install Flask-Script
     - pip install Flask-SQLAlchemy
-    - pip install Flask-Testing
+    - pip install flask-restless
+    - pip install flask-cors
+    - pip install flask-testing
     - pip install requests
     - pip install psycopg2
 
@@ -19,6 +24,7 @@ before_script:
     - uname -a
     - printenv
     - pip list
+    - psql -c 'create database artsnob;' -U postgres
 
 script:
     - date

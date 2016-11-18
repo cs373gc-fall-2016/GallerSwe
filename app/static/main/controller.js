@@ -1,21 +1,12 @@
 angular.module('ArtSnob')
-.controller('mainController', ['$scope', 'Artists',
-    function($scope, Artists) {
-        'use strict';
-        
-        //
-        //	Call the Timestamp service to fetch all the timestamps
-        //
-        $scope.reload = function() {
-			Artists.get(function(response) {
-				$scope.response = response
-                $scope.objects = response.objects
-			    console.log("response is ", $scope.response)
-			});
-        }
+.controller('mainController', ['$scope', '$rootScope', '$location',
+    function($scope, $rootScope, $location) {
+      
+      $scope.search = function() {
+      	  var searchTerm = $scope.searchTerm;
+          $rootScope.$broadcast('rootScope:searchTerm', searchTerm);
+          console.log("I am broadcasting");
+          console.log(searchTerm);
+      }
 
-        //
-        //	Initial load
-        //
-        $scope.reload()
-}]);
+    }]);

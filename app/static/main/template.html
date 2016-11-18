@@ -13,27 +13,6 @@
     </div>
 </div>
 
-<!-- <head>
-        <style>
-
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-        }
-
-        body {
-            display: table;
-        }
-
-        .my-block {
-            text-align: center;
-            display: table-cell;
-            vertical-align: middle;
-        }
-        </style>
-    </head> -->
     <body>
     <div class="intro">
       <div class="intro-body">
@@ -42,6 +21,19 @@
                   <h1 class="brand-heading">ArtSnob</h1>
               <!-- </div>
           </div> -->
+          <h2 align="center">
+            <div class="input-group input-group-sm search-group" style="width: 300px">
+              <input type="text" class="form-control" placeholder="Search..."
+                     ng-model="searchTerm"
+                     ng-keydown="$event.which === 13 && search()" ></input>
+              <span class="input-group-btn search-btn">
+                  <a class="search-btn btn btn-default" type="button" href="#/results" ng-click="search()">
+                      <span class="glyphicon glyphicon-search search-icon" aria-hidden="true"></span>
+                  </a>
+              </span>
+          </div>
+        </h2>
       </div>
     </div>
+
     </body>

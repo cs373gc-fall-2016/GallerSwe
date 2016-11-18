@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
-                    <h1 class="brand-heading" style="text-align:center;">{{collection.name}}</h1>
+                    <h1 class="brand-heading" style="text-align:center;">{{collection.institution}}</h1>
                 </div>
             </div>
         </div>
@@ -24,7 +24,7 @@
 
     <div class="col-lg-8 col-lg-offset-2">
         <div id="display">
-          <table id="data" style="width:90%; font-family: Helvetica Neue" class="sortable">
+          <table id="data" style="width:90%; font-family: Helvetica Neue" class="pointer">
             <tr>
                 <td><b>Name</b></td><td>{{collection.institution}}</td>
             </tr>
@@ -35,11 +35,31 @@
                 <td><b>Region</b></td><td>{{collection.region}}</td>
             </tr>
             <tr>
-                <td><b>Sample Piece</b></td><td>{{collection.piece}}</td>
+                <td><b>Website</b></td><td><a class="page-scroll" href ="{{collection.website}}">{{collection.website}} </a></td>
             </tr>
-            <tr>
-                <td><b>Website</b></td><td>{{collection.website}</td>
-            </tr>
+            <tr><td><b>Works</b></td>
+              <td></table>
+                  <table class="table" align="center">
+                  <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Medium</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr ng-repeat="row in collection.artworks">
+                    <td><a class="page-scroll" ng-click="ArtworkSelected(row.id)" href="#/artwork">{{row.title}}</a></td>
+                    <td>{{row.date}}</td>
+                    <td>{{row.medium}}</td>
+                  </tr>
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                  </tr>
+                </tfoot>
+              </table></td>
+              </tr>
           </table>
         </div>
     </div>
@@ -56,15 +76,40 @@
         </div>
     </header>
     <div id="display">
-      <table id="data" style="width:90%" class="sortable">
+      <!--<table id="data" style="width:90%" >
         <tr>
-            <th>Name</td>
-            <th>Type</td>
-            <th>Region</td>
-            <th>Sample Piece</td>
-            <th>Website</td>
+            <th>
+              <a ng-click="sortType = 'institution'; sortReverse = !sortReverse">
+                 <span ng-show="sortType == 'institution'" class="fa fa-caret-down"></span>
+                 <font size="+1">Name</font>
+               </a>
+               </td>
+            <th>
+              <a ng-click="sortType = 'type'; sortReverse = !sortReverse">
+                 <span ng-show="sortType == 'type'" class="fa fa-caret-down"></span>
+                 <font size="+1">Type</font>
+               </a>
+            </td>
+            <th>
+              <a ng-click="sortType = 'region'; sortReverse = !sortReverse">
+                 <span ng-show="sortType == 'region'" class="fa fa-caret-down"></span>
+                 <font size="+1">Region</font>
+               </a>
+            </td>
+            <th>
+              <a ng-click="sortType = 'piece'; sortReverse = !sortReverse">
+                 <span ng-show="sortType == 'piece'" class="fa fa-caret-down"></span>
+                 <font size="+1">Sample Piece</font>
+               </a>
+            </td>
+            <th>
+              <a ng-click="sortType = 'website'; sortReverse = !sortReverse">
+                 <span ng-show="sortType == 'website'" class="fa fa-caret-down"></span>
+                 <font size="+1">Website</font>
+               </a>
+            </td>
         </tr>
-        <tr ng-repeat="item in objects track by $index">
+        <tr ng-repeat="item in objects | orderBy:sortType:sortReverse">
             <td>
                 <a class="page-scroll" ng-click="CollectionSelected(item)">
                 {{item.institution}}
@@ -72,10 +117,48 @@
             </td>
             <td> {{item.type}} </td>
             <td> {{item.region}} </td>
-            <td> {{item.artworks}} </td>
-            <td> {{item.website}} </td>
+            <td>
+                <a class="page-scroll" ng-click="ArtworkSelected(item.artworks[0].id)" href="#/artwork">
+                    {{item.artworks[0].title}}
+                </a>
+            </td>
+            <td>
+              <a class="page-scroll" href ="{{item.website}}">
+                {{item.website}} </td>
+              </a>
         </tr>
-      </table>
+      </table> -->
+
+      <table st-table="objects" class="table" st-safe-src="rowCollection">
+    	<thead>
+    	<tr>
+    		<th st-sort="institution" st-sort-default="true">Institution</th>
+    		<th st-sort="type">Type</th>
+    		<th st-sort="region">Region</th>
+    		<th st-sort="artworks[0].title">Piece</th>
+    		<th st-sort="website">Website</th>
+    	</tr>
+      <tr>
+      <th colspan="5"><input st-search="" class="form-control" placeholder="Search..." type="text"/></th>
+      </tr>
+    	</thead>
+    	<tbody>
+    	<tr ng-repeat="row in objects">
+    		<td><a class="page-scroll" ng-click="CollectionSelected(row)">{{row.institution}}</a></td>
+    		<td>{{row.type}}</td>
+    		<td>{{row.region}}</td>
+    		<td><a class="page-scroll" ng-click="ArtworkSelected(item.artworks[0].id)" href="#/artwork">{{row.artworks[0].title}}</a></td>
+    		<td><a class="page-scroll" href ="{{item.website}}">{{row.website}}</a></td>
+    	</tr>
+    	</tbody>
+      <tfoot>
+      <tr>
+        <td colspan="5" class="text-center">
+          <div st-pagination="" st-template="angular-smart-table/template/pagination.html" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+        </td>
+      </tr>
+    </tfoot>
+    </table>
     </div>
   </div>
 </div>
