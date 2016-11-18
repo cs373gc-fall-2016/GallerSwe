@@ -11,6 +11,8 @@ install:
     - pip install Flask
     - pip install Flask-Script
     - pip install Flask-SQLAlchemy
+    - pip install Flask-Restless
+    - pip install Flask-Cors
     - pip install Flask-Testing
     - pip install requests
     - pip install psycopg2

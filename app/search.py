@@ -13,7 +13,6 @@ def search(phrase):
 
     AND results will be put first followed by OR results
     """
-    print("PHRASE: " + phrase)
     artists = Artist.query.all()
     artworks = Artwork.query.all()
     styles = Style.query.all()
@@ -63,7 +62,7 @@ def search(phrase):
                   "style results" : orStyleResults,
                   "collection results" : orCollectionResults}
 
-    return {"and results" : andResults, "or results" : orResults}
+    return {"and_results" : andResults, "or_results" : orResults}
 
 def get_artist_results(artist, phrase):
     """
