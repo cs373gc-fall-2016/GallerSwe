@@ -8,8 +8,8 @@ angular.module('ArtSnob')
 
         $scope.buttonClick = function() {
 			About.get(function(response) {
-                console.log("running tests");
-				$scope.response = response
+                console.log("running tests: ");
+				$scope.response = response.data
 			});
         }
 

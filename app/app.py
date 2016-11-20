@@ -7,7 +7,7 @@ import flask_sqlalchemy
 import flask_restless
 from flask import Flask, jsonify, send_from_directory, render_template
 from flask_cache import Cache
-import subprocess
+from subprocess import *
 # from search import search
 
 app = Flask(__name__, static_url_path='')
@@ -33,9 +33,7 @@ def root():
 ### endpoint used by about page to run unit tests ####
 @app.route('/run-unit-tests')
 def test():
-    proc = subprocess.Popen(["python3 test.py"], stdout=subprocess.PIPE, shell=True)
-    (out, err) = proc.communicate()
-    return out
+    return run(["python3", "test.py", "--verbose"], stdout=PIPE, stderr=STDOUT, universal_newlines=True).stdout
 
 if __name__ == "__main__":
     app.run()
