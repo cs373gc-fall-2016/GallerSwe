@@ -34,10 +34,10 @@ def search(phrase):
     for collection in collections:
         andCollectionResults.extend(get_collection_results(collection, phrase))
 
-    andResults = {"artist results" : andArtistResults,
-                  "artwork results" : andArtworkResults,
-                  "style results" : andStyleResults,
-                  "collection results" : andCollectionResults}
+    andResults = {"artist_results" : andArtistResults,
+                  "artwork_results" : andArtworkResults,
+                  "style_results" : andStyleResults,
+                  "collection_results" : andCollectionResults}
 
     orArtistResults = []
     orArtworkResults = []
@@ -57,10 +57,10 @@ def search(phrase):
         for collection in collections:
             orCollectionResults.extend(get_collection_results(collection, word))
 
-    orResults = {"artist results" : orArtistResults,
-                  "artwork results" : orArtworkResults,
-                  "style results" : orStyleResults,
-                  "collection results" : orCollectionResults}
+    orResults = {"artist_results" : orArtistResults,
+                  "artwork_results" : orArtworkResults,
+                  "style_results" : orStyleResults,
+                  "collection_results" : orCollectionResults}
 
     return {"and_results" : andResults, "or_results" : orResults}
 
