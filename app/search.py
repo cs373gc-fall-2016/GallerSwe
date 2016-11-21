@@ -20,19 +20,19 @@ def search(phrase):
 
     andArtistResults = []
     for artist in artists:
-        andArtistResults = get_artist_results(artist, phrase)
+        andArtistResults.extend(get_artist_results(artist, phrase))
 
     andArtworkResults =[]
     for artwork in artworks:
-        andArtworkResults = get_artwork_results(artwork, phrase)
+        andArtworkResults.extend(get_artwork_results(artwork, phrase))
 
     andStyleResults = []
     for style in styles:
-        andStyleResults = get_style_results(style, phrase)
+        andStyleResults.extend(get_style_results(style, phrase))
 
     andCollectionResults = []
     for collection in collections:
-        andCollectionResults = get_collection_results(collection, phrase)
+        andCollectionResults.extend(get_collection_results(collection, phrase))
 
     andResults = {"artist results" : andArtistResults,
                   "artwork results" : andArtworkResults,
@@ -156,7 +156,7 @@ def get_collection_results(collection, phrase):
                         "context" : "Website: " + collection.website,
                         "id"      : collection.id})
 
-    if collection.reion.lower().find(phrase) != -1:
+    if collection.region.lower().find(phrase) != -1:
         results.append({"name"    : collection.institution,
                         "context" : "Region: " + collection.region,
                         "id"      : collection.id})
