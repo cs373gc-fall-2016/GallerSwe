@@ -8,7 +8,7 @@ import flask_restless
 from flask import Flask, jsonify, send_from_directory, render_template
 from flask_cache import Cache
 from subprocess import *
-# from search import search
+from search import search
 
 app = Flask(__name__, static_url_path='')
 
@@ -24,11 +24,11 @@ def root():
     return app.send_static_file('index.html')
 
 
-# @app.route('/search/<phrase>')
-# def search_phrase(phrase):
+@app.route('/search/<phrase>')
+def search_phrase(phrase):
 
-#     results = search(phrase)
-#     return jsonify(results)
+    results = search(phrase)
+    return jsonify(results)
 
 ### endpoint used by about page to run unit tests ####
 @app.route('/run-unit-tests')
