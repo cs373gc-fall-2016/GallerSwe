@@ -15,55 +15,64 @@
       </div>
 
       <!-- and artwork results -->
-        <table st-table="objects.and_results.artwork_results" class="table">
+        <table st-table="and_results.artwork_results" class="table">
         <thead>
         <tr>
-          <th st-sort="title">Title</th>
+          <th st-sort="title">Artworks</th>
+          <th>Context</th>
         </tr>
+
         </thead>
         <tbody>
-        <tr ng-repeat="row in objects.and_results.artwork_results">
-          <td><a class="page-scroll" ng-click="ArtworkSelected(row)">{{row.title}}</a></td>
+        <tr ng-repeat="row in and_results.artwork_results">
+          <td><a class="page-scroll" ng-click="ArtworkSelected(row.id)" href="#/artwork">{{row.title}}</a></td>
+          <td>{{row.context | limitTo:30}}...</td>
         </tbody>
 
         <!-- and artist results -->
-          <table st-table="objects.and_results.artist_results" class="table">
+          <table st-table="and_results.artist_results" class="table">
             <thead>
             <tr>
-              <th st-sort="name">Name</th>
+              <th st-sort="name">Artist</th>
+              <th>Context</th>
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="row in objects.and_results.artist_results">
-              <td><a class="page-scroll" ng-click="ArtistSelected(row)">{{row.name}}</a></td>
+            <tr ng-repeat="row in and_results.artist_results">
+              <td><a class="page-scroll" ng-click="ArtistSelected(row.id)" href="#/artists">{{row.name}}</a></td>
+              <td>{{row.context | limitTo:30}}...</td>
             </tr>
             </tbody>
           </table>
 
         <!-- and style results -->
-          <table st-table="objects.and_results.style_results" class="table">
+          <table st-table="and_results.style_results" class="table">
             <thead>
             <tr>
-              <th st-sort="name">Name</th>
+              <th st-sort="name">Style</th>
+              <th>Context</th>
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="row in objects.and_results.style_results">
-              <td><a class="page-scroll" ng-click="StyleSelected(row)">{{row.name}}</a></td>
+            <tr ng-repeat="row in and_results.style_results">
+              <td><a class="page-scroll" ng-click="StyleSelected(row.id)" href="#/styles">{{row.name}}</a></td>
+              <td>{{row.context | limitTo:30}}...</td>
             </tr>
             </tbody>
           </table>
 
         <!-- and collection results -->
-          <table st-table="objects.and_results.collection_results" class="table">
+          <table st-table="and_results.collection_results" class="table">
             <thead>
             <tr>
-              <th st-sort="name">Name</th>
+              <th st-sort="name">Collections</th>
+              <th>Context</th>
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="row in objects.and_results.collection_results">
-              <td><a class="page-scroll" ng-click="StyleSelected(row)">{{row.name}}</a></td>
+            <tr ng-repeat="row in and_results.collection_results">
+              <td><a class="page-scroll" ng-click="StyleSelected(row.id)" href="#/collections">{{row.name}}</a></td>
+              <td>{{row.context | limitTo:30}}...</td>
             </tr>
             </tbody>
           </table>
@@ -73,55 +82,63 @@
           </div>
 
           <!-- or artwork results -->
-            <table st-table="objects.or_results.artwork_results" class="table">
+            <table st-table="or_results.artwork_results" class="table">
             <thead>
             <tr>
-              <th st-sort="title">Title</th>
+              <th st-sort="title">Artworks</th>
+              <th>Context</th>
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="row in objects.or_results.artwork_results">
-              <td><a class="page-scroll" ng-click="ArtworkSelected(row)">{{row.title}}</a></td>
+            <tr ng-repeat="row in or_results.artwork_results">
+              <td><a class="page-scroll" ng-click="ArtworkSelected(row.id)" href="#/artwork">{{row.title}}</a></td>
+              <td>{{row.context | limitTo:30}}...</td>
             </tbody>
 
             <!-- or artist results -->
-              <table st-table="objects.or_results.artist_results" class="table">
+              <table st-table="or_results.artist_results" class="table">
                 <thead>
                 <tr>
-                  <th st-sort="name">Name</th>
+                  <th st-sort="name">Artist</th>
+                  <th>Context</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="row in objects.or_results.artist_results">
-                  <td><a class="page-scroll" ng-click="ArtistSelected(row)">{{row.name}}</a></td>
+                <tr ng-repeat="row in or_results.artist_results">
+                  <td><a class="page-scroll" ng-click="ArtistSelected(row.id)" href="#/artists">{{row.name}}</a></td>
+                  <td>{{row.context | limitTo:30}}...</td>
                 </tr>
                 </tbody>
               </table>
 
             <!-- or style results -->
-              <table st-table="objects.or_results.style_results" class="table">
+              <table st-table="or_results.style_results" class="table">
                 <thead>
                 <tr>
-                  <th st-sort="name">Name</th>
+                  <th st-sort="name">Style</th>
+                  <th>Context</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="row in objects.or_results.style_results">
-                  <td><a class="page-scroll" ng-click="StyleSelected(row)">{{row.name}}</a></td>
+                <tr ng-repeat="row in or_results.style_results">
+                  <td><a class="page-scroll" ng-click="StyleSelected(row.id)" href="#/styles">{{row.name}}</a></td>
+                  <td>{{row.context | limitTo:30}}...</td>
                 </tr>
                 </tbody>
               </table>
 
             <!-- or collection results -->
-              <table st-table="objects.or_results.collection_results" class="table">
+              <table st-table="or_results.collection_results" class="table">
                 <thead>
                 <tr>
-                  <th st-sort="name">Name</th>
+                  <th st-sort="name">Collection</th>
+                  <th>Context</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="row in objects.or_results.collection_results">
-                  <td><a class="page-scroll" ng-click="StyleSelected(row)">{{row.name}}</a></td>
+                <tr ng-repeat="row in or_results.collection_results">
+                  <td><a class="page-scroll" ng-click="StyleSelected(row.id)" href="#/collections">{{row.name}}</a></td>
+                  <td>{{row.context | limitTo:30}}...</td>
                 </tr>
                 </tbody>
               </table>

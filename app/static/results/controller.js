@@ -3,7 +3,7 @@ angular.module('ArtSnob')
 .controller('resultsController', ['$scope','$rootScope', 'SearchResults', 'localStorageService',
     function($scope, $rootScope, SearchResults, localStorageService) {
         'use strict';
-        
+
         //
         //	Call the Timestamp service to fetch all the timestamps
         //
@@ -17,14 +17,14 @@ angular.module('ArtSnob')
             SearchResults.get(data, function(response) {
                 localStorageService.set("objects", response.objects);
                 $scope.response = response
-                $scope.objects = response.objects
+                $scope.and_results = response.and_results
+                $scope.or_results = response.or_results
             });
         });
-        
+
 
         //
         //	Initial load
         //
         $scope.reload()
 }]);
-

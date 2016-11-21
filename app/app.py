@@ -32,6 +32,10 @@ def search_phrase(phrase):
     results = search(phrase)
     return jsonify(results)
 
+@app.route('/states')
+def states():
+    return app.send_static_file('visual/index.html')
+
 ### endpoint used by about page to run unit tests ####
 @app.route('/run-unit-tests')
 def test():
